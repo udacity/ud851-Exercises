@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright (C) 2016 The Android Open Source Project
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<!--TODO (1) Change the ConstraintLayout to a LinearLayout-->
+<!--TODO (2) Make the orientation vertical-->
+<!--TODO (3) Give left, right, and top padding of 16dp-->
+<!--TODO (4) Remove the line that declares the id, we don't need it-->
+<!--TODO (5) Remove the xmlns:app declaration, we don't need that anymore-->
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--TODO (6) Delete this TextView-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        app:layout_constraintBottom_toBottomOf="@+id/activity_main"
+        app:layout_constraintLeft_toLeftOf="@+id/activity_main"
+        app:layout_constraintRight_toRightOf="@+id/activity_main"
+        app:layout_constraintTop_toTopOf="@+id/activity_main" />
+
+    <!--TODO (7) Add an EditText-->
+    <!--TODO (8) Give the EditText an id of @+id/et_search_box-->
+    <!--TODO (9) Set the text size to 22sp-->
+    <!--TODO (10) Set the width to match_parent and the height to wrap_content-->
+    <!--TODO (11) Provide a hint telling the user to enter a query and then click search-->
+
+    <!--TODO (12) Add a TextView-->
+    <!--TODO (13) Give the TextView an id of @+id/tv_url_display-->
+    <!--TODO (14) Set the text size to 22sp-->
+    <!--TODO (15) Set the width to wrap_content and the height to wrap_content-->
+    <!--TODO (16) Give the TextView a top margin of 8dp-->
+    <!--TODO (17) Set the text to tell the user their search URL will show up here when they click search-->
+
+    <!--TODO (18) Add a ScrollView-->
+    <!--TODO (19) Set the width to match_parent and the height to wrap_content-->
+    <!--TODO (20) Set the top margin to 16dp-->
+
+        <!--TODO (21) Within the ScrollView, add a TextView-->
+        <!--TODO (22) Give the TextView an id of @+id/tv_github_search_results_json-->
+        <!--TODO (23) Set the text size to 18sp-->
+        <!--TODO (24) Set the height and width to wrap_content-->
+        <!--TODO (25) Set the text to something that tells the user to make a search-->
+
+</android.support.constraint.ConstraintLayout>
