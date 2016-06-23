@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.example.android.datafrominternet">
 
+    <!--TODO (1) Add the INTERNET permission-->
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
