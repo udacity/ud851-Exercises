@@ -47,8 +47,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * This method retrieves the search text from the EditText, constructs
-     * the URL (using {@link NetworkUtils}) for the github repository you'd like to find, displays
+     * This method retrieves the search text from the EditText, constructs the URL
+     * (using {@link NetworkUtils}) for the github repository you'd like to find, displays
      * that URL in a TextView, and finally fires off an AsyncTask to perform the GET request using
      * our (not yet created) {@link GithubQueryTask}
      */
@@ -56,8 +56,6 @@ public class MainActivity extends AppCompatActivity {
         String githubQuery = mSearchBoxEditText.getText().toString();
         URL githubSearchUrl = NetworkUtils.buildUrl(githubQuery);
         mUrlDisplayTextView.setText(githubSearchUrl.toString());
-        // COMPLETED (2) Call getResponseFromHttpUrl and display the results in mSearchResultsTextView
-        // COMPLETED (3) Surround the call to getResponseFromHttpUrl with a try / catch block to catch an IO Exception
         String githubSearchResults = null;
         try {
             githubSearchResults = NetworkUtils.getResponseFromHttpUrl(githubSearchUrl);
@@ -65,7 +63,12 @@ public class MainActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        // TODO (4) Create a new GithubQueryTask and call its execute method, passing in the url to query
     }
+
+    // TODO (1) Create a class called GithubQueryTask that extends AsyncTask<URL, Void, String>
+    // TODO (2) Override the doInBackground method to perform the query. Return the results. (Hint: You've already written the code to perform the query)
+    // TODO (3) Override onPostExecute to display the results in the TextView
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
