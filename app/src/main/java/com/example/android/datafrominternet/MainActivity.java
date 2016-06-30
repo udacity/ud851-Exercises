@@ -36,6 +36,10 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView mSearchResultsTextView;
 
+    // TODO (12) Create a variable to store a reference to the error message TextView
+
+    // TODO (24) Create a ProgressBar variable to store a reference to the ProgressBar
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +49,10 @@ public class MainActivity extends AppCompatActivity {
 
         mUrlDisplayTextView = (TextView) findViewById(R.id.tv_url_display);
         mSearchResultsTextView = (TextView) findViewById(R.id.tv_github_search_results_json);
+
+        // TODO (13) Get a reference to the error TextView using findViewById
+
+        // TODO (25) Get a reference to the ProgressBar using findViewById
     }
 
     /**
@@ -57,14 +65,17 @@ public class MainActivity extends AppCompatActivity {
         String githubQuery = mSearchBoxEditText.getText().toString();
         URL githubSearchUrl = NetworkUtils.buildUrl(githubQuery);
         mUrlDisplayTextView.setText(githubSearchUrl.toString());
-        // COMPLETED (4) Create a new GithubQueryTask and call its execute method, passing in the url to query
         new GithubQueryTask().execute(githubSearchUrl);
     }
 
-    // COMPLETED (1) Create a class called GithubQueryTask that extends AsyncTask<URL, Void, String>
+    // TODO (14) Create a method called showJsonDataView to show the data and hide the error
+
+    // TODO (15) Create a method called showErrorMessage to show the error and hide the data
+
     public class GithubQueryTask extends AsyncTask<URL, Void, String> {
 
-        // COMPLETED (2) Override the doInBackground method to perform the query. Return the results. (Hint: You've already written the code to perform the query)
+        // TODO (26) Override onPreExecute to set the loading indicator to visible
+
         @Override
         protected String doInBackground(URL... params) {
             URL searchUrl = params[0];
@@ -77,12 +88,14 @@ public class MainActivity extends AppCompatActivity {
             return githubSearchResults;
         }
 
-        // COMPLETED (3) Override onPostExecute to display the results in the TextView
         @Override
         protected void onPostExecute(String githubSearchResults) {
+            // TODO (27) As soon as the loading is complete, hide the loading indicator
             if (githubSearchResults != null && !githubSearchResults.equals("")) {
+                // TODO (17) Call showJsonDataView if we have valid, non-null results
                 mSearchResultsTextView.setText(githubSearchResults);
             }
+            // TODO (16) Call showErrorMessage if the result is null in onPostExecute
         }
     }
 
