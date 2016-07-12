@@ -16,13 +16,13 @@
 package com.example.android.explicitintent;
 
 import android.content.Context;
-import android.os.Bundle;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -61,14 +61,24 @@ public class MainActivity extends AppCompatActivity {
                  */
                 Context context = MainActivity.this;
 
-                // TODO (1) Store ChildActivity.class in a Class object called destinationActivity
+                // COMPLETED (1) Store ChildActivity.class in a Class object called destinationActivity
+                /* This is the class that we want to start (and open) when the button is clicked. */
+                Class destinationActivity = ChildActivity.class;
 
-                // TODO (2) Create an Intent to start ChildActivity
+                // COMPLETED (2) Create an Intent to start ChildActivity
+                /*
+                 * Here, we create the Intent that will start the Activity we specified above in
+                 * the destinationActivity variable. The constructor for an Intent also requires a
+                 * context, which we stored in the variable named "context".
+                 */
+                Intent startChildActivityIntent = new Intent(context, destinationActivity);
 
-                // TODO (3) Replace the Toast with code to start ChildActivity
-                String message = "Button clicked!\nTODO: Start a new Activity and pass some data.";
-                Toast.makeText(context, message, Toast.LENGTH_LONG).show();
-
+                // COMPLETED (3) Replace the Toast with code to start ChildActivity
+                /*
+                 * Once the Intent has been created, we can use Activity's method, "startActivity"
+                 * to start the ChildActivity.
+                 */
+                startActivity(startChildActivityIntent);
             }
         });
     }
