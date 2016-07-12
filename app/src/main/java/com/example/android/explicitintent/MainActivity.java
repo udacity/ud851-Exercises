@@ -53,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
              */
             @Override
             public void onClick(View v) {
+                // TODO (1) Retrieve the text from the EditText and store it in a variable
+
                 /*
                  * Storing the Context in a variable in this case is redundant since we could have
                  * just used "this" or "MainActivity.this" in the method call below. However, we
@@ -61,11 +63,9 @@ public class MainActivity extends AppCompatActivity {
                  */
                 Context context = MainActivity.this;
 
-                // COMPLETED (1) Store ChildActivity.class in a Class object called destinationActivity
                 /* This is the class that we want to start (and open) when the button is clicked. */
                 Class destinationActivity = ChildActivity.class;
 
-                // COMPLETED (2) Create an Intent to start ChildActivity
                 /*
                  * Here, we create the Intent that will start the Activity we specified above in
                  * the destinationActivity variable. The constructor for an Intent also requires a
@@ -73,7 +73,8 @@ public class MainActivity extends AppCompatActivity {
                  */
                 Intent startChildActivityIntent = new Intent(context, destinationActivity);
 
-                // COMPLETED (3) Replace the Toast with code to start ChildActivity
+                // TODO (2) Use the putExtra method to put the String from the EditText in the Intent
+
                 /*
                  * Once the Intent has been created, we can use Activity's method, "startActivity"
                  * to start the ChildActivity.
