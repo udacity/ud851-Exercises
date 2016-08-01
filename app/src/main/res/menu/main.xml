@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--COMPLETED (2) Create a menu resource in res/menu/ called main.xml-->
 <!--
      Copyright (C) 2016 The Android Open Source Project
 
@@ -19,11 +18,6 @@
       xmlns:app="http://schemas.android.com/apk/res-auto"
       xmlns:tools="http://schemas.android.com/tools"
       tools:context=".MainActivity">
-
-    <!--COMPLETED (3) Add one item to the menu with an ID of action_refresh-->
-    <!--COMPLETED (4) Set the title of the menu item to "Refresh" using strings.xml-->
-    <!--COMPLETED (5) Set the orderInCategory value to 1 to make sure this item is the first in the list -->
-    <!--COMPLETED (6) Set app:showAsAction to ifRoom to display the menu item in the ActionBar if there is room-->
     <item
         android:id="@+id/action_refresh"
         android:orderInCategory="1"
