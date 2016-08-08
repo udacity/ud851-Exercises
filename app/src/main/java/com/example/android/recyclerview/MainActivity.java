@@ -68,4 +68,20 @@ public class MainActivity extends AppCompatActivity {
         mAdapter = new GreenAdapter(NUM_LIST_ITEMS);
         mNumbersList.setAdapter(mAdapter);
     }
+
+    // TODO (2) Create a menu resource in res/menu/ called main.xml
+    // TODO (3) Add one item to the menu with an ID of action_refresh
+    // TODO (4) Set the title of the menu item to "Refresh" using strings.xml
+    // TODO (5) Set the orderInCategory value to 1 to make sure this item is the first in the list
+    // TODO (6) Set app:showAsAction to ifRoom to display the menu item in the ActionBar if there is room
+
+
+    // TODO (7) Override onCreateOptionsMenu
+    // TODO (8) Use getMenuInflater().inflate to inflate the menu
+    // TODO (9) Return true to display this menu
+
+    // TODO (10) Override onOptionsItemSelected
+    // TODO (11) Within this method, get the ID from the MenuItem
+    // TODO (12) If the ID equals R.id.action_refresh, create and set a new adapter on the RecyclerView and return true
+    // TODO (13) For now, for all other IDs, return super.onOptionsItemSelected
 }
