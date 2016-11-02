@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- COMPLETED (2) Create a res->bools.xml file and create a boolean for this default value -->
+<resources>
+    <bool name="pref_show_bass_default">true</bool>
+</resources>
