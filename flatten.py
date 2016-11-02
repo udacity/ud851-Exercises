@@ -13,7 +13,7 @@ SAFE_CHARS = ["-", "_", "."]
 MAX_LENGTH = 100
 
 STUDENT = "student"
-DEVELOP = "clean-"
+DEVELOP = "develop-"
 DEVELOP_DEFAULT = "all develop branches"
 
 DIFF_FORMAT = """
@@ -89,7 +89,7 @@ def to_temp_dir(repo, repo_dir, develop, temp_dir, flat, links):
             if flat:
                 target_dir = os.path.join(temp_dir, branch_name)
             else:
-                folder_name = develop.name.split("-")[0]
+                folder_name = develop.name.split("-",1)[1]
                 target_dir = os.path.join(temp_dir, folder_name, branch_name)
 
             shutil.copytree(repo_dir, target_dir,
