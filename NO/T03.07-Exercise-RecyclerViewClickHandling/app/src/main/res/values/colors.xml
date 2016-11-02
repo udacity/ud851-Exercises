@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2016 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <!--Material Greens-->
+    <!--In between colors were created with this tool:-->
+    <!-- http://meyerweb.com/eric/tools/color-blend/#339999::1:hex -->
+    <color name="material50Green">#E8F5E9</color>
+    <color name="material100Green">#C8E6C9</color>
+    <color name="material150Green">#B7DEB8</color>
+    <color name="material200Green">#A5D6A7</color>
+    <color name="material250Green">#93CF96</color>
+    <color name="material300Green">#81C784</color>
+    <color name="material350Green">#74C177</color>
+    <color name="material400Green">#66BB6A</color>
+    <color name="material450Green">#59B55D</color>
+    <color name="material500Green">#4CAF50</color>
+    <color name="material550Green">#48A84C</color>
+    <color name="material600Green">#43A047</color>
+    <color name="material650Green">#3E9742</color>
+    <color name="material700Green">#388E3C</color>
+    <color name="material750Green">#338637</color>
+    <color name="material800Green">#2E7D32</color>
+    <color name="material850Green">#256E29</color>
+    <color name="material900Green">#1B5E20</color>
+</resources>
