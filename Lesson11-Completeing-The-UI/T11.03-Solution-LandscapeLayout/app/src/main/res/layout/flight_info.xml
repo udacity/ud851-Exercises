@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+        // COMPLETED (1) Create a new xml file called flight_info in the layout directory
+        // COMPLETED (3) Move all Views in the flight information section from activity_main to flight_info
+-->
+
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+<android.support.constraint.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/leftRectangle"
+        android:layout_width="60dp"
+        android:layout_height="80dp"
+        android:background="@drawable/shape_rectangle_stroke"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="32dp" />
+
+    <ImageView
+        android:id="@+id/divider"
+        android:background="@color/colorPrimaryLight"
+        android:layout_height="1dp"
+        android:layout_width="0dp"
+        app:layout_constraintLeft_toRightOf="@+id/leftRectangle"
+        app:layout_constraintRight_toLeftOf="@+id/rightRectangle"
+        app:layout_constraintTop_toBottomOf="@+id/rightRectangle"
+        app:layout_constraintBottom_toTopOf="@+id/rightRectangle"
+        app:layout_constraintHorizontal_bias="0.0"/>
+
+    <ImageView
+        android:id="@+id/rightRectangle"
+        android:layout_width="60dp"
+        android:layout_height="80dp"
+        android:background="@drawable/shape_rectangle_stroke"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp" />
+
+    <TextView
+        tools:text="@string/origin_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewOriginAirport"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        app:layout_constraintBottom_toBottomOf="@+id/divider"
+        app:layout_constraintRight_toRightOf="@+id/leftRectangle"
+        app:layout_constraintTop_toBottomOf="@+id/divider"
+        app:layout_constraintLeft_toLeftOf="@+id/leftRectangle" />
+
+    <TextView
+        tools:text="@string/destination_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewDestinationAirport"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        app:layout_constraintBottom_toBottomOf="@+id/divider"
+        app:layout_constraintRight_toRightOf="@+id/rightRectangle"
+        app:layout_constraintTop_toBottomOf="@+id/divider"
+        app:layout_constraintLeft_toLeftOf="@+id/rightRectangle" />
+
+    <ImageView
+        android:id="@+id/imagePlane"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:background="@drawable/art_plane"
+        app:layout_constraintBottom_toTopOf="@+id/divider"
+        app:layout_constraintLeft_toRightOf="@+id/leftRectangle"
+        app:layout_constraintRight_toLeftOf="@+id/rightRectangle"
+        android:layout_marginBottom="16dp"
+        />
+
+    <TextView
+        android:id="@+id/textViewFlightCode"
+        tools:text="@string/flight_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="@color/colorPrimary"
+
+        app:layout_constraintTop_toTopOf="@+id/divider"
+        app:layout_constraintLeft_toRightOf="@+id/leftRectangle"
+        app:layout_constraintRight_toLeftOf="@+id/rightRectangle"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp" />
+
+
+</android.support.constraint.ConstraintLayout>
+    </layout>
