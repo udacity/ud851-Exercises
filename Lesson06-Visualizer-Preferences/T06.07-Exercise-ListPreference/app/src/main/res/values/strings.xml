@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">Visualize</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- - - - - - - - - - - - - - - -
+          - Used by Preferences  -
+          - - - - - - - - - - - - - - - -->
+    <!-- Label for the show bass checkbox preference -->
+    <string name="pref_show_bass_label">Show Bass</string>
+    <!-- Key name for storing bass in SharedPreferences -->
+    <string name="pref_show_bass_key" translatable="false">show_bass</string>
+
+    <!-- Label for the show mid range checkbox preference -->
+    <string name="pref_show_mid_range_label">Show Mid Range</string>
+    <!-- Key name for storing mid range in SharedPreferences -->
+    <string name="pref_show_mid_range_key" translatable="false">show_mid_range</string>
+
+    <!-- Label for the show treble checkbox preference -->
+    <string name="pref_show_treble_label">Show Treble</string>
+    <!-- Key name for storing treble in SharedPreferences -->
+    <string name="pref_show_treble_key" translatable="false">show_treble</string>
+
+    <!-- Summary for Checkboxes -->
+    <string name="pref_show_true">Shown</string>
+    <string name="pref_show_false">Hidden</string>
+
+    <!-- TODO (2) Add string values for the list preference -->
+    <!-- TODO (3) Add a res->values->arrays.xml file which contains two arrays, one for
+        labels and one for values. The arrays should contain strings found in this file-->
+
+    <!-- Value in SharedPreferences for red color option -->
+    <string name="pref_color_red_value" translatable="false">red</string>
+
+    <!-- Value in SharedPreferences for blue color option -->
+    <string name="pref_color_blue_value" translatable="false">blue</string>
+
+    <!-- Value in SharedPreferences for green color option -->
+    <string name="pref_color_green_value" translatable="false">green</string>
+</resources>
