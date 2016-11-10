@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--COMPLETED (1) Create a layout resource in res/layout/ called number_list_item.xml-->
+<!--
+     Copyright (C) 2016 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<!-- COMPLETED (2) Make the root layout a FrameLayout -->
+<!-- COMPLETED (3) Make the width match_parent and the height wrap_content -->
+<!-- COMPLETED (4) Set the padding to 16dp -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+    <!-- COMPLETED (5) Add a TextView as the only child of the FrameLayout -->
+    <!-- COMPLETED (6) Give the TextView an ID "@+id/tv_item_number" -->
+    <!-- COMPLETED (7) Set the height and width to wrap_content -->
+    <!-- COMPLETED (8) Align the TextView to the start of the parent -->
+    <!-- COMPLETED (9) Center the TextView vertically in the layout -->
+    <!-- COMPLETED (10) Set the font family to monospace -->
+    <!-- COMPLETED (11) Set the text size to 42sp -->
+    <TextView
+        android:id="@+id/tv_item_number"
+        style="@style/TextAppearance.AppCompat.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|start"
+        android:fontFamily="monospace"
+        android:textSize="42sp"
+        tools:text="#42" />
+</FrameLayout>
