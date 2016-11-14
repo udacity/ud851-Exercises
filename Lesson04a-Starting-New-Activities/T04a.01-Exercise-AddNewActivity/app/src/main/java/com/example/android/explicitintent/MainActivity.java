@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
 // TODO (1) Use Android Studio's Activity wizard to create a new Activity called ChildActivity
 
 // Do steps 2 - 5 in activity_child.xml
-// TODO (2) Change the ContraintLayout to a FrameLayout and make appropriate adjustments
+// TODO (2) Change the ConstraintLayout to a FrameLayout and make appropriate adjustments
 // TODO (3) Give your TextView an ID of tv_display
 // TODO (4) Set the text to something that indicates this is default text being displayed
 // TODO (5) Make the text size a little larger
