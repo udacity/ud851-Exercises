@@ -47,20 +47,20 @@ public class MainActivity extends AppCompatActivity {
 
         mLifecycleDisplay = (TextView) findViewById(R.id.tv_lifecycle_events_display);
 
-        // COMPLETED (1) Use logAndAppend within onCreate
+        // TODO (1) Use logAndAppend within onCreate
     }
 
-    // COMPLETED (2) Override onStart, call super.onStart, and call logAndAppend with ON_START
+    // TODO (2) Override onStart, call super.onStart, and call logAndAppend with ON_START
 
-    // COMPLETED (3) Override onResume, call super.onResume, and call logAndAppend with ON_RESUME
+    // TODO (3) Override onResume, call super.onResume, and call logAndAppend with ON_RESUME
 
-    // COMPLETED (4) Override onPause, call super.onPause, and call logAndAppend with ON_PAUSE
+    // TODO (4) Override onPause, call super.onPause, and call logAndAppend with ON_PAUSE
 
-    // COMPLETED (5) Override onStop, call super.onStop, and call logAndAppend with ON_STOP
+    // TODO (5) Override onStop, call super.onStop, and call logAndAppend with ON_STOP
 
-    // COMPLETED (6) Override onRestart, call super.onRestart, and call logAndAppend with ON_RESTART
+    // TODO (6) Override onRestart, call super.onRestart, and call logAndAppend with ON_RESTART
 
-    // COMPLETED (7) Override onDestroy, call super.onDestroy, and call logAndAppend with ON_DESTROY
+    // TODO (7) Override onDestroy, call super.onDestroy, and call logAndAppend with ON_DESTROY
     /**
      * The final call you receive before your activity is destroyed. This can happen either because
      * the activity is finishing (someone called finish() on it, or because the system is
