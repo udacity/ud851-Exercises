@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">"Hydration Reminder"</string>
+
+    <string name="explanation">
+        Click on the glass of water after you\'ve had a glass.
+        \n\nWe will remind you when you\'re on WiFi and when your device is charging to drink more!
+    </string>
+
+    <string name="default_wifi_reminder_text">
+        Once you\'ve connected to WiFi, we\'ll issue reminders to drink water through notifications.
+        We\'ll keep track of how many of those reminders we\'ve issued here.
+    </string>
+
+    <string name="default_charging_reminder_text">
+        Once you\'ve begun charging your device, we\'ll issue reminders to drink water through notifications.
+        We\'ll keep track of how many of those reminders we\'ve issued here.
+    </string>
+
+    <string name="default_water_count">
+        We\'ll display the number of glasses of water you\'ve had here.
+    </string>
+
+    <string name="water_count_format">Number of glasses of water: %d</string>
+    <string name="wifi_reminder_count_format">Number of reminders on WiFi: %d</string>
+    <string name="charging_reminder_count_format">Number of reminders while charging: %d</string>
+    <string name="charging_reminder_notification_title">Device Charging - Where\'s that water?</string>
+    <string name="charging_reminder_notification_body">There\'s never a better time to drink water than when you know your phone is charging. Drink up!</string>
+    <string name="wifi_reminder_notification_title">You\'re connected. Wonderful. Let\'s take a sip!</string>
+    <string name="wifi_reminder_notification_body">Times are hard when there isn\'t any WiFi. Let\'s reflect on how fortunate you are right now to have WiFi by taking a sip of that high quality H20</string>
+    <string name="water_chug">GLUG GLUG GLUG</string>
+
+</resources>
