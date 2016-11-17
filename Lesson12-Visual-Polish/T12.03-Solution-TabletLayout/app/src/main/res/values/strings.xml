@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Visual Polish</string>
+
+    <!-- Activity names -->
+    <string name="color_font_name">Colors and Fonts</string>
+    <string name="style_name">Styles and Themes</string>
+    <string name="responsive_layout_name">Responsive Layouts</string>
+    <string name="touch_selectors_name">Touch Selectors</string>
+
+    <!-- Strings for use in the colors and fonts activity -->
+    <string name="light_56">Light 56sp</string>
+    <string name="thin_italic_45">Thin Italic 45sp</string>
+    <string name="condensed_34">Condensed 34sp</string>
+    <string name="reg_24">Regular 24sp</string>
+    <string name="medium_20">Medium 20sp</string>
+    <string name="smallcaps_16">Smallcaps 16sp</string>
+
+    <!-- Strings used in the style activity -->
+    <string name="inbox">Inbox</string>
+    <string name="starred">Starred</string>
+    <string name="drafts">Drafts</string>
+    <string name="sent">Sent</string>
+    <string name="trash">Trash</string>
+
+    <!-- Strings used in the responsive layout activity -->
+    <string name="image_placeholder">Image placeholder.</string>
+    <string name="sample_title">Material Design</string>
+    <string name="sample_date">November, 2016</string>
+    <string name="sample_body_text">Responsive design is the act of creating designs that respond
+        to a variety of screen sizes, shapes, and orientations.</string>
+
+    <!-- Strings used in the touch selectors activity -->
+    <string name="person_icon">Icon of a person.</string>
+    <string name="first">First_name</string>
+    <string name="last">Last_name</string>
+
+</resources>

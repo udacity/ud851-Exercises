@@ -1,0 +1,33 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+    <!-- Style for the activity textViews that are displayed in a list on the main screen-->
+    <style name="ActivityLabelStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">80dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAppearance">?android:textAppearanceMedium</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <!-- TODO (1) Change the background color for activity views to colorPrimaryLight and their text to black -->
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+    <!-- TODO (2) Create a new style "folderStyle" to group properties for the mail folder text views -->
+    <!-- This style should group all the property values found in the inbox view, like layout_width, height, etc, that are meant to repeat -->
+
+
+    <!-- TODO (4) Create a new "inboxStyle" that inherits from "folderStyle" and includes a bold textStyle property -->
+
+
+</resources>
