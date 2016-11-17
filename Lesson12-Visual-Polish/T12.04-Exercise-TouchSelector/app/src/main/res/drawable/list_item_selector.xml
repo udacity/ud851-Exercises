@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- TODO (1) Create a new drawable resource,named list_item_selector, choosing "selector" as the root element -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- TODO (2) Add the primary light color to three items for: pressed, activated, and selected states -->
+
+    <!-- TODO (3) Add one more item for the default (unselected) state -->
+    <!-- This should have a default drawable color = "@android:color/background_light" -->
+
+</selector>

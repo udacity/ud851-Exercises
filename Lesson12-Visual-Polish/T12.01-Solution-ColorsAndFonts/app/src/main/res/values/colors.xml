@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- COMPLETED (1) Change the color scheme as follows:
+    colorPrimary is #673AB7,
+    colorPrimaryDark is #512DA8, and
+    colorAccent is #FF9100 -->
+
+    <!-- Base application colors -->
+    <color name="colorPrimary">#673AB7</color>
+    <color name="colorPrimaryDark">#512DA8</color>
+    <color name="colorAccent">#FF9100</color>
+    <!-- COMPLETED (2) Create a new color, colorPrimaryLight that is #D1C4E9 -->
+    <color name="colorPrimaryLight">#D1C4E9</color>
+
+</resources>

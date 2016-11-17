@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.android.visualpolish.StyleActivity">
+
+    <!-- All mail folder views -->
+    <!-- TODO (3) Apply the "folderStyle" to all of these views and delete the redundant properties -->
+
+    <!-- TODO (5) Apply the "inboxStyle" to the inbox text view -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawablePadding="8dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:drawableStart="@drawable/ic_inbox"
+        android:drawableLeft="@drawable/ic_inbox"
+        android:textSize="28sp"
+        android:textColor="@android:color/black"
+        android:text="@string/inbox" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_star"
+        android:drawableLeft="@drawable/ic_star"
+        android:textSize="28sp"
+        android:textColor="@android:color/black"
+        android:text="@string/starred" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawablePadding="8dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:drawableStart="@drawable/ic_drafts"
+        android:drawableLeft="@drawable/ic_drafts"
+        android:textSize="20sp"
+        android:textColor="@android:color/black"
+        android:text="@string/drafts" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:drawableStart="@drawable/ic_sent"
+        android:drawableLeft="@drawable/ic_sent"
+        android:textSize="28sp"
+        android:textColor="@android:color/black"
+        android:text="@string/sent" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawablePadding="12dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:drawableStart="@drawable/ic_trash"
+        android:drawableLeft="@drawable/ic_trash"
+        android:textSize="28sp"
+        android:textColor="@android:color/black"
+        android:text="@string/trash" />
+
+</LinearLayout>
