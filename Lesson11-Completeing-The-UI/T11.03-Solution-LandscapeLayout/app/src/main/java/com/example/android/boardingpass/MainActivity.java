@@ -34,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
 
         /*
          * DataBindUtil.setContentView replaces our normal call of setContent view.
@@ -78,3 +80,4 @@ public class MainActivity extends AppCompatActivity {
         mBinding.boardingInfo.textViewSeat.setText(info.seatNumber);
     }
 }
+
