@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.example.android.background">
-
+    <uses-permission android:name="android.permission.VIBRATE" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,6 +10,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
+            android:launchMode="singleTop"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -18,19 +19,9 @@
             </intent-filter>
         </activity>
 
-        <!-- This is required for immediate tasks that need to be run -->
+        <!--This is required for immediate syncs -->
         <service
             android:name=".sync.WaterReminderIntentService"
             android:exported="false"/>
-
-        <!-- This is the Service declaration used in conjunction with FirebaseJobDispatcher -->
-        <service
-            android:name=".sync.WaterReminderFirebaseJobService"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE"/>
-            </intent-filter>
-        </service>
-
     </application>
 </manifest>
