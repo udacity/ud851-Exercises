@@ -7,7 +7,7 @@ package com.example.android.background.sync;
 // TODO (6) Create a public static void method called executeTask
 // TODO (7) Add a Context called context and String parameter called action to the parameter list
 
-// TODO (8) If the action equals ACTION_INCREMENT_WATER, call this class's incrementWaterCount
+// TODO (8) If the action equals ACTION_INCREMENT_WATER_COUNT, call this class's incrementWaterCount
 
 // TODO (3) Create a private static void method called incrementWaterCount
 // TODO (4) Add a Context called context to the argument list

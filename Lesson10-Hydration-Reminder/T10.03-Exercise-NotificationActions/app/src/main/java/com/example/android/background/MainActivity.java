@@ -21,12 +21,13 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.android.background.sync.ReminderTasks;
-import com.example.android.background.sync.ReminderUtility;
 import com.example.android.background.sync.WaterReminderIntentService;
+import com.example.android.background.utilities.NotificationUtils;
 import com.example.android.background.utilities.PreferenceUtilities;
 
 public class MainActivity extends AppCompatActivity implements
@@ -34,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements
 
     private TextView mWaterCountDisplay;
     private TextView mChargingCountDisplay;
-    private TextView mWifiReminderCountDisplay;
+    private ImageView mChargingImageView;
 
     private Toast mToast;
 
@@ -43,53 +44,45 @@ public class MainActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        /** Get the views **/
         mWaterCountDisplay = (TextView) findViewById(R.id.tv_water_count);
         mChargingCountDisplay = (TextView) findViewById(R.id.tv_charging_reminder_count);
-        mWifiReminderCountDisplay = (TextView) findViewById(R.id.tv_wifi_reminder_count);
+        mChargingImageView = (ImageView) findViewById(R.id.iv_power_increment);
 
-        updateFormattedWaterCount();
+        /** Set the original values in the UI **/
+        updateWaterCount();
         updateChargingReminderCount();
-        updateWiFiReminderCount();
 
-        ReminderUtility.initialize(this);
-
+        /** Setup the shared preference listener **/
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         prefs.registerOnSharedPreferenceChangeListener(this);
     }
 
-    private void updateFormattedWaterCount() {
+    /**
+     * Updates the TextView to display the new water count from SharedPreferences
+     */
+    private void updateWaterCount() {
         int waterCount = PreferenceUtilities.getWaterCount(this);
-        String waterCountDisplayFormat = getString(R.string.water_count_format);
-        String formattedWaterCount = String.format(
-                waterCountDisplayFormat,
-                waterCount);
-
-        mWaterCountDisplay.setText(formattedWaterCount);
+        mWaterCountDisplay.setText(waterCount+"");
     }
 
+    /**
+     * Updates the TextView to display the new charging reminder count from SharedPreferences
+     */
     private void updateChargingReminderCount() {
         int chargingReminders = PreferenceUtilities.getChargingReminderCount(this);
-        String chargingReminderCountFormat = getString(R.string.charging_reminder_count_format);
-        String formattedChargingReminders = String.format(
-                chargingReminderCountFormat,
-                chargingReminders);
-
+        String formattedChargingReminders = getResources().getQuantityString(
+                R.plurals.charge_notification_count, chargingReminders, chargingReminders);
         mChargingCountDisplay.setText(formattedChargingReminders);
+
     }
 
-    private void updateWiFiReminderCount() {
-        int wifiReminders = PreferenceUtilities.getWifiReminderCount(this);
-        String wiFiReminderCountFormat = getString(R.string.wifi_reminder_count_format);
-        String formattedWifiReminderCount = String.format(
-                wiFiReminderCountFormat,
-                wifiReminders);
-
-        mWifiReminderCountDisplay.setText(formattedWifiReminderCount);
-    }
-
+    /**
+     * Adds one to the water count and shows a toast
+     */
     public void incrementWater(View view) {
         if (mToast != null) mToast.cancel();
-        mToast = Toast.makeText(this, R.string.water_chug, Toast.LENGTH_SHORT);
+        mToast = Toast.makeText(this, R.string.water_chug_toast, Toast.LENGTH_SHORT);
         mToast.show();
 
         Intent incrementWaterCountIntent = new Intent(this, WaterReminderIntentService.class);
@@ -97,23 +90,28 @@ public class MainActivity extends AppCompatActivity implements
         startService(incrementWaterCountIntent);
     }
 
+    public void testNotification(View view) {
+        NotificationUtils.remindUserBecauseCharging(this);
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
+        /** Cleanup the shared preference listener **/
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         prefs.unregisterOnSharedPreferenceChangeListener(this);
     }
 
+    /**
+     * This is a listener that will update the UI when the water count or charging reminder counts
+     * change
+     */
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-
         if (PreferenceUtilities.KEY_WATER_COUNT.equals(key)) {
-            updateFormattedWaterCount();
+            updateWaterCount();
         } else if (PreferenceUtilities.KEY_CHARGING_REMINDER_COUNT.equals(key)) {
             updateChargingReminderCount();
-        } else if (PreferenceUtilities.KEY_WIFI_REMINDER_COUNT.equals(key)) {
-            updateWiFiReminderCount();
         }
     }
 }

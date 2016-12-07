@@ -18,7 +18,8 @@
             </intent-filter>
         </activity>
 
-        <!-- TODO (14) Declare WaterReminderIntentService in the Manifest -->
+        <!-- TODO (14) Declare WaterReminderIntentService in the Manifest and set the exported
+         attribute to false-->
 
     </application>
 </manifest>
