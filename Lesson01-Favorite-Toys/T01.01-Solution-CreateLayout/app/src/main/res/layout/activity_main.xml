@@ -14,16 +14,11 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<!--COMPLETED (1) Change the ConstraintLayout to a FrameLayout-->
-<!--COMPLETED (6) Remove the line that declares the id, we don't need it-->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!--COMPLETED (2) Remove all attributes with the word constraint in them-->
-    <!--COMPLETED (3) Remove the default text-->
-    <!--COMPLETED (4) Give the TextView 16dp of padding-->
-    <!--COMPLETED (5) Set the text size to 20sp-->
+    <!--TODO (2) Add an id to the TextView with the value @+id/tv_toy_names-->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
