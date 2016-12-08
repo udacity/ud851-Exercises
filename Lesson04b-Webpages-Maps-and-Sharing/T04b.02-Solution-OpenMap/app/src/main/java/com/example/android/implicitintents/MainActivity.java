@@ -138,6 +138,7 @@ public class MainActivity extends AppCompatActivity {
          */
         intent.setData(geoLocation);
 
+
         // COMPLETED (4) Verify that this Intent can be launched and then call startActivity
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
