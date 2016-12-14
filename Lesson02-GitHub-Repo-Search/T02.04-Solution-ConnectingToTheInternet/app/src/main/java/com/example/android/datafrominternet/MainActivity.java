@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText mSearchBoxEditText;
 
     private TextView mUrlDisplayTextView;
+
     private TextView mSearchResultsTextView;
 
     @Override

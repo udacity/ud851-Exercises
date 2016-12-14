@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     // COMPLETED (27) Create a TextView variable called mUrlDisplayTextView
     private TextView mUrlDisplayTextView;
-    // COMPLETED (28) Create a TextView variable called mSearchResults TextView
+    // COMPLETED (28) Create a TextView variable called mSearchResultsTextView
     private TextView mSearchResultsTextView;
 
     @Override
