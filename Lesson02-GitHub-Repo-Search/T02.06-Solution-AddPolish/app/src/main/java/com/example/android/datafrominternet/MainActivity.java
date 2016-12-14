@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText mSearchBoxEditText;
 
     private TextView mUrlDisplayTextView;
+
     private TextView mSearchResultsTextView;
 
     // COMPLETED (12) Create a variable to store a reference to the error message TextView
