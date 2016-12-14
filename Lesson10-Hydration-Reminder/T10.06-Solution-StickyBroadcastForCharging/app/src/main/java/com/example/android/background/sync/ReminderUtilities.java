@@ -34,7 +34,7 @@ public class ReminderUtilities {
      * than writing out a bunch of multiplication ourselves and risk making a silly mistake.
      */
     private static final int REMINDER_INTERVAL_MINUTES = 15;
-    private static final int REMINDER_INTERVAL_SECONDS = (int) (TimeUnit.MINUTES.toSeconds(REMINDER_INTERVAL_MINUTES)/2);
+    private static final int REMINDER_INTERVAL_SECONDS = (int) (TimeUnit.MINUTES.toSeconds(REMINDER_INTERVAL_MINUTES));
     private static final int SYNC_FLEXTIME_SECONDS = REMINDER_INTERVAL_SECONDS;
 
     private static final String REMINDER_JOB_TAG = "hydration_reminder_tag";
