@@ -23,6 +23,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     //test
+    //test
     // COMPLETED (26) Create an EditText variable called mSearchBoxEditText
     private EditText mSearchBoxEditText;
 
