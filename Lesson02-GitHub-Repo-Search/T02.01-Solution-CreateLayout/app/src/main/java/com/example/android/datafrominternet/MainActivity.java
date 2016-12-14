@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     //test
     //test
     //test
+    //test
     // COMPLETED (26) Create an EditText variable called mSearchBoxEditText
     private EditText mSearchBoxEditText;
 
