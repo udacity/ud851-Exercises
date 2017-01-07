@@ -128,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        // Don't forget to close your cursor!
+        // COMPLETED (5) Remember to close your cursor!
         mData.close();
     }
 

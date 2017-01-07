@@ -104,6 +104,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // TODO (5) Remember to close your cursor!
+    }
+
     // Use an async task to do the data fetch off of the main thread.
     public class WordFetchTask extends AsyncTask<Void, Void, Cursor> {
 
