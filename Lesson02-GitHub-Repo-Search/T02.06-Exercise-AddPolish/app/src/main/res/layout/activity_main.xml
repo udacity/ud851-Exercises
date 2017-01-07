@@ -59,7 +59,7 @@
     <!--TODO (8) Add 16dp of padding to the error display -->
     <!--TODO (9) Use your strings.xml error message to set the text for the error message-->
     <!--TODO (10) Set the visibility of the view to invisible-->
-    <!--TODO (11) Make this TextView a child of the FrameLayout the you added above-->
+    <!--TODO (11) Make this TextView a child of the FrameLayout that you added above-->
 
     <!--TODO (18) Add a ProgressBar to indicate loading to your users-->
     <!--TODO (19) Give the ProgressBar an id of @+id/pb_loading_indicator-->
