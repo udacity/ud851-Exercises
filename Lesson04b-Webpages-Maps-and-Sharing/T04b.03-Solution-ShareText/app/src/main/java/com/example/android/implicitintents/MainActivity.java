@@ -51,7 +51,13 @@ public class MainActivity extends AppCompatActivity {
      */
     public void onClickOpenAddressButton(View v) {
         String addressString = "1600 Amphitheatre Parkway, CA";
-        Uri addressUri = Uri.parse("geo:0,0?q=" + addressString);
+
+        Uri.Builder builder = new Uri.Builder();
+        builder.scheme("geo")
+                .path("0,0")
+                .query(addressString);
+        Uri addressUri = builder.build();
+
         showMap(addressUri);
     }
 
