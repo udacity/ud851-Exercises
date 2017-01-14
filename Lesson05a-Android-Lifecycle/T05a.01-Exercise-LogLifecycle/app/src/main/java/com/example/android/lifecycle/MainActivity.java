@@ -61,18 +61,6 @@ public class MainActivity extends AppCompatActivity {
     // TODO (6) Override onRestart, call super.onRestart, and call logAndAppend with ON_RESTART
 
     // TODO (7) Override onDestroy, call super.onDestroy, and call logAndAppend with ON_DESTROY
-    /**
-     * The final call you receive before your activity is destroyed. This can happen either because
-     * the activity is finishing (someone called finish() on it, or because the system is
-     * temporarily destroying this instance of the activity to save space. You can distinguish
-     * between these two scenarios with the isFinishing() method.
-     */
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-
-        logAndAppend(ON_DESTROY);
-    }
 
     /**
      * Logs to the console and appends the lifecycle method name to the TextView so that you can
