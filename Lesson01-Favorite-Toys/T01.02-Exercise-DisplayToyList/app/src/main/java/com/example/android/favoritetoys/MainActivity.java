@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+         setContentView(R.layout.activity_main);
 
         // TODO (3) Use findViewById to get a reference to the TextView from the layout
         mToyListTextView = (TextView) findViewById(R.id.tv_toy_names);
