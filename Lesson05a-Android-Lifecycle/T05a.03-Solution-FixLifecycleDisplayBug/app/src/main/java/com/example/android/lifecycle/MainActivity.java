@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private TextView mLifecycleDisplay;
 
-    // COMPLETED (1) Declare and instantiate an ArrayList of Strings called mLifecycleCallbacks
+    // COMPLETED (1) Declare and instantiate a static ArrayList of Strings called mLifecycleCallbacks
     /*
      * This ArrayList will keep track of lifecycle callbacks that occur after we are able to save
      * them. Since, as we've observed, the contents of the TextView are saved in onSaveInstanceState
