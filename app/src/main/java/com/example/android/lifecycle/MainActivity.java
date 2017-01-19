@@ -6,6 +6,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     /*
@@ -39,8 +41,15 @@ public class MainActivity extends AppCompatActivity {
      */
     private TextView mLifecycleDisplay;
 
-    // TODO (1) Declare and instantiate a static ArrayList of Strings called mLifecycleCallbacks
+    // COMPLETED (1) Declare and instantiate a static ArrayList of Strings called mLifecycleCallbacks
+    /*
+     * This ArrayList will keep track of lifecycle callbacks that occur after we are able to save
+     * them. Since, as we've observed, the contents of the TextView are saved in onSaveInstanceState
+     * BEFORE onStop and onDestroy are called, we must track when onStop and onDestroy are called,
+     * and then update the UI in onStart when the Activity is back on the screen.
+     */
 
+    private static final ArrayList<String> mLifecycleCallbacks = new ArrayList<>();
     /**
      * Called when the activity is first created. This is where you should do all of your normal
      * static set up: create views, bind data to lists, etc.
@@ -71,9 +80,28 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        // TODO (4) Iterate backwards through mLifecycleCallbacks, appending each String and a newline to mLifecycleDisplay
+        // COMPLETED (4) Iterate backwards through mLifecycleCallbacks, appending each String and a newline to mLifecycleDisplay
+        /*
+         * Since any updates to the UI we make after onSaveInstanceState (onStop, onDestroy, etc),
+         * we use an ArrayList to track if these lifecycle events had occurred. If any of them have
+         * occurred, we append their respective name to the TextView.
+         *
+         * The reason we iterate starting from the back of the ArrayList and ending in the front
+         * is that the most recent callbacks are inserted into the front of the ArrayList, so
+         * naturally the older callbacks are stored further back. We could have used a Queue to do
+         * this, but Java has strange API names for the Queue interface that we thought might be
+         * more confusing than this ArrayList solution.
+         */
+        for (int i = mLifecycleCallbacks.size() - 1; i >= 0; i--) {
+            mLifecycleDisplay.append(mLifecycleCallbacks.get(i) + "\n");
+        }
 
-        // TODO (5) Clear mLifecycleCallbacks after iterating through it
+        // COMPLETED (5) Clear mLifecycleCallbacks after iterating through it
+        /*
+         * Once we've appended each callback from the ArrayList to the TextView, we need to clean
+         * the ArrayList so we don't get duplicate entries in the TextView.
+         */
+        mLifecycleCallbacks.clear();
 
         logAndAppend(ON_CREATE);
     }
@@ -133,7 +161,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
 
-        // TODO (2) Add the ON_STOP String to the front of mLifecycleCallbacks
+        // COMPLETED (2) Add the ON_STOP String to the front of mLifecycleCallbacks
+        /*
+         * Since any updates to the UI we make after onSaveInstanceState (onStop, onDestroy, etc),
+         * we use an ArrayList to track if these lifecycle events had occurred. If any of them have
+         * occurred, we append their respective name to the TextView.
+         */
+        mLifecycleCallbacks.add(0, ON_STOP);
 
         logAndAppend(ON_STOP);
     }
@@ -160,7 +194,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
 
-        // TODO (3) Add the ON_DESTROY String to the front of mLifecycleCallbacks
+        // COMPLETED (3) Add the ON_DESTROY String to the front of mLifecycleCallbacks
+        /*
+         * Since any updates to the UI we make after onSaveInstanceState (onStop, onDestroy, etc),
+         * we use an ArrayList to track if these lifecycle events had occurred. If any of them have
+         * occurred, we append their respective name to the TextView.
+         */
+        mLifecycleCallbacks.add(0, ON_DESTROY);
 
         logAndAppend(ON_DESTROY);
     }
