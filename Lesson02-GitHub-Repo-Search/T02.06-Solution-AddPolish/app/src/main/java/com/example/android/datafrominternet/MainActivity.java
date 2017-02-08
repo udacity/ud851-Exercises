@@ -38,10 +38,10 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView mSearchResultsTextView;
 
-    // COMPLETED (12) Create a variable to store a reference to the error message TextView
+    // COMPLETED (18) Create a variable to store a reference to the error message TextView
     private TextView mErrorMessageDisplay;
 
-    // COMPLETED (24) Create a ProgressBar variable to store a reference to the ProgressBar
+    // COMPLETED (20) Create a ProgressBar variable to store a reference to the ProgressBar
     private ProgressBar mLoadingIndicator;
 
     @Override
@@ -54,10 +54,10 @@ public class MainActivity extends AppCompatActivity {
         mUrlDisplayTextView = (TextView) findViewById(R.id.tv_url_display);
         mSearchResultsTextView = (TextView) findViewById(R.id.tv_github_search_results_json);
 
-        // COMPLETED (13) Get a reference to the error TextView using findViewById
+        // COMPLETED (19) Get a reference to the error TextView using findViewById
         mErrorMessageDisplay = (TextView) findViewById(R.id.tv_error_message_display);
 
-        // COMPLETED (25) Get a reference to the ProgressBar using findViewById
+        // COMPLETED (21) Get a reference to the ProgressBar using findViewById
         mLoadingIndicator = (ProgressBar) findViewById(R.id.pb_loading_indicator);
     }
 
@@ -74,10 +74,10 @@ public class MainActivity extends AppCompatActivity {
         new GithubQueryTask().execute(githubSearchUrl);
     }
 
-    // COMPLETED (14) Create a method called showJsonDataView to show the data and hide the error
+    // COMPLETED (22) Create a method called showJsonDataView to show the data, hide the error and progress bar
     /**
      * This method will make the View for the JSON data visible and
-     * hide the error message.
+     * hide the error message and progress bar.
      * <p>
      * Since it is okay to redundantly set the visibility of a View, we don't
      * need to check whether each view is currently visible or invisible.
@@ -85,14 +85,16 @@ public class MainActivity extends AppCompatActivity {
     private void showJsonDataView() {
         // First, make sure the error is invisible
         mErrorMessageDisplay.setVisibility(View.INVISIBLE);
+        // Hide the progress bar
+        mProgressBar.setVisibility(View.INVISIBLE);
         // Then, make sure the JSON data is visible
         mSearchResultsTextView.setVisibility(View.VISIBLE);
     }
 
-    // COMPLETED (15) Create a method called showErrorMessage to show the error and hide the data
+    // COMPLETED (23) Create a method called showErrorMessage to show the error, and hide the data and progress bar
     /**
      * This method will make the error message visible and hide the JSON
-     * View.
+     * View and progress bar.
      * <p>
      * Since it is okay to redundantly set the visibility of a View, we don't
      * need to check whether each view is currently visible or invisible.
@@ -100,17 +102,36 @@ public class MainActivity extends AppCompatActivity {
     private void showErrorMessage() {
         // First, hide the currently visible data
         mSearchResultsTextView.setVisibility(View.INVISIBLE);
+        // Hide the progress bar
+        mProgressBar.setVisibility(View.INVISIBLE);
         // Then, show the error
         mErrorMessageDisplay.setVisibility(View.VISIBLE);
+    }
+    
+    // COMPLETED (24) Create a method called showProgressBar to show the progress bar, and hide the data or error
+    /**
+     * This method will make the progress bar visible and hide the JSON
+     * View and the error message.
+     * <p>
+     * Since it is okay to redundantly set the visibility of a View, we don't
+     * need to check whether each view is currently visible or invisible.
+     */
+    private void showProgressBar() {
+        // First, hide the currently visible data
+        mSearchResultsTextView.setVisibility(View.INVISIBLE);
+        // Or error messages
+        mErrorMessageDisplay.setVisibility(View.INVISIBLE);
+        // Show the progress bar
+        mProgressBar.setVisibility(View.VISIBLE);
     }
 
     public class GithubQueryTask extends AsyncTask<URL, Void, String> {
 
-        // COMPLETED (26) Override onPreExecute to set the loading indicator to visible
+        // COMPLETED (25) Override onPreExecute and call showProgressBar to display the loading indicator
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            mLoadingIndicator.setVisibility(View.VISIBLE);
+            showProgressBar();
         }
 
         @Override
@@ -127,14 +148,12 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String githubSearchResults) {
-            // COMPLETED (27) As soon as the loading is complete, hide the loading indicator
-            mLoadingIndicator.setVisibility(View.INVISIBLE);
             if (githubSearchResults != null && !githubSearchResults.equals("")) {
-                // COMPLETED (17) Call showJsonDataView if we have valid, non-null results
+                // COMPLETED (26) Call showJsonDataView if we have valid, non-null results
                 showJsonDataView();
                 mSearchResultsTextView.setText(githubSearchResults);
             } else {
-                // COMPLETED (16) Call showErrorMessage if the result is null in onPostExecute
+                // COMPLETED (27) Call showErrorMessage if the result is null in onPostExecute
                 showErrorMessage();
             }
         }
