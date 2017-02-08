@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView mErrorMessageDisplay;
 
     // COMPLETED (20) Create a ProgressBar variable to store a reference to the ProgressBar
-    private ProgressBar mLoadingIndicator;
+    private ProgressBar mProgressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         mErrorMessageDisplay = (TextView) findViewById(R.id.tv_error_message_display);
 
         // COMPLETED (21) Get a reference to the ProgressBar using findViewById
-        mLoadingIndicator = (ProgressBar) findViewById(R.id.pb_loading_indicator);
+        mProgressBar = (ProgressBar) findViewById(R.id.pb_loading_indicator);
     }
 
     /**
