@@ -19,8 +19,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!--TODO (1) Add a ScrollView around the TextView so you can scroll through the list of toys-->
-    <!--TODO (2) Make the width of the ScrollView match_parent and the height wrap_content-->
+    <!--COMPLETED (1) Add a ScrollView around the TextView so you can scroll through the list of toys-->
+    <!--COMPLETED (2) Make the width of the ScrollView match_parent and the height wrap_content-->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
