@@ -21,11 +21,14 @@
 
     <!--TODO (1) Add a ScrollView around the TextView so you can scroll through the list of toys-->
     <!--TODO (2) Make the width of the ScrollView match_parent and the height wrap_content-->
-
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <TextView
         android:id="@+id/tv_toy_names"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="16dp"
         android:textSize="20sp" />
+    </ScrollView>
 </FrameLayout>
