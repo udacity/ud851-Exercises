@@ -15,10 +15,14 @@
  */
 package com.example.android.datafrominternet;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -48,12 +52,27 @@ public class MainActivity extends AppCompatActivity {
     // TODO (7) Set the title to the search string ("Search") from strings.xml
     // Do 2 - 7 in menu.xml ///////////////////////////////////////////////////////////////////////
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
 
-    // TODO (8) Override onCreateOptionsMenu
-    // TODO (9) Within onCreateOptionsMenu, use getMenuInflater().inflate to inflate the menu
-    // TODO (10) Return true to display your menu
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
 
-    // TODO (11) Override onOptionsItemSelected
+        int menuItemThatWasSelected = item.getItemId();
+        if (menuItemThatWasSelected == R.id.action_search){
+            //Show a toast
+            Context context = MainActivity.this;
+            String message = "Search clicked";
+            Toast.makeText(context, message, Toast.LENGTH_LONG).show();
+        }
+        return super.onOptionsItemSelected(item);
+
+    }
+
+
     // TODO (12) Within onOptionsItemSelected, get the ID of the item that was selected
     // TODO (13) If the item's ID is R.id.action_search, show a Toast and return true to tell Android that you've handled this menu click
     // TODO (14) Don't forgot to call .show() on your Toast
