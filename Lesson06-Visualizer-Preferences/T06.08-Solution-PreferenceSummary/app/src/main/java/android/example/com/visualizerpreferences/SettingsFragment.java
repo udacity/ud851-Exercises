@@ -19,16 +19,12 @@ package android.example.com.visualizerpreferences;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
-import android.support.v7.preference.CheckBoxPreference;
-import android.support.v7.preference.EditTextPreference;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceFragmentCompat;
 import android.support.v7.preference.PreferenceScreen;
-import android.widget.Toast;
 
 // COMPLETED (1) Implement OnSharedPreferenceChangeListener
-
 public class SettingsFragment extends PreferenceFragmentCompat implements
         OnSharedPreferenceChangeListener {
 
@@ -42,7 +38,6 @@ public class SettingsFragment extends PreferenceFragmentCompat implements
         // all of the preferences if it is not a checkbox preference, call the setSummary method
         // passing in a preference and the value of the preference
 
-        SharedPreferences sharedPreferences = getPreferenceScreen().getSharedPreferences();
         PreferenceScreen prefScreen = getPreferenceScreen();
         int count = prefScreen.getPreferenceCount();
 
@@ -51,9 +46,8 @@ public class SettingsFragment extends PreferenceFragmentCompat implements
             Preference p = prefScreen.getPreference(i);
             // You don't need to set up preference summaries for checkbox preferences because
             // they are already set up in xml using summaryOff and summary On
-            if (!(p instanceof CheckBoxPreference)) {
-                String value = sharedPreferences.getString(p.getKey(), "");
-                setPreferenceSummary(p, value);
+            if (p instanceof ListPreference) {
+                setPreferenceSummary(p);
             }
         }
     }
@@ -64,12 +58,9 @@ public class SettingsFragment extends PreferenceFragmentCompat implements
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         // Figure out which preference was changed
         Preference preference = findPreference(key);
-        if (null != preference) {
+        if (preference != null && preference instanceof ListPreference) {
             // Updates the summary for the preference
-            if (!(preference instanceof CheckBoxPreference)) {
-                String value = sharedPreferences.getString(preference.getKey(), "");
-                setPreferenceSummary(preference, value);
-            }
+            setPreferenceSummary(preference);
         }
     }
 
@@ -78,26 +69,19 @@ public class SettingsFragment extends PreferenceFragmentCompat implements
     // associated with the value. You can do this by using the findIndexOfValue and getEntries methods
     // of Preference.
     /**
-     * Updates the summary for the preference
+     * Updates the summary for the preference based on its selected value
      *
      * @param preference The preference to be updated
-     * @param value      The value that the preference was updated to
      */
-    private void setPreferenceSummary(Preference preference, String value) {
-        if (preference instanceof ListPreference) {
-            // For list preferences, figure out the label of the selected value
-            ListPreference listPreference = (ListPreference) preference;
-            int prefIndex = listPreference.findIndexOfValue(value);
-            if (prefIndex >= 0) {
-                // Set the summary to that label
-                listPreference.setSummary(listPreference.getEntries()[prefIndex]);
-            }
-        }
+    private void setPreferenceSummary(Preference preference){
+        ListPreference listPreference = (ListPreference) preference;
+        CharSequence selectedValue = listPreference.getEntry();
+        listPreference.setSummary(selectedValue);
     }
 
     // COMPLETED (5) Register and unregister the OnSharedPreferenceChange listener (this class) in
     // onCreate and onDestroy respectively.
-    
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
