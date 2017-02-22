@@ -19,6 +19,7 @@ package android.example.com.visualizerpreferences;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
+import android.support.v7.preference.CheckBoxPreference;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceFragmentCompat;
@@ -46,7 +47,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements
             Preference p = prefScreen.getPreference(i);
             // You don't need to set up preference summaries for checkbox preferences because
             // they are already set up in xml using summaryOff and summary On
-            if (p instanceof ListPreference) {
+            if (!(p instanceof CheckBoxPreference)) {
                 setPreferenceSummary(p);
             }
         }
@@ -58,7 +59,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         // Figure out which preference was changed
         Preference preference = findPreference(key);
-        if (preference != null && preference instanceof ListPreference) {
+        if (preference != null && !(preference instanceof CheckBoxPreference)) {
             // Updates the summary for the preference
             setPreferenceSummary(preference);
         }
@@ -74,9 +75,11 @@ public class SettingsFragment extends PreferenceFragmentCompat implements
      * @param preference The preference to be updated
      */
     private void setPreferenceSummary(Preference preference){
-        ListPreference listPreference = (ListPreference) preference;
-        CharSequence selectedValue = listPreference.getEntry();
-        listPreference.setSummary(selectedValue);
+        if(preference instanceof ListPreference) {
+            ListPreference listPreference = (ListPreference) preference;
+            CharSequence selectedValue = listPreference.getEntry();
+            listPreference.setSummary(selectedValue);
+        }
     }
 
     // COMPLETED (5) Register and unregister the OnSharedPreferenceChange listener (this class) in
