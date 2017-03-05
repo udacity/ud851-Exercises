@@ -158,6 +158,8 @@ public class MainActivity extends AppCompatActivity {
                 .setText(textToShare)
                 .startChooser();
         // TODO (4) Use ShareCompat.IntentBuilder to build the Intent and start the chooser
+
+
     }
 
 
