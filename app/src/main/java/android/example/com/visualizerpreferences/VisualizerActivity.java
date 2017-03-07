@@ -57,7 +57,6 @@ public class VisualizerActivity extends AppCompatActivity {
     /**
      * Methods for setting up the menu
      **/
-    // COMPLETED (5) Add the menu to the menu bar
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         /* Use AppCompatActivity's method getMenuInflater to get a handle on the menu inflater */
@@ -68,7 +67,6 @@ public class VisualizerActivity extends AppCompatActivity {
         return true;
     }
 
-    // COMPLETED (6) When the "Settings" menu item is pressed, open SettingsActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
