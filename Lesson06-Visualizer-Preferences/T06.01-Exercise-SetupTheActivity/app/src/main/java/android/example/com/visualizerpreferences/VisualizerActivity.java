@@ -120,7 +120,7 @@ public class VisualizerActivity extends AppCompatActivity {
 
     // TODO (2) Add a new resource folder called menu and create visualizer_menu.xml
     // TODO (3) In visualizer_menu.xml create a menu item with a single item. The id should be
-    // action_settings, the id and title should be saved in strings.xml, the item should never
+    // "action_settings", title should be saved in strings.xml, the item should never
     // be shown as an action, and orderInCategory should be 100
 
     // TODO (5) Add the menu to the menu bar
