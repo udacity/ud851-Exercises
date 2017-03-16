@@ -19,6 +19,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -48,12 +49,21 @@ public class MainActivity extends AppCompatActivity {
      * @param v Button that was clicked.
      */
     public void onClickOpenAddressButton(View v) {
-        // TODO (5) Store an address in a String
+        // COMPLETED (5) Store an address in a String
+        String addressString = "1600 Amphitheatre Parkway, CA";
 
-        // TODO (6) Use Uri.Builder with the appropriate scheme and query to form the Uri for the address
+        // COMPLETED (6) Use Uri.Builder with the appropriate scheme and query to form the Uri for the address
+        Uri.Builder builder = new Uri.Builder();
+        builder.scheme("geo")
+                .path("0,0")
+                .query(addressString);
+        Uri addressUri = builder.build();
 
-        // TODO (7) Replace the Toast with a call to showMap, passing in the Uri from the previous step
-        Toast.makeText(this, "TODO: Open a map when this button is clicked", Toast.LENGTH_SHORT).show();
+        Log.d(MainActivity.class.getCanonicalName(), "Geo uri: "+builder.toString());
+
+        // COMPLETED (7) Replace the Toast with a call to showMap, passing in the Uri from the previous step
+
+        showMap(Uri.parse("geo:0,0?q=1600+Amphitheatre+Parkway%2C+CA"));
     }
 
     /**
@@ -111,14 +121,35 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // COMPLETED (1) Create a method called showMap with a Uri as the single parameter
+    /**
+     * This method will fire off an implicit Intent to view a location on a map.
+     *
+     * When constructing implicit Intents, you can use either the setData method or specify the
+     * URI as the second parameter of the Intent's constructor,
+     * as I do in {@link #openWebPage(String)}
+     *
+     * @param geoLocation The Uri representing the location that will be opened in the map
+     */
+    private void showMap(Uri geoLocation) {
+        // COMPLETED (2) Create an Intent with action type, Intent.ACTION_VIEW
+        /*
+         * Again, we create an Intent with the action, ACTION_VIEW because we want to VIEW the
+         * contents of this Uri.
+         */
+        Intent intent = new Intent(Intent.ACTION_VIEW);
 
-    // TODO (1) Create a method called showMap with a Uri as the single parameter
-    // Do steps 2 - 4 within the showMap method
-        // TODO (2) Create an Intent with action type, Intent.ACTION_VIEW
+        // COMPLETED (3) Set the data of the Intent to the Uri passed into this method
+        /*
+         * Using setData to set the Uri of this Intent has the exact same affect as passing it in
+         * the Intent's constructor. This is simply an alternate way of doing this.
+         */
+        intent.setData(geoLocation);
 
-        // TODO (3) Set the data of the Intent to the Uri passed into this method
 
-        // TODO (4) Verify that this Intent can be launched and then call startActivity
-
-
+        // COMPLETED (4) Verify that this Intent can be launched and then call startActivity
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
+    }
 }
