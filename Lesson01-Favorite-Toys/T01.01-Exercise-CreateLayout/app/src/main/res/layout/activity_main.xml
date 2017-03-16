@@ -14,20 +14,24 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<!--COMPLETED (1) Change the ConstraintLayout to a FrameLayout-->
-<!--COMPLETED (6) Remove the line that declares the id, we don't need it-->
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
+<!--(1) Change the ConstraintLayout to a FrameLayout.
+    Note that you don't need to use the fully qualified name for FrameLayout. Replace
+    "android.support.constraint.ConstraintLayout" with "FrameLayout"-->
+<!--(6) Remove the line that declares the id, we don't need it-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!--COMPLETED (2) Remove all attributes with the word constraint in them-->
-    <!--COMPLETED (3) Remove the default text-->
-    <!--COMPLETED (4) Give the TextView 16dp of padding-->
-    <!--COMPLETED (5) Set the text size to 20sp-->
+    <!--(2) Remove all attributes with the word constraint in them-->
+    <!--(3) Remove the default text-->
+    <!--(4) Give the TextView 16dp of padding-->
+    <!--(5) Set the text size to 20sp-->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="16dp"
         android:textSize="20sp" />
+
 </FrameLayout>
