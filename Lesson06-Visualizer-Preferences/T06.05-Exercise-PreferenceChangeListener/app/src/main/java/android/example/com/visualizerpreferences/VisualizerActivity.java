@@ -60,7 +60,7 @@ public class VisualizerActivity extends AppCompatActivity implements SharedPrefe
         mVisualizerView.setMinSizeScale(1);
         mVisualizerView.setColor(getString(R.string.pref_color_red_value));
         // TODO (3) Register the listener
-        sharedPreferences.unregisterOnSharedPreferenceChangeListener(this);
+        sharedPreferences.registerOnSharedPreferenceChangeListener(this);
 
     }
 
