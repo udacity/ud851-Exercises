@@ -48,4 +48,10 @@
 
     <!-- Value in SharedPreferences for green color option -->
     <string name="pref_color_green_value" translatable="false">green</string>
+
+    <string name="pref_size_key" translatable="false">size</string>
+
+    <string name="pref_size_label">Shape Size</string>
+
+    <string name="pref_size_default" translatable="false">1</string>
 </resources>
