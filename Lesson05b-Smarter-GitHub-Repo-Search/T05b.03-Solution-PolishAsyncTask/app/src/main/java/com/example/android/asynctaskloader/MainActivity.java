@@ -177,13 +177,10 @@ public class MainActivity extends AppCompatActivity implements
                     return;
                 }
 
-                /*
-                 * When we initially begin loading in the background, we want to display the
-                 * loading indicator to the user
-                 */
-                mLoadingIndicator.setVisibility(View.VISIBLE);
 
-                // COMPLETED (2) If mGithubJson is not null, deliver that result. Otherwise, force a load
+
+                // COMPLETED (2) If mGithubJson is not null, deliver that result(do not have to show the loading indicator).
+                // Otherwise, force a load
                 /*
                  * If we already have cached results, just deliver them now. If we don't have any
                  * cached results, force a load.
@@ -191,6 +188,11 @@ public class MainActivity extends AppCompatActivity implements
                 if (mGithubJson != null) {
                     deliverResult(mGithubJson);
                 } else {
+                     /*
+                     * When we initially begin loading in the background, we want to display the
+                     * loading indicator to the user
+                     */
+                    mLoadingIndicator.setVisibility(View.VISIBLE);
                     forceLoad();
                 }
             }
