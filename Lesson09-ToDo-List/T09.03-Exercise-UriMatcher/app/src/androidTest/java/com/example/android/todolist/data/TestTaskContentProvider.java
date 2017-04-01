@@ -17,12 +17,18 @@
 package com.example.android.todolist.data;
 
 import android.content.ComponentName;
+import android.content.ContentResolver;
+import android.content.ContentUris;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.pm.ProviderInfo;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
+
+import android.content.UriMatcher;
 
 import com.example.android.todolist.data.TaskContentProvider;
 import com.example.android.todolist.data.TaskContract;
@@ -119,10 +125,10 @@ public class TestTaskContentProvider {
 
 
     //================================================================================
-    // Test UriMatcher
+     //Test UriMatcher
     //================================================================================
 
-
+//
 //    private static final Uri TEST_TASKS = TaskContract.TaskEntry.CONTENT_URI;
 //    // Content URI for a single task with id = 1
 //    private static final Uri TEST_TASK_WITH_ID = TEST_TASKS.buildUpon().appendPath("1").build();
