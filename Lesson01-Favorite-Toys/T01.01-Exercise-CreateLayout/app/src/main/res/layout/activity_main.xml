@@ -8,20 +8,26 @@
 
           http://www.apache.org/licenses/LICENSE-2.0
 
-     Unless required by applicable law or agreed to in writing, software
+<!--TODO (1) Change the ConstraintLayout to a FrameLayout.
+    Note that you don't need to use the fully qualified name for FrameLayout. Replace
+    "android.support.constraint.ConstraintLayout" with "FrameLayout"-->
+<!--TODO (6) Remove the line that declares the id, we don't need it-->     Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
+
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!--TODO (2) Add an id to the TextView with the value @+id/tv_toy_names -->
-
+    <!--TODO (2) Remove all attributes with the word constraint in them-->
+    <!--TODO (3) Remove the default text-->
+    <!--TODO (4) Give the TextView 16dp of padding-->
+    <!--TODO (5) Set the text size to 20sp-->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
