@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
             mNumbersList.setAdapter(mAdapter);
             return true;
         }
-        
+
         return super.onOptionsItemSelected(item);
     }
 }
