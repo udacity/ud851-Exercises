@@ -175,7 +175,7 @@ public class TaskContentProvider extends ContentProvider {
             default:
                 throw new UnsupportedOperationException("Unknown uri " + uri);
         }
-        
+
 
     }
 
