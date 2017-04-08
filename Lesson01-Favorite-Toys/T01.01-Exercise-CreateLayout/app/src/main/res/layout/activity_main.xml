@@ -18,6 +18,7 @@
     Note that you don't need to use the fully qualified name for FrameLayout. Replace
     "android.support.constraint.ConstraintLayout" with "FrameLayout"-->
 <!--TODO (6) Remove the line that declares the id, we don't need it-->
+<!--TODO (7) Remove the line that declares app namespace-->
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_main"
