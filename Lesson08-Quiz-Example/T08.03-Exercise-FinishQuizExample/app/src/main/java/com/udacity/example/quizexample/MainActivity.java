@@ -113,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
             mButton.setText(getString(R.string.show_definition));
 
             mWordTextView.setText(mData.getString(mWordCol));
+            mDevinitionTextView.setText(mData.getString(mDefCol));
 
             mCurrentState = STATE_HIDDEN;
         }
