@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- TODO (17) Surround the Constraint layout with a ScrollView -->
+<!-- TODO (2) Replace the Relative layout with a ConstraintLayout -->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- TODO (3) Create a TextView for the Passenger label and name -->
+    <!-- TODO (4) Use tools:text to set the text value -->
+
+    <!-- TODO (5) Create an ImageView for the left rectangle -->
+    <!-- TODO (6) Set the background to the shape_rectangle_stroke drawable -->
+
+    <!-- TODO (7) Create an ImageView for the divider -->
+
+    <!-- TODO (8) Create an ImageView for the rightRectangle -->
+
+    <!-- TODO (9) Create a TextView for the origin code, the destination code and the flight code -->
+
+    <!-- TODO (15) Import the plane image SVG file into the drawable directory and name it art_plane -->
+    <!-- TODO (16) Create an ImageView for the plane and set the background to art_plane drawable -->
+
+    <!-- TODO (10) Create a TextView for the time texts and their corresponding labels -->
+
+    <!-- TODO (11) Create an ImageView for the blue table's header -->
+
+    <!-- TODO (12) Create an ImageView for the blue table's body -->
+
+    <!-- TODO (13) Create a TextView for each of the labels and text fields in the blue table -->
+
+    <!-- TODO (14) Create an ImageView for the barcode -->
+
+</RelativeLayout>
+

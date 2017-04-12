@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">BoardingPass</string>
+    <string name="passenger_label">PASSENGER</string>
+    <string name="passenger_name">MR. JAMES BOND</string>
+    <string name="origin_code">SFO</string>
+    <string name="destination_code">LAX</string>
+    <string name="flight_code">UDA 2465</string>
+    <string name="boarding_time_label">BOARDING TIME</string>
+    <string name="boarding_time">02:10 PM</string>
+    <string name="departure_time_label">DEPARTURE</string>
+    <string name="departure_time">02:40 PM</string>
+    <string name="arrival_time">12:40 AM</string>
+    <string name="arrival_time_label">ARRIVAL</string>
+    <string name="boarding_in_time">00:15</string>
+    <string name="boarding_in_label">BOARDING IN</string>
+    <string name="terminal_label">TERMINAL</string>
+    <string name="gate_label">GATE</string>
+    <string name="seat_label">SEAT</string>
+    <string name="terminal">2</string>
+    <string name="gate">58B</string>
+    <string name="seat">24A</string>
+    <string name="countDownFormat" >%1$02d:%2$02d</string>
+    <string name="timeFormat">hh:mm a</string>
+</resources>
