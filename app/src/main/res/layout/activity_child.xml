@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--COMPLETED (2) Change the ContraintLayout to a FrameLayout and make appropriate adjustments-->
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".ChildActivity">
+
+    <!--COMPLETED (3) Add a TextView with an id value of @id/tv_display-->
+    <!--COMPLETED (4) Set the text to something that indicates this is default text being displayed-->
+    <!--COMPLETED (5) Make the text size a little larger-->
+    <TextView
+        android:id="@+id/tv_display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="This is default text. Hopefully it changes."
+        android:textSize="30sp"/>
+
+</FrameLayout>
