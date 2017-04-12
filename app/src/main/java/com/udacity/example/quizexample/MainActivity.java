@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     // The current state of the app
     private int mCurrentState;
 
-
+    // TODO (3) Create an instance variable storing a Cursor called mData
     private Button mButton;
 
     // This state is when the word definition is hidden and clicking the button will therefore
@@ -49,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Get the views
         mButton = (Button) findViewById(R.id.button_next);
+
+        // TODO (5) Create and execute your AsyncTask here
     }
 
     /**
@@ -87,5 +89,10 @@ public class MainActivity extends AppCompatActivity {
         mCurrentState = STATE_SHOWN;
 
     }
+
+    // TODO (1) Create AsyncTask with the following generic types <Void, Void, Cursor>
+    // TODO (2) In the doInBackground method, write the code to access the DroidTermsExample
+    // provider and return the Cursor object
+    // TODO (4) In the onPostExecute method, store the Cursor object in mData
 
 }
