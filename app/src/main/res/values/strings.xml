@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">"Hydration Reminder"</string>
+
+    <!-- Strings for the MainActivity -->
+    <string name="instructions">
+        Press the glass of water after you\'ve hydrated.</string>
+    <string name="water_increment_content_desc">Press to record drinking water</string>
+    <string name="charging_plug_content_desc">charging plug image</string>
+
+    <string name="default_water_count">0</string>
+    <string name="default_charge_notification_count">Hydrate while charging reminder sent 0 times</string>
+
+    <plurals name="charge_notification_count">
+        <item quantity="zero">Hydrate while charging reminder sent %d times</item>
+        <item quantity="one">Hydrate while charging reminder sent %d time</item>
+        <item quantity="other">Hydrate while charging reminder sent %d times</item>
+    </plurals>
+
+
+    <!-- Strings for Notifications and Toasts -->
+    <string name="water_chug_toast">GLUG GLUG GLUG</string>
+
+    <string name="charging_reminder_notification_title">Device Charging - Where\'s that water?</string>
+    <string name="charging_reminder_notification_body">There\'s never a better time to drink water than when you know your phone is charging. Drink up!</string>
+
+</resources>
