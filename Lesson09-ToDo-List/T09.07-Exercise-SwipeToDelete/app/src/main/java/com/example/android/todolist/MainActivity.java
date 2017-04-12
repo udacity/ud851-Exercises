@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements
 
                 Uri uri = TaskContract.TaskEntry.CONTENT_URI;
 
-                uri.buildUpon().appendPath(stringId).build();
+                uri = uri.buildUpon().appendPath(stringId).build();
 
                 getContentResolver().delete(uri, null, null);
 
