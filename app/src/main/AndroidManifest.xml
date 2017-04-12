@@ -33,10 +33,17 @@
 
         <!--Android Studio will have created an Activity tag if you followed step 1 properly. Do-->
         <!--steps 8 - 11 within that tag. Please see the solution code if you get stuck.-->
-        <!--TODO (8) Specify ChildActivity's parent using android:parentActivityName-->
-        <!--TODO (9) Create a meta-data tag for this Activity-->
-        <!--TODO (10) Specify the name of the meta-data as android.support.PARENT_ACTIVITY-->
-        <!--TODO (11) Specify the value of the meta data as .MainActivity-->
+        <!--COMPLETED (8) Specify ChildActivity's parent using android:parentActivityName-->
+        <!--COMPLETED (9) Create a meta-data tag for this Activity-->
+        <!--COMPLETED (10) Specify the name of the meta-data as android.support.PARENT_ACTIVITY-->
+        <!--COMPLETED (11) Specify the value of the meta data as .MainActivity-->
+        <activity
+            android:name="com.example.android.explicitintent.ChildActivity"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
     </application>
 
 </manifest>
