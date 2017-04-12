@@ -24,6 +24,7 @@ import android.content.Context;
 import android.content.UriMatcher;
 import android.content.pm.PackageManager;
 import android.content.pm.ProviderInfo;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.support.test.InstrumentationRegistry;
@@ -38,6 +39,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertTrue;
 import static junit.framework.Assert.fail;
 
 @RunWith(AndroidJUnit4.class)
@@ -221,54 +223,54 @@ public class TestTaskContentProvider {
     //================================================================================
 
 
-//    /**
-//     * Inserts data, then tests if a query for the tasks directory returns that data as a Cursor
-//     */
-//    @Test
-//    public void testQuery() {
-//
-//        /* Get access to a writable database */
-//        TaskDbHelper dbHelper = new TaskDbHelper(mContext);
-//        SQLiteDatabase database = dbHelper.getWritableDatabase();
-//
-//        /* Create values to insert */
-//        ContentValues testTaskValues = new ContentValues();
-//        testTaskValues.put(TaskContract.TaskEntry.COLUMN_DESCRIPTION, "Test description");
-//        testTaskValues.put(TaskContract.TaskEntry.COLUMN_PRIORITY, 1);
-//
-//        /* Insert ContentValues into database and get a row ID back */
-//        long taskRowId = database.insert(
-//                /* Table to insert values into */
-//                TaskContract.TaskEntry.TABLE_NAME,
-//                null,
-//                /* Values to insert into table */
-//                testTaskValues);
-//
-//        String insertFailed = "Unable to insert directly into the database";
-//        assertTrue(insertFailed, taskRowId != -1);
-//
-//        /* We are done with the database, close it now. */
-//        database.close();
-//
-//        /* Perform the ContentProvider query */
-//        Cursor taskCursor = mContext.getContentResolver().query(
-//                TaskContract.TaskEntry.CONTENT_URI,
-//                /* Columns; leaving this null returns every column in the table */
-//                null,
-//                /* Optional specification for columns in the "where" clause above */
-//                null,
-//                /* Values for "where" clause */
-//                null,
-//                /* Sort order to return in Cursor */
-//                null);
-//
-//
-//        String queryFailed = "Query failed to return a valid Cursor";
-//        assertTrue(queryFailed, taskCursor != null);
-//
-//        /* We are done with the cursor, close it now. */
-//        taskCursor.close();
-//    }
+    /**
+     * Inserts data, then tests if a query for the tasks directory returns that data as a Cursor
+     */
+    @Test
+    public void testQuery() {
+
+        /* Get access to a writable database */
+        TaskDbHelper dbHelper = new TaskDbHelper(mContext);
+        SQLiteDatabase database = dbHelper.getWritableDatabase();
+
+        /* Create values to insert */
+        ContentValues testTaskValues = new ContentValues();
+        testTaskValues.put(TaskContract.TaskEntry.COLUMN_DESCRIPTION, "Test description");
+        testTaskValues.put(TaskContract.TaskEntry.COLUMN_PRIORITY, 1);
+
+        /* Insert ContentValues into database and get a row ID back */
+        long taskRowId = database.insert(
+                /* Table to insert values into */
+                TaskContract.TaskEntry.TABLE_NAME,
+                null,
+                /* Values to insert into table */
+                testTaskValues);
+
+        String insertFailed = "Unable to insert directly into the database";
+        assertTrue(insertFailed, taskRowId != -1);
+
+        /* We are done with the database, close it now. */
+        database.close();
+
+        /* Perform the ContentProvider query */
+        Cursor taskCursor = mContext.getContentResolver().query(
+                TaskContract.TaskEntry.CONTENT_URI,
+                /* Columns; leaving this null returns every column in the table */
+                null,
+                /* Optional specification for columns in the "where" clause above */
+                null,
+                /* Values for "where" clause */
+                null,
+                /* Sort order to return in Cursor */
+                null);
+
+
+        String queryFailed = "Query failed to return a valid Cursor";
+        assertTrue(queryFailed, taskCursor != null);
+
+        /* We are done with the cursor, close it now. */
+        taskCursor.close();
+    }
 
 
     //================================================================================
