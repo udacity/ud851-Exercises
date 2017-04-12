@@ -22,7 +22,7 @@ import android.provider.BaseColumns;
 
 public class TaskContract {
 
-    /* COMPLETED (1) Add content provider constants to the Contract
+    /* Add content provider constants to the Contract
      Clients need to know how to access the task data, and it's your job to provide
      these content URI's for the path to that data:
         1) Content authority,
