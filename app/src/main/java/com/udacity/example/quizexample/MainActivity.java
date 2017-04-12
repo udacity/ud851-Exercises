@@ -32,7 +32,6 @@ import com.udacity.example.droidtermsprovider.DroidTermsExampleContract;
 
 public class MainActivity extends AppCompatActivity {
 
-    // COMPLETED (3) Create an instance variable storing a Cursor called mData
     // The data from the DroidTermsExample content provider
     private Cursor mData;
 
@@ -56,10 +55,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Get the views
+        // TODO (1) You'll probably want more than just the Button
         mButton = (Button) findViewById(R.id.button_next);
 
         //Run the database operation to get the cursor off of the main thread
-        // COMPLETED (5) Create and execute your AsyncTask here
         new WordFetchTask().execute();
 
     }
@@ -88,6 +87,9 @@ public class MainActivity extends AppCompatActivity {
         // Change button text
         mButton.setText(getString(R.string.show_definition));
 
+        // TODO (3) Go to the next word in the Cursor, show the next word and hide the definition
+        // Note that you shouldn't try to do this if the cursor hasn't been set yet.
+        // If you reach the end of the list of words, you should start at the beginning again.
         mCurrentState = STATE_HIDDEN;
 
     }
@@ -97,13 +99,16 @@ public class MainActivity extends AppCompatActivity {
         // Change button text
         mButton.setText(getString(R.string.next_word));
 
+        // TODO (4) Show the definition
         mCurrentState = STATE_SHOWN;
 
     }
-    // COMPLETED (1) Create AsyncTask with the following generic types <Void, Void, Cursor>
-    // COMPLETED (2) In the doInBackground method, write the code to access the DroidTermsExample
-    // provider and return the Cursor object
-    // COMPLETED (4) In the onPostExecute method, store the Cursor object in mData
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // TODO (5) Remember to close your cursor!
+    }
 
     // Use an async task to do the data fetch off of the main thread.
     public class WordFetchTask extends AsyncTask<Void, Void, Cursor> {
@@ -130,6 +135,9 @@ public class MainActivity extends AppCompatActivity {
 
             // Set the data for MainActivity
             mData = cursor;
+
+            // TODO (2) Initialize anything that you need the cursor for, such as setting up
+            // the screen with the first word and setting any other instance variables
         }
     }
 
