@@ -23,7 +23,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 
-// COMPLETED (1) Verify that TaskContentProvider extends from ContentProvider and implements required methods
+// Verify that TaskContentProvider extends from ContentProvider and implements required methods
 public class TaskContentProvider extends ContentProvider {
 
     // Member variable for a TaskDbHelper that's initialized in the onCreate() method
@@ -36,7 +36,7 @@ public class TaskContentProvider extends ContentProvider {
      */
     @Override
     public boolean onCreate() {
-        // COMPLETED (2) Complete onCreate() and initialize a TaskDbhelper on startup
+        // Complete onCreate() and initialize a TaskDbhelper on startup
         // [Hint] Declare the DbHelper as a global variable
 
         Context context = getContext();
