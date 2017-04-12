@@ -48,6 +48,8 @@ public class VisualizerActivity extends AppCompatActivity implements SharedPrefe
         setupPermissions();
     }
 
+    // TODO (2) Modify the setupSharedPreferences method and onSharedPreferencesChanged method to
+    // properly update the minSizeScale, assuming a proper numerical value is saved in shared preferences
     private void setupSharedPreferences() {
         // Get all of the values from shared preferences to set it up
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
