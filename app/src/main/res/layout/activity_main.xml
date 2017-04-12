@@ -19,7 +19,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!--COMPLETED (2) Add an id to the TextView with the value @+id/tv_toy_names-->
+    <!--TODO (1) Add a ScrollView around the TextView so you can scroll through the list of toys-->
+    <!--TODO (2) Make the width of the ScrollView match_parent and the height wrap_content-->
+
     <TextView
         android:id="@+id/tv_toy_names"
         android:layout_width="wrap_content"
