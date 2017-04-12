@@ -12,6 +12,9 @@
     tools:context="com.example.android.visualpolish.StyleActivity">
 
     <!-- All mail folder views -->
+    <!-- TODO (3) Apply the "folderStyle" to all of these views and delete the redundant properties -->
+
+    <!-- TODO (5) Apply the "inboxStyle" to the inbox text view -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

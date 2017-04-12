@@ -19,8 +19,15 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textAppearance">?android:textAppearanceMedium</item>
         <item name="android:layout_marginBottom">8dp</item>
+        <!-- TODO (1) Change the background color for activity views to colorPrimaryLight and their text to black -->
         <item name="android:background">@color/colorPrimary</item>
     </style>
+
+    <!-- TODO (2) Create a new style "folderStyle" to group properties for the mail folder text views -->
+    <!-- This style should group all the property values found in the inbox view, like layout_width, height, etc, that are meant to repeat -->
+
+
+    <!-- TODO (4) Create a new "inboxStyle" that inherits from "folderStyle" and includes a bold textStyle property -->
 
 
 </resources>
