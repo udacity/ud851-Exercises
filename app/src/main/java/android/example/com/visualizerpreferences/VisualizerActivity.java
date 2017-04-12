@@ -33,6 +33,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+// TODO (1) Implement OnSharedPreferenceChangeListener
 public class VisualizerActivity extends AppCompatActivity {
 
     private static final int MY_PERMISSION_RECORD_AUDIO_REQUEST_CODE = 88;
@@ -51,14 +52,17 @@ public class VisualizerActivity extends AppCompatActivity {
     private void setupSharedPreferences() {
         // Get all of the values from shared preferences to set it up
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        // COMPLETED (4) Use resources here instead of the hard coded string and boolean
         mVisualizerView.setShowBass(sharedPreferences.getBoolean(getString(R.string.pref_show_bass_key),
                 getResources().getBoolean(R.bool.pref_show_bass_default)));
         mVisualizerView.setShowMid(true);
         mVisualizerView.setShowTreble(true);
         mVisualizerView.setMinSizeScale(1);
         mVisualizerView.setColor(getString(R.string.pref_color_red_value));
+        // TODO (3) Register the listener
     }
+
+    // TODO (2) Override the onSharedPreferenceChanged method and update the show bass preference
+    // TODO (4) Override onDestroy and unregister the listener
 
     /**
      * Methods for setting up the menu
