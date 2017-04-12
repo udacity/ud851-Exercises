@@ -48,7 +48,7 @@ public class VisualizerActivity extends AppCompatActivity implements SharedPrefe
         setupPermissions();
     }
 
-    // TODO (4) Update setupSharedPreferences and onSharedPreferenceChanged to load the color
+    // COMPLETED (4) Update setupSharedPreferences and onSharedPreferenceChanged to load the color
     // from shared preferences. Call setColor, passing in the color you got
     private void setupSharedPreferences() {
         // Get all of the values from shared preferences to set it up
@@ -60,11 +60,18 @@ public class VisualizerActivity extends AppCompatActivity implements SharedPrefe
         mVisualizerView.setShowTreble(sharedPreferences.getBoolean(getString(R.string.pref_show_treble_key),
                 getResources().getBoolean(R.bool.pref_show_treble_default)));
         mVisualizerView.setMinSizeScale(1);
-        mVisualizerView.setColor(getString(R.string.pref_color_red_value));
+        loadColorFromPreferences(sharedPreferences);
         // Register the listener
         sharedPreferences.registerOnSharedPreferenceChangeListener(this);
     }
 
+    private void loadColorFromPreferences(SharedPreferences sharedPreferences) {
+        mVisualizerView.setColor(sharedPreferences.getString(getString(R.string.pref_color_key),
+                getString(R.string.pref_color_red_value)));
+    }
+
+    // Updates the screen if the shared preferences change. This method is required when you make a
+    // class implement OnSharedPreferenceChangedListener
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         if (key.equals(getString(R.string.pref_show_bass_key))) {
@@ -73,6 +80,8 @@ public class VisualizerActivity extends AppCompatActivity implements SharedPrefe
             mVisualizerView.setShowMid(sharedPreferences.getBoolean(key, getResources().getBoolean(R.bool.pref_show_mid_range_default)));
         } else if (key.equals(getString(R.string.pref_show_treble_key))) {
             mVisualizerView.setShowTreble(sharedPreferences.getBoolean(key, getResources().getBoolean(R.bool.pref_show_treble_default)));
+        } else if (key.equals(getString(R.string.pref_color_key))) {
+            loadColorFromPreferences(sharedPreferences);
         }
     }
 
