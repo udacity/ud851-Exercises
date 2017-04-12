@@ -60,8 +60,15 @@ public class MainActivity extends AppCompatActivity {
                  * clear as possible.
                  */
                 Context context = MainActivity.this;
+
+                // TODO (1) Store ChildActivity.class in a Class object called destinationActivity
+
+                // TODO (2) Create an Intent to start ChildActivity
+
+                // TODO (3) Replace the Toast with code to start ChildActivity
                 String message = "Button clicked!\nTODO: Start a new Activity and pass some data.";
                 Toast.makeText(context, message, Toast.LENGTH_LONG).show();
+
             }
         });
     }
