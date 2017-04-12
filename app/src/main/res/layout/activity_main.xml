@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    //COMPLETED (2) Use <layout> as the root tag for activity_main to generate the ActivityMainBinding
+    TODO (1) Create a new xml file called flight_info in the layout directory
+    TODO (2) Create a new xml file called boarding_info in the layout directory
+
+    TODO (9) Copy activity_main.xml into the layout-land folder to have 2 layout xml files for the same activity
+    TODO (10) Re-organize the views in the landscape file to fit all in the one screen
 -->
 <layout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -43,6 +47,10 @@
             android:layout_marginLeft="16dp"
             tools:layout_constraintTop_creator="1" />
 
+<!--
+    TODO (3) Move all Views in the flight information section from activity_main to flight_info
+    TODO (5) Add an include tag in activity_main to include flightInfo in the right position
+-->
 
         <ImageView
             android:id="@+id/leftRectangle"
@@ -222,6 +230,11 @@
             android:textColor="@color/colorGood"
             app:layout_constraintLeft_toLeftOf="@+id/textViewArrivalTimeLabel"
             app:layout_constraintTop_toBottomOf="@+id/textViewArrivalTimeLabel" />
+
+<!--
+    TODO (4) Move all Views in the boarding information table from activity_main to boarding_info
+    TODO (6) Add an include tag in activity_main to include boardingInfo in the right position
+-->
 
         <ImageView
             android:id="@+id/tableHeaderImage"
