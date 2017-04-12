@@ -13,19 +13,21 @@ import com.example.android.waitlist.data.WaitlistContract;
 
 public class GuestListAdapter extends RecyclerView.Adapter<GuestListAdapter.GuestViewHolder> {
 
+    // COMPLETED (1) Replace the mCount with a new Cursor field called mCursor
+    // Holds on to the cursor to display the waitlist
+    private Cursor mCursor;
     private Context mContext;
-    // TODO (1) Replace the mCount with a Cursor field called mCursor
-    private int mCount;
 
+    // COMPLETED (2) Modify the constructor to accept a cursor rather than an integer
     /**
      * Constructor using the context and the db cursor
      * @param context the calling context/activity
+     * @param cursor the db cursor with waitlist data to display
      */
-    // TODO (2) Modify the constructor to accept a cursor rather than an integer
-    public GuestListAdapter(Context context, int count) {
+    public GuestListAdapter(Context context, Cursor cursor) {
         this.mContext = context;
-        // TODO (3) Set the local mCursor to be equal to cursor
-        mCount = count;
+        // COMPLETED (3) Set the local mCursor to be equal to cursor
+        this.mCursor = cursor;
     }
 
     @Override
@@ -38,24 +40,28 @@ public class GuestListAdapter extends RecyclerView.Adapter<GuestListAdapter.Gues
 
     @Override
     public void onBindViewHolder(GuestViewHolder holder, int position) {
-        // TODO (5) Move the cursor to the passed in position, return if moveToPosition returns false
-
-        // TODO (6) Call getString on the cursor to get the guest's name
-
-        // TODO (7) Call getInt on the cursor to get the party size
-
-        // TODO (8) Set the holder's nameTextView text to the guest's name
-
-        // TODO (9) Set the holder's partySizeTextView text to the party size
+        // COMPLETED (5) Move the cursor to the passed in position, return if moveToPosition returns false
+        // Move the mCursor to the position of the item to be displayed
+        if (!mCursor.moveToPosition(position))
+            return; // bail if returned null
+        // COMPLETED (6) Call getString on the cursor to get the guest's name
+        String name = mCursor.getString(mCursor.getColumnIndex(WaitlistContract.WaitlistEntry.COLUMN_GUEST_NAME));
+        // COMPLETED (7) Call getInt on the cursor to get the party size
+        int partySize = mCursor.getInt(mCursor.getColumnIndex(WaitlistContract.WaitlistEntry.COLUMN_PARTY_SIZE));
+        // COMPLETED (8) Set the holder's nameTextView text to the guest's name
+        // Display the guest name
+        holder.nameTextView.setText(name);
+        // COMPLETED (9) Set the holder's partySizeTextView text to the party size
+        // Display the party count
+        holder.partySizeTextView.setText(String.valueOf(partySize));
     }
 
     @Override
     public int getItemCount() {
-        // TODO (4) Update the getItemCount to return the getCount of mCursor
-        return mCount;
+        // COMPLETED (4) Update the getItemCount to return the getCount of the cursor
+        return mCursor.getCount();
     }
-
-
+    
     /**
      * Inner class to hold the views needed to display a single item in the recycler-view
      */
