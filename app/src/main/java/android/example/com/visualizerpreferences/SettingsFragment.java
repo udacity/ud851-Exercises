@@ -27,7 +27,6 @@ import android.support.v7.preference.PreferenceFragmentCompat;
 import android.support.v7.preference.PreferenceScreen;
 import android.widget.Toast;
 
-// COMPLETED (1) Implement OnSharedPreferenceChangeListener
 
 public class SettingsFragment extends PreferenceFragmentCompat implements
         OnSharedPreferenceChangeListener {
@@ -37,10 +36,6 @@ public class SettingsFragment extends PreferenceFragmentCompat implements
 
         // Add visualizer preferences, defined in the XML file in res->xml->pref_visualizer
         addPreferencesFromResource(R.xml.pref_visualizer);
-
-        // COMPLETED (3) Get the preference screen, get the number of preferences and iterate through
-        // all of the preferences if it is not a checkbox preference, call the setSummary method
-        // passing in a preference and the value of the preference
 
         SharedPreferences sharedPreferences = getPreferenceScreen().getSharedPreferences();
         PreferenceScreen prefScreen = getPreferenceScreen();
@@ -58,8 +53,6 @@ public class SettingsFragment extends PreferenceFragmentCompat implements
         }
     }
 
-    // COMPLETED (4) Override onSharedPreferenceChanged and, if it is not a checkbox preference,
-    // call setPreferenceSummary on the changed preference
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         // Figure out which preference was changed
@@ -73,10 +66,6 @@ public class SettingsFragment extends PreferenceFragmentCompat implements
         }
     }
 
-    // COMPLETED (2) Create a setPreferenceSummary which takes a Preference and String value as parameters.
-    // This method should check if the preference is a ListPreference and, if so, find the label
-    // associated with the value. You can do this by using the findIndexOfValue and getEntries methods
-    // of Preference.
     /**
      * Updates the summary for the preference
      *
@@ -84,6 +73,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements
      * @param value      The value that the preference was updated to
      */
     private void setPreferenceSummary(Preference preference, String value) {
+        // TODO (3) Don't forget to add code here to properly set the summary for an EditTextPreference
         if (preference instanceof ListPreference) {
             // For list preferences, figure out the label of the selected value
             ListPreference listPreference = (ListPreference) preference;
@@ -94,9 +84,6 @@ public class SettingsFragment extends PreferenceFragmentCompat implements
             }
         }
     }
-
-    // COMPLETED (5) Register and unregister the OnSharedPreferenceChange listener (this class) in
-    // onCreate and onDestroy respectively.
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
