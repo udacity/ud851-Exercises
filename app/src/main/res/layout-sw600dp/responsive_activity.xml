@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Note that these first two to-do's are complete for this exercise, but included as general steps for creating alternative layout resources -->
 
-<!-- COMPLETED (1) Create a new layout folder for devices with a smallest width = 600dp -->
+<!-- Create a new layout folder for devices with a smallest width = 600dp -->
 <!-- This will let you create unique tablet layouts -->
 
-<!-- COMPLETED (2) Copy over the responsive_layout xml from the base layout folder -->
+<!-- Copy over the responsive_layout xml from the base layout folder -->
 
-<!-- COMPLETED (3) Using a horizontal linear layout, change this xml so that the ImageView appears to the left of all text -->
+<!-- Using a horizontal linear layout, change this xml so that the ImageView appears to the left of all text -->
 
 <!-- Vertical linear layout for a sample article -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -33,7 +33,7 @@
         android:gravity="center"
         android:contentDescription="@string/image_placeholder" />
 
-    <!-- COMPLETED (4) Wrap the text in a vertical linear layout and add more padding (8dp) to the left and right of all text -->
+    <!-- Wrap the text in a vertical linear layout and add more padding (8dp) to the left and right of all text -->
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
