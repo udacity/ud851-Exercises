@@ -15,7 +15,6 @@ public class MainActivity extends AppCompatActivity {
      */
     private static final String TAG = MainActivity.class.getSimpleName();
 
-    // COMPLETED (1) Create a key String called LIFECYCLE_CALLBACKS_TEXT_KEY
     /*
      * This constant String will be used to store the content of the TextView used to display the
      * list of callbacks. The reason we are storing the contents of the TextView is so that you can
@@ -40,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
      */
     private TextView mLifecycleDisplay;
 
+    // TODO (1) Declare and instantiate a static ArrayList of Strings called mLifecycleCallbacks
+
     /**
      * Called when the activity is first created. This is where you should do all of your normal
      * static set up: create views, bind data to lists, etc.
@@ -55,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
 
         mLifecycleDisplay = (TextView) findViewById(R.id.tv_lifecycle_events_display);
 
-        // COMPLETED (6) If savedInstanceState is not null and contains LIFECYCLE_CALLBACKS_TEXT_KEY, set that text on our TextView
         /*
          * If savedInstanceState is not null, that means our Activity is not being started for the
          * first time. Even if the savedInstanceState is not null, it is smart to check if the
@@ -70,6 +70,10 @@ public class MainActivity extends AppCompatActivity {
                 mLifecycleDisplay.setText(allPreviousLifecycleCallbacks);
             }
         }
+
+        // TODO (4) Iterate backwards through mLifecycleCallbacks, appending each String and a newline to mLifecycleDisplay
+
+        // TODO (5) Clear mLifecycleCallbacks after iterating through it
 
         logAndAppend(ON_CREATE);
     }
@@ -129,6 +133,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
 
+        // TODO (2) Add the ON_STOP String to the front of mLifecycleCallbacks
+
         logAndAppend(ON_STOP);
     }
 
@@ -154,17 +160,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
 
+        // TODO (3) Add the ON_DESTROY String to the front of mLifecycleCallbacks
+
         logAndAppend(ON_DESTROY);
     }
 
-    // COMPLETED (2) Override onSaveInstanceState
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-        // COMPLETED (3) Call super.onSaveInstanceState
         super.onSaveInstanceState(outState);
-        // COMPLETED (4) Call logAndAppend with the ON_SAVE_INSTANCE_STATE String
         logAndAppend(ON_SAVE_INSTANCE_STATE);
-        // COMPLETED (5) Put the text from the TextView in the outState bundle
         String lifecycleDisplayTextViewContents = mLifecycleDisplay.getText().toString();
         outState.putString(LIFECYCLE_CALLBACKS_TEXT_KEY, lifecycleDisplayTextViewContents);
     }
