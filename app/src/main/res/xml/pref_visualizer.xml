@@ -23,7 +23,6 @@
         android:summaryOn="@string/pref_show_true"
         android:title="@string/pref_show_treble_label" />
 
-    <!-- COMPLETED (1) Add a list preference -->
     <ListPreference
         android:defaultValue="@string/pref_color_red_value"
         android:entries="@array/pref_color_option_labels"
