@@ -21,7 +21,6 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    // COMPLETED (1) Declare a TextView variable called mToysListTextView
     private TextView mToysListTextView;
 
     @Override
@@ -29,14 +28,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // COMPLETED (3) Use findViewById to get a reference to the TextView from the layout
         /*
          * Using findViewById, we get a reference to our TextView from xml. This allows us to
          * do things like set the text of the TextView.
          */
         mToysListTextView = (TextView) findViewById(R.id.tv_toy_names);
 
-        // COMPLETED (4) Use the static ToyBox.getToyNames method and store the names in a String array
         /*
          * This String array contains names of classic toys. After all, these are toy apps. We
          * wanted to create a way to break concepts down into smaller pieces that we thought might
@@ -48,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
          */
         String[] toyNames = ToyBox.getToyNames();
 
-        // COMPLETED (5) Loop through each toy and append the name to the TextView (add \n for spacing)
         /*
          * Iterate through the array and append the Strings to the TextView. The reason why we add
          * the "\n\n\n" after the String is to give visual separation between each String in the
