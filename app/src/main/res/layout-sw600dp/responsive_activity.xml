@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Note that these first two to-do's are complete for this exercise, but included as general steps for creating alternative layout resources -->
+
+<!-- TODO (1) Create a new layout folder for devices with a smallest width = 600dp -->
+<!-- This will let you create unique tablet layouts -->
+
+<!-- TODO (2) Copy over the responsive_layout xml from the base layout folder -->
+
+<!-- TODO (3) Using a horizontal linear layout, change this xml so that the ImageView appears to the left of all text -->
+<!-- The image layout height should be = 200dp and weight = 1, add 8dp padding to the right -->
+
+<!-- Vertical linear layout for a sample article -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="com.example.android.visualpolish.ResponsiveLayoutActivity">
+
+    <!-- The layout includes views for a placeholder image, article title, date, and body text -->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingBottom="8dp"
+        android:src="@drawable/ic_insert_image"
+        android:gravity="center"
+        android:contentDescription="@string/image_placeholder" />
+
+    <!-- TODO (4) Wrap the text in a vertical linear layout and add more padding (8dp) to the left and right of all text -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sample_title"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:paddingBottom="4dp"/>
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sample_date"
+        android:textSize="20sp"
+        android:textColor="@android:color/darker_gray"
+        android:paddingBottom="8dp"/>
+
+
+    <TextView
+        android:id="@+id/body_text"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:text="@string/sample_body_text"
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
+
+</LinearLayout>
