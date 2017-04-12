@@ -17,6 +17,9 @@
 package com.example.android.todolist.data;
 
 import android.content.ComponentName;
+import android.content.ContentResolver;
+import android.content.ContentUris;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.UriMatcher;
 import android.content.pm.PackageManager;
@@ -165,52 +168,52 @@ public class TestTaskContentProvider {
     //================================================================================
 
 
-//    /**
-//     * Tests inserting a single row of data via a ContentResolver
-//     */
-//    @Test
-//    public void testInsert() {
-//
-//        /* Create values to insert */
-//        ContentValues testTaskValues = new ContentValues();
-//        testTaskValues.put(TaskContract.TaskEntry.COLUMN_DESCRIPTION, "Test description");
-//        testTaskValues.put(TaskContract.TaskEntry.COLUMN_PRIORITY, 1);
-//
-//        /* TestContentObserver allows us to test if notifyChange was called appropriately */
-//        TestUtilities.TestContentObserver taskObserver = TestUtilities.getTestContentObserver();
-//
-//        ContentResolver contentResolver = mContext.getContentResolver();
-//
-//        /* Register a content observer to be notified of changes to data at a given URI (tasks) */
-//        contentResolver.registerContentObserver(
-//                /* URI that we would like to observe changes to */
-//                TaskContract.TaskEntry.CONTENT_URI,
-//                /* Whether or not to notify us if descendants of this URI change */
-//                true,
-//                /* The observer to register (that will receive notifyChange callbacks) */
-//                taskObserver);
-//
-//
-//        Uri uri = contentResolver.insert(TaskContract.TaskEntry.CONTENT_URI, testTaskValues);
-//
-//
-//        Uri expectedUri = ContentUris.withAppendedId(TaskContract.TaskEntry.CONTENT_URI, 1);
-//
-//        String insertProviderFailed = "Unable to insert item through Provider";
-//        assertEquals(insertProviderFailed, uri, expectedUri);
-//
-//        /*
-//         * If this fails, it's likely you didn't call notifyChange in your insert method from
-//         * your ContentProvider.
-//         */
-//        taskObserver.waitForNotificationOrFail();
-//
-//        /*
-//         * waitForNotificationOrFail is synchronous, so after that call, we are done observing
-//         * changes to content and should therefore unregister this observer.
-//         */
-//        contentResolver.unregisterContentObserver(taskObserver);
-//    }
+    /**
+     * Tests inserting a single row of data via a ContentResolver
+     */
+    @Test
+    public void testInsert() {
+
+        /* Create values to insert */
+        ContentValues testTaskValues = new ContentValues();
+        testTaskValues.put(TaskContract.TaskEntry.COLUMN_DESCRIPTION, "Test description");
+        testTaskValues.put(TaskContract.TaskEntry.COLUMN_PRIORITY, 1);
+
+        /* TestContentObserver allows us to test if notifyChange was called appropriately */
+        TestUtilities.TestContentObserver taskObserver = TestUtilities.getTestContentObserver();
+
+        ContentResolver contentResolver = mContext.getContentResolver();
+
+        /* Register a content observer to be notified of changes to data at a given URI (tasks) */
+        contentResolver.registerContentObserver(
+                /* URI that we would like to observe changes to */
+                TaskContract.TaskEntry.CONTENT_URI,
+                /* Whether or not to notify us if descendants of this URI change */
+                true,
+                /* The observer to register (that will receive notifyChange callbacks) */
+                taskObserver);
+
+
+        Uri uri = contentResolver.insert(TaskContract.TaskEntry.CONTENT_URI, testTaskValues);
+
+
+        Uri expectedUri = ContentUris.withAppendedId(TaskContract.TaskEntry.CONTENT_URI, 1);
+
+        String insertProviderFailed = "Unable to insert item through Provider";
+        assertEquals(insertProviderFailed, uri, expectedUri);
+
+        /*
+         * If this fails, it's likely you didn't call notifyChange in your insert method from
+         * your ContentProvider.
+         */
+        taskObserver.waitForNotificationOrFail();
+
+        /*
+         * waitForNotificationOrFail is synchronous, so after that call, we are done observing
+         * changes to content and should therefore unregister this observer.
+         */
+        contentResolver.unregisterContentObserver(taskObserver);
+    }
 
 
     //================================================================================
