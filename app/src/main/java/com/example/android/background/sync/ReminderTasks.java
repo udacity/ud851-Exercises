@@ -45,4 +45,5 @@ public class ReminderTasks {
         PreferenceUtilities.incrementChargingReminderCount(context);
         NotificationUtils.remindUserBecauseCharging(context);
     }
+
 }
