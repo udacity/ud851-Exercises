@@ -2,8 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.udacity.example.quizexample">
 
-    <!-- TODO (1) Add the correct permission to access the DroidTermsExample content provider -->
-    
+    <!-- COMPLETED (1) Add the correct permission to access the DroidTermsExample content provider -->
+    <uses-permission android:name="com.example.udacity.droidtermsexample.TERMS_READ"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
