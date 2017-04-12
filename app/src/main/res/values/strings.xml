@@ -27,6 +27,16 @@
     <string name="pref_show_false">Hidden</string>
 
 
+    <!-- Label for the size preference -->
+    <string name="pref_size_label">Size Multiplier</string>
+
+    <!-- Key name for storing size in SharedPreferences -->
+    <string name="pref_size_key" translatable="false">size</string>
+
+    <!-- Default for size preference -->
+    <string name="pref_size_default" translatable="false">1</string>
+
+
     <!-- Label for the color preference -->
     <string name="pref_color_label">Shape Color</string>
 
@@ -48,4 +58,5 @@
 
     <!-- Value in SharedPreferences for green color option -->
     <string name="pref_color_green_value" translatable="false">green</string>
+
 </resources>
