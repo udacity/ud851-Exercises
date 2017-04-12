@@ -64,30 +64,45 @@ public class MainActivity extends AppCompatActivity implements
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         prefs.registerOnSharedPreferenceChangeListener(this);
 
-        // COMPLETED (5) Create and instantiate a new instance variable for your ChargingBroadcastReceiver
-        // and an IntentFilter
         /*
          * Setup and register the broadcast receiver
          */
         mChargingIntentFilter = new IntentFilter();
         mChargingReceiver = new ChargingBroadcastReceiver();
-        // COMPLETED (6) Call the addAction method on your intent filter and add Intent.ACTION_POWER_CONNECTED
-        // and Intent.ACTION_POWER_DISCONNECTED. This sets up an intent filter which will trigger
-        // when the charging state changes.
         mChargingIntentFilter.addAction(Intent.ACTION_POWER_CONNECTED);
         mChargingIntentFilter.addAction(Intent.ACTION_POWER_DISCONNECTED);
     }
 
-    // COMPLETED (7) Override onResume and setup your broadcast receiver. Do this by calling
-    // registerReceiver with the ChargingBroadcastReceiver and IntentFilter.
     @Override
     protected void onResume() {
         super.onResume();
         registerReceiver(mChargingReceiver, mChargingIntentFilter);
+
+        // The developer documentation shows how to get battery information pre Android M:
+        // https://developer.android.com/training/monitoring-device-state/battery-monitoring.html
+        // In Android M and beyond you can simply get a reference to the BatteryManager and call
+        // isCharging.
+
+        // TODO (1) Check if you are on Android M or later, if so...
+            // TODO (2) Get a BatteryManager instance using getSystemService()
+            // TODO (3) Call isCharging on the battery manager and pass the result on to your show
+            // charging method
+
+        // TODO (4) If your user is not on M+, then...
+            // TODO (5) Create a new intent filter with the action ACTION_BATTERY_CHANGED. This is a
+            // sticky broadcast that contains a lot of information about the battery state.
+            // TODO (6) Set a new Intent object equal to what is returned by registerReceiver, passing in null
+            // for the receiver. Pass in your intent filter as well. Passing in null means that you're
+            // getting the current state of a sticky broadcast - the intent returned will contain the
+            // battery information you need.
+            // TODO (7) Get the integer extra BatteryManager.EXTRA_STATUS. Check if it matches
+            // BatteryManager.BATTERY_STATUS_CHARGING or BatteryManager.BATTERY_STATUS_FULL. This means
+            // the battery is currently charging.
+            // TODO (8) Update the UI using your showCharging method
+
+        registerReceiver(mChargingReceiver, mChargingIntentFilter);
     }
 
-
-    // COMPLETED (8) Override onPause and unregister your receiver using the unregisterReceiver method
     @Override
     protected void onPause() {
         super.onPause();
@@ -149,10 +164,6 @@ public class MainActivity extends AppCompatActivity implements
         }
     }
 
-    // COMPLETED (1) Create a new method called showCharging which takes a boolean. This method should
-    // either change the image of mChargingImageView to ic_power_pink_80px if the boolean is true
-    // or R.drawable.ic_power_grey_80px it it's not. This method will eventually update the UI
-    // when our broadcast receiver is triggered when the charging state changes.
     private void showCharging(boolean isCharging){
         if (isCharging) {
             mChargingImageView.setImageResource(R.drawable.ic_power_pink_80px);
@@ -162,18 +173,12 @@ public class MainActivity extends AppCompatActivity implements
         }
     }
 
-
-    // COMPLETED (2) Create an inner class called ChargingBroadcastReceiver that extends BroadcastReceiver
     private class ChargingBroadcastReceiver extends BroadcastReceiver {
-        // COMPLETED (3) Override onReceive to get the action from the intent and see if it matches the
-        // Intent.ACTION_POWER_CONNECTED. If it matches, it's charging. If it doesn't match it's not
-        // charging.
         @Override
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
             boolean isCharging = (action.equals(Intent.ACTION_POWER_CONNECTED));
 
-            // COMPLETED (4) Update the UI using the showCharging method you wrote
             showCharging(isCharging);
         }
     }
