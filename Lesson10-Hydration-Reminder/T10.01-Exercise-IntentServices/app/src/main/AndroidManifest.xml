@@ -22,7 +22,7 @@
          attribute to false-->
 
         <service
-            android:name="WaterReminderIntentService"
+            android:name=".sync.WaterReminderIntentService"
             android:exported="false" />
 
     </application>
