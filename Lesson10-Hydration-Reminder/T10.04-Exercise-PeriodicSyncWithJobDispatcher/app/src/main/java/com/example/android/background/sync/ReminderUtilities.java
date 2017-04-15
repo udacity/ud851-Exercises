@@ -16,7 +16,51 @@
 package com.example.android.background.sync;
 
 
+import android.content.Context;
+
+import com.firebase.jobdispatcher.Constraint;
+import com.firebase.jobdispatcher.FirebaseJobDispatcher;
+import com.firebase.jobdispatcher.GooglePlayDriver;
+import com.firebase.jobdispatcher.Job;
+import com.firebase.jobdispatcher.Lifetime;
+import com.firebase.jobdispatcher.Trigger;
+
+import java.sql.Driver;
+import java.sql.Time;
+import java.util.concurrent.TimeUnit;
+
 public class ReminderUtilities {
+    private static final int REMIND_INTEVAL_MINUTES = 15;
+    private static final int REMIND_INTEVAL_SECONDS = (int) TimeUnit.MINUTES.toSeconds(REMIND_INTEVAL_MINUTES);
+    private static final int SYNC_FLEXTIME_SECONDS = REMIND_INTEVAL_SECONDS;
+    private static final String REMIND_JOB_TAG = "hydration_reminder_tag";
+
+    private static boolean sInitialized;
+
+    synchronized public static void scheduleChargingReminder(Context context){
+        if(sInitialized) return;
+
+        GooglePlayDriver driver = new GooglePlayDriver(context);
+
+        FirebaseJobDispatcher firebaseJobDispatcher = new FirebaseJobDispatcher(driver);
+
+        Job job = firebaseJobDispatcher.newJobBuilder().
+                setService(WaterReminderFirebaseJobService.class).
+                setTag(REMIND_JOB_TAG).
+                setConstraints(Constraint.DEVICE_CHARGING).
+                setLifetime(Lifetime.FOREVER).
+                setRecurring(true).
+                setTrigger(Trigger.executionWindow(REMIND_INTEVAL_SECONDS, REMIND_INTEVAL_SECONDS + SYNC_FLEXTIME_SECONDS)).
+                setReplaceCurrent(true).
+                build();
+
+        firebaseJobDispatcher.schedule(job);
+        sInitialized = true;
+
+
+    }
+
+
     // TODO (15) Create three constants and one variable:
     //  - REMINDER_INTERVAL_SECONDS should be an integer constant storing the number of seconds in 15 minutes
     //  - SYNC_FLEXTIME_SECONDS should also be an integer constant storing the number of seconds in 15 minutes

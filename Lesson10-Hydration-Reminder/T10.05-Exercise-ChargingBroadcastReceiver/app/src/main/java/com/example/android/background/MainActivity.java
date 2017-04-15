@@ -15,7 +15,10 @@
  */
 package com.example.android.background;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -39,6 +42,9 @@ public class MainActivity extends AppCompatActivity implements
 
     private Toast mToast;
 
+    IntentFilter mIntentFilter;
+    BroadcastReceiver mBroadcastReveiver;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +63,12 @@ public class MainActivity extends AppCompatActivity implements
         /** Setup the shared preference listener **/
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         prefs.registerOnSharedPreferenceChangeListener(this);
+
+        mIntentFilter = new IntentFilter();
+        mIntentFilter.addAction(Intent.ACTION_POWER_CONNECTED);
+        mIntentFilter.addAction(Intent.ACTION_POWER_DISCONNECTED);
+
+        mBroadcastReveiver = new ChargingBroadcastReceiver();
 
         // TODO (5) Create and instantiate a new instance variable for your ChargingBroadcastReceiver
         // and an IntentFilter
@@ -89,6 +101,28 @@ public class MainActivity extends AppCompatActivity implements
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        registerReceiver(mBroadcastReveiver,mIntentFilter);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        unregisterReceiver(mBroadcastReveiver);
+    }
+
+    public void showCharging(boolean checkCharging){
+        if(checkCharging){
+            mChargingImageView.setImageResource(R.drawable.ic_power_pink_80px);
+
+        }
+        else{
+            mChargingImageView.setImageResource(R.drawable.ic_power_grey_80px);
+        }
+
+    }
     // TODO (1) Create a new method called showCharging which takes a boolean. This method should
     // either change the image of mChargingImageView to ic_power_pink_80px if the boolean is true
     // or R.drawable.ic_power_grey_80px it it's not. This method will eventually update the UI
@@ -128,7 +162,21 @@ public class MainActivity extends AppCompatActivity implements
         }
     }
 
+    public class ChargingBroadcastReceiver extends BroadcastReceiver{
 
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+
+            if(action.equals(Intent.ACTION_POWER_CONNECTED)){
+                showCharging(true);
+
+            }
+            else{
+                showCharging(false);
+            }
+        }
+    }
     // TODO (2) Create an inner class called ChargingBroadcastReceiver that extends BroadcastReceiver
         // TODO (3) Override onReceive to get the action from the intent and see if it matches the
         // Intent.ACTION_POWER_CONNECTED. If it matches, it's charging. If it doesn't match, it's not
