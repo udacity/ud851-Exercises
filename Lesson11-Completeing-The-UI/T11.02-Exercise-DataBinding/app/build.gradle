@@ -17,6 +17,7 @@ android {
             minifyEnabled false
         }
     }
+    dataBinding.enabled = true;
 
 }
 
