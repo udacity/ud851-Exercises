@@ -28,6 +28,15 @@
     <!-- TODO (2) Add string values for the list preference -->
     <!-- TODO (3) Add a res->values->arrays.xml file which contains two arrays, one for
         labels and one for values. The arrays should contain strings found in this file-->
+    <string name="pref_color_label">Shape Color</string>
+
+    <string name="pref_color_label_red">Red</string>
+
+    <string name="pref_color_label_blue">Blue</string>
+
+    <string name="pref_color_label_green">Green</string>
+
+    <string name="pref_color_key" translatable="false">color</string>
 
     <!-- Value in SharedPreferences for red color option -->
     <string name="pref_color_red_value" translatable="false">red</string>
