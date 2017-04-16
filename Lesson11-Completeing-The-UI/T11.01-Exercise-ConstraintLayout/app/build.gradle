@@ -24,4 +24,5 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:25.1.0'
     // TODO (1) Add the compile dependency for the constraint layout support library
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
 }
