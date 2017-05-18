@@ -38,7 +38,9 @@
 
     <!--TODO (2) Wrap the ScrollView in a FrameLayout-->
     <!--TODO (3) Make the width and height of the FrameLayout match_parent-->
-
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -51,6 +53,25 @@
             android:text="Make a search!"
             android:textSize="18sp" />
     </ScrollView>
+
+    <TextView
+        android:id="@+id/tv_error_message_display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:padding="16dp"
+        android:text="@string/error_message"
+        android:visibility="invisible"/>
+
+    <ProgressBar
+        android:id="@+id/pb_loading_indicator"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_gravity="center"
+        android:visibility="invisible"/>
+
+    </FrameLayout>
+
 
     <!--TODO (4) Add a TextView to display an error message-->
     <!--TODO (5) Set the text size to 22sp-->
@@ -67,4 +88,6 @@
     <!--TODO (21) Set the layout_gravity to center-->
     <!--TODO (22) Set the visibility of the ProgressBar to invisible-->
     <!--TODO (23) Make this ProgressBar a child of the FrameLayout the you added above-->
+
+
 </LinearLayout>
