@@ -53,6 +53,14 @@ public class MainActivity extends AppCompatActivity implements
     private TextView mErrorMessageDisplay;
 
     private ProgressBar mLoadingIndicator;
+    private String githubQuery;
+
+    // COMPLETED (1) Create a String member variable called mGithubJson that will store the raw JSON
+    // COMPLETED (5) Create a String member variable called mLastSearch that will store the search to be checked
+    /* This String will contain the raw JSON from the results of our Github search */
+    String mGithubJson;
+    String mLastSearch;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements
      * that URL in a TextView, and finally request that an AsyncTaskLoader performs the GET request.
      */
     private void makeGithubSearchQuery() {
-        String githubQuery = mSearchBoxEditText.getText().toString();
+        githubQuery = mSearchBoxEditText.getText().toString();
 
         /*
          * If the user didn't enter anything, there's nothing to search for. In the case where no
@@ -161,13 +169,11 @@ public class MainActivity extends AppCompatActivity implements
         mErrorMessageDisplay.setVisibility(View.VISIBLE);
     }
 
+
+
     @Override
     public Loader<String> onCreateLoader(int id, final Bundle args) {
         return new AsyncTaskLoader<String>(this) {
-
-            // COMPLETED (1) Create a String member variable called mGithubJson that will store the raw JSON
-            /* This String will contain the raw JSON from the results of our Github search */
-            String mGithubJson;
 
             @Override
             protected void onStartLoading() {
@@ -188,7 +194,7 @@ public class MainActivity extends AppCompatActivity implements
                  * If we already have cached results, just deliver them now. If we don't have any
                  * cached results, force a load.
                  */
-                if (mGithubJson != null) {
+                if (mLastSearch != null && mLastSearch.equals(githubQuery)) {
                     deliverResult(mGithubJson);
                 } else {
                     forceLoad();
@@ -221,6 +227,7 @@ public class MainActivity extends AppCompatActivity implements
             // COMPLETED (4) Call super.deliverResult after storing the data
             @Override
             public void deliverResult(String githubJson) {
+                mLastSearch = githubQuery;
                 mGithubJson = githubJson;
                 super.deliverResult(githubJson);
             }
