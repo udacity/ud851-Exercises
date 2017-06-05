@@ -200,14 +200,14 @@ public class VisualizerView extends View {
 
         // Calculate average for mid segment
         float midTotal = 0;
-        for (int i = (int) (bytes.length * BASS_SEGMENT_SIZE); i < bytes.length * MID_SEGMENT_SIZE; i++) {
+        for (int i = (int) (bytes.length * BASS_SEGMENT_SIZE); i < bytes.length * (BASS_SEGMENT_SIZE + MID_SEGMENT_SIZE); i++) {
             midTotal += Math.abs(bytes[i]);
         }
         mid = midTotal / (bytes.length * MID_SEGMENT_SIZE);
 
-        // Calculate average for terble segment
+        // Calculate average for treble segment
         float trebleTotal = 0;
-        for (int i = (int) (bytes.length * MID_SEGMENT_SIZE); i < bytes.length; i++) {
+        for (int i = (int) (bytes.length * (BASS_SEGMENT_SIZE + MID_SEGMENT_SIZE)); i < bytes.length; i++) {
             trebleTotal += Math.abs(bytes[i]);
         }
         treble = trebleTotal / (bytes.length * TREBLE_SEGMENT_SIZE);
