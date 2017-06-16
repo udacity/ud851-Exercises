@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // Do 2 - 7 in menu.xml ///////////////////////////////////////////////////////////////////////
-    // TODO (2) Create a menu in xml called main.xml
+    // TODO (2) Create a menu xml called 'main.xml' in the res->menu folder
     // TODO (3) Add one menu item to your menu
     // TODO (4) Give the menu item an id of @+id/action_search
     // TODO (5) Set the orderInCategory to 1
