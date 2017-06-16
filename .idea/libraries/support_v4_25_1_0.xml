@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="support-v4-25.1.0">
+    <CLASSES>
+      <root url="file://C:/tmp/ud851-Exercises/app/intermediates/exploded-aar/com.android.support/support-v4/25.1.0/res" />
+      <root url="jar://C:/tmp/ud851-Exercises/app/intermediates/exploded-aar/com.android.support/support-v4/25.1.0/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
