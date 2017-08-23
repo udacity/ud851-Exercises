@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
         );
     }
 
-    // COMPLETED (4) Create a new addGuest method
+    // COMPLETED (4) Create a new addNewGuest method
     /**
      * Adds a new guest to the mDb including the party count and the current timestamp
      *
