@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
         );
     }
 
-    // TODO (4) Create a new addGuest method
+    // TODO (4) Create a new addNewGuest method
 
     // TODO (5) Inside, create a ContentValues instance to pass the values onto the insert query
 
