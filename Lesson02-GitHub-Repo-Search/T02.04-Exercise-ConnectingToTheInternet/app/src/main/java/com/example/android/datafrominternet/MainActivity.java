@@ -25,6 +25,7 @@ import android.widget.TextView;
 import com.example.android.datafrominternet.utilities.NetworkUtils;
 
 import java.net.URL;
+import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
