@@ -28,6 +28,7 @@
         android:entries="@array/pref_color_option_labels"
         android:entryValues="@array/pref_color_option_values"
         android:key="@string/pref_color_key"
-        android:title="@string/pref_color_label" />
+        android:title="@string/pref_color_label"
+        android:summary="%s"/>
 
 </PreferenceScreen>
