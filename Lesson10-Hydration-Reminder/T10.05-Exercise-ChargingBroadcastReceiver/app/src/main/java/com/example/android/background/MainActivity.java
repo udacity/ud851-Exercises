@@ -107,6 +107,7 @@ public class MainActivity extends AppCompatActivity implements
         startService(incrementWaterCountIntent);
     }
 
+    
     @Override
     protected void onDestroy() {
         super.onDestroy();
