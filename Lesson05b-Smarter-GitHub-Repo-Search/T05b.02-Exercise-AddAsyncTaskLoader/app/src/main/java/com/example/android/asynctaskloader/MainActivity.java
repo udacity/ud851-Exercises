@@ -30,7 +30,7 @@ import com.example.android.asynctaskloader.utilities.NetworkUtils;
 import java.io.IOException;
 import java.net.URL;
 
-// TODO (1) implement LoaderManager.LoaderCallbacks<String> on MainActivity
+// TODO (1) implement LoaderManager.LoaderCallbacks<String> from android.support.v4.app on MainActivity
 public class MainActivity extends AppCompatActivity {
 
     /* A constant to save and restore the URL that is being displayed */
