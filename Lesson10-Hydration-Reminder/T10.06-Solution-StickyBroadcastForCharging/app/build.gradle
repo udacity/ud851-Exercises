@@ -9,6 +9,9 @@ android {
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
+        // COMPLETED Set vectorDrawables.useSupportLibrary = true to support vector drawable
+        // on devices running platform versions lower than Android 5.0
+        vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
         release {
