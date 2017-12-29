@@ -28,6 +28,8 @@ dependencies {
     //FAB dependencies
     compile 'com.android.support:design:27.0.2'
 
+    // TODO (1) Add room dependencies
+
     //Testing
     // Instrumentation dependencies use androidTestCompile
     // (as opposed to testCompile for local unit tests run in the JVM)
