@@ -2,13 +2,16 @@ package com.example.android.todolist.database;
 
 import java.util.Date;
 
+// TODO (2) Annotate the class with Entity. Use "task" for the table name
 public class TaskEntry {
 
+    // TODO (3) Annotate the id as PrimaryKey. Set autoGenerate to true.
     private int id;
     private String description;
     private int priority;
     private Date updatedAt;
 
+    // TODO (4) Use the Ignore annotation so Room knows that it has to use the other constructor instead
     public TaskEntry(String description, int priority, Date updatedAt) {
         this.description = description;
         this.priority = priority;
