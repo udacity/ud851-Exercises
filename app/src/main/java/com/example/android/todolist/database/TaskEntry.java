@@ -6,18 +6,16 @@ import android.arch.persistence.room.PrimaryKey;
 
 import java.util.Date;
 
-// COMPLETED (2) Annotate the class with Entity. Use "task" for the table name
 @Entity(tableName = "task")
 public class TaskEntry {
 
-    // COMPLETED (3) Annotate the id as PrimaryKey. Set autoGenerate to true.
     @PrimaryKey(autoGenerate = true)
     private int id;
     private String description;
     private int priority;
+    // TODO (1) Make updatedAt match a column named updated_at. Tip: Use the ColumnInfo annotation
     private Date updatedAt;
 
-    // COMPLETED (4) Use the Ignore annotation so Room knows that it has to use the other constructor instead
     @Ignore
     public TaskEntry(String description, int priority, Date updatedAt) {
         this.description = description;
