@@ -14,7 +14,6 @@ public class TaskEntry {
     private int id;
     private String description;
     private int priority;
-    // COMPLETED (1) Make updatedAt match a column named updated_at. Tip: Use the ColumnInfo annotation
     @ColumnInfo(name = "updated_at")
     private Date updatedAt;
 
