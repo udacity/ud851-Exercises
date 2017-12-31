@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity implements TaskAdapter.ItemC
     private RecyclerView mRecyclerView;
     private TaskAdapter mAdapter;
 
-    // COMPLETED (1) Create AppDatabase member variable for the Database
     private AppDatabase mDb;
 
     @Override
@@ -95,7 +94,6 @@ public class MainActivity extends AppCompatActivity implements TaskAdapter.ItemC
             }
         });
 
-        // COMPLETED (2) Initialize member variable for the data base
         mDb = AppDatabase.getInstance(getApplicationContext());
     }
 
@@ -107,8 +105,12 @@ public class MainActivity extends AppCompatActivity implements TaskAdapter.ItemC
     @Override
     protected void onResume() {
         super.onResume();
-        // COMPLETED (3) Call the adapter's setTasks method using the result
-        // of the loadAllTasks method from the taskDao
+        // TODO (5) Get the diskIO Executor from the instance of AppExecutors and
+        // call the diskIO execute method with a new Runnable and implement its run method
+
+        // TODO (6) Move the logic into the run method and
+        // extract the list of tasks to a final variable
+        // TODO (7) Wrap the setTask call in a call to runOnUiThread
         mAdapter.setTasks(mDb.taskDao().loadAllTasks());
     }
 
