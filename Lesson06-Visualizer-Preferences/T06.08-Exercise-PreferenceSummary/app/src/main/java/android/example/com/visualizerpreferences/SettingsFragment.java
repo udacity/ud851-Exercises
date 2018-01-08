@@ -27,7 +27,8 @@ import android.support.v7.preference.PreferenceFragmentCompat;
 import android.support.v7.preference.PreferenceScreen;
 import android.widget.Toast;
 
-// TODO (1) Implement OnSharedPreferenceChangeListener
+// TODO DONE, check below (1) Implement OnSharedPreferenceChangeListener
+// the issue solved in pref_visualizer.xml with android:summary="%s"
 public class SettingsFragment extends PreferenceFragmentCompat {
 
     @Override
