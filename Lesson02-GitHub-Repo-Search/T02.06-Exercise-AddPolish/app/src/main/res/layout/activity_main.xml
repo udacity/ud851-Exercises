@@ -66,5 +66,5 @@
     <!--TODO (20) Set the layout_height and layout_width to 42dp-->
     <!--TODO (21) Set the layout_gravity to center-->
     <!--TODO (22) Set the visibility of the ProgressBar to invisible-->
-    <!--TODO (23) Make this ProgressBar a child of the FrameLayout the you added above-->
+    <!--TODO (23) Make this ProgressBar a child of the FrameLayout that you added above-->
 </LinearLayout>
