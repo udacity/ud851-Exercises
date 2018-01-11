@@ -12,7 +12,7 @@
         android:layout_gravity="center"
         android:layout_margin="20dp"
         android:id="@+id/button_next"
-        android:text="@string/show_definition"
+        android:text="@string/first_word"
         android:onClick="onButtonClick"/>
     <TextView
         android:id="@+id/text_view_word"
@@ -21,7 +21,6 @@
         android:layout_margin="16dp"
         android:layout_weight="3"
         android:gravity="center"
-        android:text="A sample word"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -40,7 +39,6 @@
         android:paddingBottom="8dp"
         android:paddingLeft="32dp"
         android:paddingRight="32dp"
-        android:paddingTop="8dp"
-        android:text="A sample description. Should be deleted." />
+        android:paddingTop="8dp" />
 
 </LinearLayout>
