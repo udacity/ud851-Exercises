@@ -51,16 +51,17 @@ public class MainActivity extends AppCompatActivity {
         // COMPLETED (5) Store an address in a String
         String addressString = "1600 Amphitheatre Parkway, CA";
 
-        // COMPLETED (6) Use Uri.Builder with the appropriate scheme and query to form the Uri for the address
+        // COMPLETED (6) Use Uri.Builder with the appropriate scheme and appendQueryParameter to form the Uri for the address
         Uri.Builder builder = new Uri.Builder();
         builder.scheme("geo")
                 .path("0,0")
-                .query(addressString);
+                .appendQueryParameter("q",addressString);
         Uri addressUri = builder.build();
 
         // COMPLETED (7) Replace the Toast with a call to showMap, passing in the Uri from the previous step
         showMap(addressUri);
     }
+	
 
     /**
      * This method is called when the Share Text Content button is clicked. It will simply share
