@@ -51,7 +51,12 @@ public class MainActivity extends AppCompatActivity {
     public void makeGithubSearchQuery()
     {
         URL url = NetworkUtils.buildUrl(mSearchBoxEditText.getText().toString());
-        mUrlDisplayTextView.setText(url.getPath().toString());
+        if(url.getPath().toString()!=null) {
+            mUrlDisplayTextView.setText(url.getPath().toString());
+        }else{
+            url = NetworkUtils.buildUrl(NetworkUtils.GITHUB_BASE_URL.toString());
+            mUrlDisplayTextView.setText(url.getPath().toString());
+        }
 
     }
 
