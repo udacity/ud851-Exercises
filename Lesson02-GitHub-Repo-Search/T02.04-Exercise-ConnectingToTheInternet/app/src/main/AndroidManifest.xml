@@ -3,6 +3,7 @@
           package="com.example.android.datafrominternet">
 
     <!--TODO (1) Add the INTERNET permission-->
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
 
     <application
         android:allowBackup="true"
