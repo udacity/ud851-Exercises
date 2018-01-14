@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    // COMPLETED Change the ConstraintLayout to a FrameLayout and make appropriate adjustments
+    // COMPLETED Give your TextView an ID of tv_display
+    // COMPLETED Set the text to something that indicates this is default text being displayed
+    // COMPLETED Make the text size a little larger
+-->
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.android.explicitintent.ChildActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_display"
+        android:text="Child activity is created!"
+        style="@style/TextAppearance.AppCompat.Large"
+        android:textSize="22sp"/>
+
+</FrameLayout>
