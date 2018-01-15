@@ -54,10 +54,10 @@ public class MainActivity extends AppCompatActivity {
         // COMPLETED Store an address in a String
         String searchAddress = "9020 Aviation Boulevard, Inglewood, CA";
         // COMPLETED Use Uri.Builder with the appropriate scheme and query to form the Uri for the address
-        Uri uri = new Uri.Builder().scheme("geo").path("0,0").query(searchAddress).build();
+        Uri mapUri = Uri.parse("geo:0,0?q=" + searchAddress);
         // COMPLETED Replace the Toast with a call to showMap, passing in the Uri from the previous step
         //Toast.makeText(this, "COMPLETED: Open a map when this button is clicked", Toast.LENGTH_SHORT).show();
-        showMap(uri);
+        showMap(mapUri);
     }
 
     /**
