@@ -16,7 +16,12 @@
     <string name="pref_show_true">Shown</string>
     <string name="pref_show_false">Hidden</string>
 
-    <!-- TODO (2) Add all of the strings for the new checkboxes -->
+    <!-- COMPLETED Add all of the strings for the new checkboxes -->
+    <string name="pref_show_mid_key" translatable="false">show_mid</string>
+    <string name="pref_show_mid_label" translatable="false">Show Mid</string>
+
+    <string name="pref_show_treble_key" translatable="false">show_treble_key</string>
+    <string name="pref_show_treble_label" translatable="false">Show Treble</string>
 
     <!-- Value in SharedPreferences for red color option -->
     <string name="pref_color_red_value" translatable="false">red</string>
