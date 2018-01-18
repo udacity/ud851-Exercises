@@ -175,6 +175,7 @@ public class MainActivity extends AppCompatActivity implements
                     return;
                 }
 
+                // TODO (5) Only show the loading indicator if we're forcing a load.
                 /*
                  * When we initially begin loading in the background, we want to display the
                  * loading indicator to the user
