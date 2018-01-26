@@ -16,10 +16,17 @@
 
 package com.example.android.todolist;
 
+import android.content.ContentValues;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Toast;
+
+import com.example.android.todolist.data.TaskContract;
 
 
 public class AddTaskActivity extends AppCompatActivity {
@@ -44,12 +51,24 @@ public class AddTaskActivity extends AppCompatActivity {
      */
     public void onClickAddTask(View view) {
         // Not yet implemented
-        // TODO (6) Check if EditText is empty, if not retrieve input and store it in a ContentValues object
+        // COMPLETED Check if EditText is empty, if not retrieve input and store it in a ContentValues object
+        EditText editText = (EditText) findViewById(R.id.editTextTaskDescription);
+        if (TextUtils.isEmpty(editText.getText())) {
+            return;
+        }
 
-        // TODO (7) Insert new task data via a ContentResolver
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(TaskContract.TaskEntry.COLUMN_DESCRIPTION, editText.getText().toString());
+        contentValues.put(TaskContract.TaskEntry.COLUMN_PRIORITY, mPriority);
 
-        // TODO (8) Display the URI that's returned with a Toast
+        // COMPLETED Insert new task data via a ContentResolver
+        Uri result = getContentResolver().insert(TaskContract.TaskEntry.CONTENT_URI, contentValues);
+
+        // COMPLETED Display the URI that's returned with a Toast
+        Toast.makeText(this, result.toString(), Toast.LENGTH_LONG).show();
+
         // [Hint] Don't forget to call finish() to return to MainActivity after this insert is complete
+            finish();
 
     }
 
