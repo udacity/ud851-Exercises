@@ -30,11 +30,21 @@
         android:textSize="42sp"
         tools:text="#42" />
 
-    <!--TODO (1) Add a TextView with id "@+id/tv_view_holder_instance-->
-    <!--TODO (2) Set the style to @style/TextAppearance.AppCompat.Title-->
-    <!--TODO (3) Set the width and the height to wrap_content-->
-    <!--TODO (4) Align the TextView to the end of the parent-->
-    <!--TODO (5) Align the TextView in the center vertically-->
-    <!--TODO (6) Set the font family to monospace-->
-    <!--TODO (7) Set the text color to "#000"-->
+    <!--TODO (1) Add a TextView with id "@+id/tv_view_holder_instance CHECKED-->
+    <!--TODO (2) Set the style to @style/TextAppearance.AppCompat.Title CHECKED-->
+    <!--TODO (3) Set the width and the height to wrap_content CHECKED-->
+    <!--TODO (4) Align the TextView to the end of the parent CHECKED-->
+    <!--TODO (5) Align the TextView in the center vertically CHECKED-->
+    <!--TODO (6) Set the font family to monospace CHECKED-->
+    <!--TODO (7) Set the text color to "#000 CHECKED"-->
+    <TextView
+        android:id="@+id/tv_view_holder_instance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/TextAppearance.AppCompat.Title"
+        android:layout_gravity="center_vertical|end"
+        android:fontFamily="monospace"
+        android:textSize="16sp"
+        android:textColor="#000"/>
+
 </FrameLayout>

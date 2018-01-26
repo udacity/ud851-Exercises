@@ -39,7 +39,9 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHo
 
     private static final String TAG = GreenAdapter.class.getSimpleName();
 
-    // TODO (8) Add a private static int called viewHolderCount that will hold the total number of ViewHolders that are created
+    // TODO (8) Add a private static int called viewHolderCount that will hold the total number of ViewHolders that are created CHECKED
+    private static int viewHolderCount;
+    String viewHolderIndex = "";
 
     private int mNumberItems;
 
@@ -51,7 +53,8 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHo
      */
     public GreenAdapter(int numberOfItems) {
         mNumberItems = numberOfItems;
-        // TODO (9) When a new GreenAdapter is created, set the viewHolderCount to 0
+        // TODO (9) When a new GreenAdapter is created, set the viewHolderCount to 0 CHECKED
+        viewHolderCount = 0;
     }
     /**
      *
@@ -75,13 +78,18 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHo
         View view = inflater.inflate(layoutIdForListItem, viewGroup, shouldAttachToParentImmediately);
         NumberViewHolder viewHolder = new NumberViewHolder(view);
 
-        // TODO (12) Set the text of viewHolderIndex to "ViewHolder index: " + viewHolderCount
+        // TODO (12) Set the text of viewHolderIndex to "ViewHolder index: " + viewHolderCount CHECKED BUT CONFUSED
+        viewHolderIndex = "ViewHolder index : "+viewHolderCount;
+        viewHolder.dysplayViewholderIndex(viewHolderIndex);
 
-        // TODO (13) Use ColorUtils.getViewHolderBackgroundColorFromInstance and pass in a Context and the viewHolderCount
-        // TODO (14) Set the background color of viewHolder.itemView with the color from above
+        // TODO (13) Use ColorUtils.getViewHolderBackgroundColorFromInstance and pass in a Context and the viewHolderCount CHECKED
+        int colorUtils = ColorUtils.getViewHolderBackgroundColorFromInstance(context,viewHolderCount);
+        // TODO (14) Set the background color of viewHolder.itemView with the color from above checked
+        viewHolder.itemView.setBackgroundColor(colorUtils);
 
-        // TODO (15) Increment viewHolderCount and log its value
-
+        // TODO (15) Increment viewHolderCount and log its value CHECKED
+        viewHolderCount+=1;
+         Log.d("viewHolderCounter", "hey "+viewHolderCount);
         return viewHolder;
     }
 
@@ -97,8 +105,10 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHo
      */
     @Override
     public void onBindViewHolder(NumberViewHolder holder, int position) {
+
         Log.d(TAG, "#" + position);
         holder.bind(position);
+
     }
 
     /**
@@ -119,7 +129,8 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHo
 
         // Will display the position in the list, ie 0 through getItemCount() - 1
         TextView listItemNumberView;
-        // TODO (10) Add a TextView variable to display the ViewHolder index
+        // TODO (10) Add a TextView variable to display the ViewHolder index CHECKED
+        TextView tv_view_holder_instace;
 
         /**
          * Constructor for our ViewHolder. Within this constructor, we get a reference to our
@@ -133,7 +144,8 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHo
 
             listItemNumberView = (TextView) itemView.findViewById(R.id.tv_item_number);
 
-            // TODO (11) Use itemView.findViewById to get a reference to tv_view_holder_instance
+            // TODO (11) Use itemView.findViewById to get a reference to tv_view_holder_instance CHECKED
+            tv_view_holder_instace = (TextView) itemView.findViewById(R.id.tv_view_holder_instance);
         }
 
         /**
@@ -144,5 +156,6 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHo
         void bind(int listIndex) {
             listItemNumberView.setText(String.valueOf(listIndex));
         }
+        void dysplayViewholderIndex(String data){tv_view_holder_instace.setText(data);}
     }
 }
