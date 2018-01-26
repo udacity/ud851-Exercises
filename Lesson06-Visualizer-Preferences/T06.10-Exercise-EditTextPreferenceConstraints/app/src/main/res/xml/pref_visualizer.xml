@@ -26,7 +26,8 @@
     <EditTextPreference
         android:defaultValue="@string/pref_size_default"
         android:key="@string/pref_size_key"
-        android:title="@string/pref_size_label" />
+        android:title="@string/pref_size_label"
+        android:inputType="number"/>
 
     <ListPreference
         android:defaultValue="@string/pref_color_red_value"

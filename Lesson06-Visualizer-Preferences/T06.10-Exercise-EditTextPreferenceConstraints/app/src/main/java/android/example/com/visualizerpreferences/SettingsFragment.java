@@ -18,7 +18,9 @@ package android.example.com.visualizerpreferences;
 
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v7.preference.CheckBoxPreference;
 import android.support.v7.preference.EditTextPreference;
 import android.support.v7.preference.ListPreference;
@@ -27,9 +29,11 @@ import android.support.v7.preference.PreferenceFragmentCompat;
 import android.support.v7.preference.PreferenceScreen;
 import android.widget.Toast;
 
-// TODO (1) Implement OnPreferenceChangeListener
+import java.util.Objects;
+
+// TODO DONE (1) Implement OnPreferenceChangeListener
 public class SettingsFragment extends PreferenceFragmentCompat implements
-        OnSharedPreferenceChangeListener {
+        OnSharedPreferenceChangeListener, Preference.OnPreferenceChangeListener {
 
     @Override
     public void onCreatePreferences(Bundle bundle, String s) {
@@ -51,7 +55,10 @@ public class SettingsFragment extends PreferenceFragmentCompat implements
                 setPreferenceSummary(p, value);
             }
         }
-        // TODO (3) Add the OnPreferenceChangeListener specifically to the EditTextPreference
+        // TODO DONE (3) Add the OnPreferenceChangeListener specifically to the EditTextPreference
+
+        Preference preference = findPreference(getString(R.string.pref_size_key));
+        preference.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -88,7 +95,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements
         }
     }
 
-    // TODO (2) Override onPreferenceChange. This method should try to convert the new preference value
+    // TODO DONE (2) Override onPreferenceChange. This method should try to convert the new preference value
     // to a float; if it cannot, show a helpful error message and return false. If it can be converted
     // to a float check that that float is between 0 (exclusive) and 3 (inclusive). If it isn't, show
     // an error message and return false. If it is a valid number, return true.
@@ -105,5 +112,27 @@ public class SettingsFragment extends PreferenceFragmentCompat implements
         super.onDestroy();
         getPreferenceScreen().getSharedPreferences()
                 .unregisterOnSharedPreferenceChangeListener(this);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        String sizeTrimmed = newValue.toString().trim();
+        Toast error = Toast.makeText(getContext(), "Please select a number bigger than 0, and max. 3", Toast.LENGTH_SHORT);
+
+
+        if (Objects.equals(preference.getKey(), getString(R.string.pref_size_key))) {
+            try {
+                float size = Float.parseFloat(sizeTrimmed);
+                if (size <= 0 || size > 3) {
+                    error.show();
+                    return false;
+                }
+            } catch (NumberFormatException e) {
+                error.show();
+                return false;
+            }
+        }
+        return true;
     }
 }

@@ -16,6 +16,7 @@
 
 package com.example.android.todolist;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -121,6 +122,7 @@ public class MainActivity extends AppCompatActivity implements
      *
      * Implements the required callbacks to take care of loading data at all stages of loading.
      */
+    @SuppressLint("StaticFieldLeak")
     @Override
     public Loader<Cursor> onCreateLoader(int id, final Bundle loaderArgs) {
 

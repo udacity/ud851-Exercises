@@ -4,7 +4,7 @@
 
     <CheckBoxPreference
         android:defaultValue="true"
-        android:key="show_bass"
+        android:key="@string/show_bass_key"
         android:summaryOff="Hidden"
         android:summaryOn="Shown"
         android:title="Show Bass" />
