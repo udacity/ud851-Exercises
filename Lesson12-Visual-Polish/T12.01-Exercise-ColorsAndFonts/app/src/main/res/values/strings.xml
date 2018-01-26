@@ -32,5 +32,6 @@
     <string name="person_icon">Icon of a person.</string>
     <string name="first">First_name</string>
     <string name="last">Last_name</string>
+    <string name="small_caps_16sp">Small Caps 16sp</string>
 
 </resources>
