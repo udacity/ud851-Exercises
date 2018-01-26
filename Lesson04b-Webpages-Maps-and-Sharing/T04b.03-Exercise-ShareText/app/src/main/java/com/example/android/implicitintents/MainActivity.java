@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
         // COMPLETED (5) Specify a String you'd like to share
         /* Create the String that you want to share */
         String textThatYouWantToShare =
-                "Sharing the coolest thing I've learned so far. You should " +
+                "This is Sharing the coolest thing I've learned so far. You should " +
                         "check out Udacity and Google's Android Nanodegree!";
 
         // COMPLETED (6) Replace the Toast with shareText, passing in the String from step 5
