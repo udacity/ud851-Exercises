@@ -37,6 +37,13 @@
         <!--TODO (9) Create a meta-data tag for this Activity-->
         <!--TODO (10) Specify the name of the meta-data as android.support.PARENT_ACTIVITY-->
         <!--TODO (11) Specify the value of the meta data as .MainActivity-->
+        <activity android:name=".childActivity"
+            android:parentActivityName=".MainActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:resource="resource specification"
+                android:value=".MainActivity" />
+            </activity>
+
     </application>
 
 </manifest>
