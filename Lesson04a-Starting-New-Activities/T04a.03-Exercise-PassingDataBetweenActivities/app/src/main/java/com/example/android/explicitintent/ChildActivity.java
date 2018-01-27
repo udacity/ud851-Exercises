@@ -15,6 +15,7 @@
  */
 package com.example.android.explicitintent;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
@@ -33,11 +34,15 @@ public class ChildActivity extends AppCompatActivity {
         mDisplayText = (TextView) findViewById(R.id.tv_display);
 
         // TODO (3) Use the getIntent method to store the Intent that started this Activity in a variable
+        Intent prevIntent  =  getIntent();
 
         // TODO (4) Create an if statement to check if this Intent has the extra we passed from MainActivity
+        if(prevIntent.hasExtra("text"))
+        {
+            mDisplayText.setText(prevIntent.getStringExtra("text"));
+        }
+        // TODO (5) If the Intent contains the correct extra, retrieve the text
 
-            // TODO (5) If the Intent contains the correct extra, retrieve the text
-
-            // TODO (6) If the Intent contains the correct extra, use it to set the TextView text
+        // TODO (6) If the Intent contains the correct extra, use it to set the TextView text
     }
 }
