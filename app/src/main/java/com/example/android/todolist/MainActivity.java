@@ -24,6 +24,7 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.util.Log;
 import android.view.View;
 
 import com.example.android.todolist.database.AppDatabase;
@@ -84,6 +85,7 @@ public class MainActivity extends AppCompatActivity implements TaskAdapter.ItemC
                         int position = viewHolder.getAdapterPosition();
                         List<TaskEntry> tasks = mAdapter.getTasks();
                         mDb.taskDao().deleteTask(tasks.get(position));
+                        // TODO (6) Remove the call to retrieveTasks
                         retrieveTasks();
                     }
                 });
@@ -107,6 +109,7 @@ public class MainActivity extends AppCompatActivity implements TaskAdapter.ItemC
         });
 
         mDb = AppDatabase.getInstance(getApplicationContext());
+        // TODO (7) Call retrieveTasks from here and remove the onResume method
     }
 
     /**
@@ -124,7 +127,11 @@ public class MainActivity extends AppCompatActivity implements TaskAdapter.ItemC
         AppExecutors.getInstance().diskIO().execute(new Runnable() {
             @Override
             public void run() {
+                // TODO (4) Extract all this logic outside the Executor and remove the Executor
+                Log.d(TAG, "Actively retrieving the tasks from the DataBase");
+                // TODO (3) Fix compile issue by wrapping the return type with LiveData
                 final List<TaskEntry> tasks = mDb.taskDao().loadAllTasks();
+                // TODO (5) Observe tasks and move the logic from runOnUiThread to onChanged
                 // We will be able to simplify this once we learn more
                 // about Android Architecture Components
                 runOnUiThread(new Runnable() {
@@ -140,7 +147,6 @@ public class MainActivity extends AppCompatActivity implements TaskAdapter.ItemC
     @Override
     public void onItemClickListener(int itemId) {
         // Launch AddTaskActivity adding the itemId as an extra in the intent
-        // COMPLETED (2) Launch AddTaskActivity with itemId as extra for the key AddTaskActivity.EXTRA_TASK_ID
         Intent intent = new Intent(MainActivity.this, AddTaskActivity.class);
         intent.putExtra(AddTaskActivity.EXTRA_TASK_ID, itemId);
         startActivity(intent);

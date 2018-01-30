@@ -71,19 +71,11 @@ public class AddTaskActivity extends AppCompatActivity {
             mButton.setText(R.string.update_button);
             if (mTaskId == DEFAULT_TASK_ID) {
                 // populate the UI
-                // COMPLETED (3) Assign the value of EXTRA_TASK_ID in the intent to mTaskId
-                // Use DEFAULT_TASK_ID as the default
                 mTaskId = intent.getIntExtra(EXTRA_TASK_ID, DEFAULT_TASK_ID);
-                // COMPLETED (4) Get the diskIO Executor from the instance of AppExecutors and
-                // call the diskIO execute method with a new Runnable and implement its run method
                 AppExecutors.getInstance().diskIO().execute(new Runnable() {
                     @Override
                     public void run() {
-                        // COMPLETED (5) Use the loadTaskById method to retrieve the task with id mTaskId and
-                        // assign its value to a final TaskEntry variable
                         final TaskEntry task = mDb.taskDao().loadTaskById(mTaskId);
-                        // COMPLETED (6) Call the populateUI method with the retrieve tasks
-                        // Remember to wrap it in a call to runOnUiThread
                         // We will be able to simplify this once we learn more
                         // about Android Architecture Components
                         runOnUiThread(new Runnable() {
@@ -126,12 +118,10 @@ public class AddTaskActivity extends AppCompatActivity {
      * @param task the taskEntry to populate the UI
      */
     private void populateUI(TaskEntry task) {
-        // COMPLETED (7) return if the task is null
         if (task == null) {
             return;
         }
 
-        // COMPLETED (8) use the variable task to populate the UI
         mEditText.setText(task.getDescription());
         setPriorityInViews(task.getPriority());
     }
@@ -149,9 +139,6 @@ public class AddTaskActivity extends AppCompatActivity {
         AppExecutors.getInstance().diskIO().execute(new Runnable() {
             @Override
             public void run() {
-                // COMPLETED (9) insert the task only if mTaskId matches DEFAULT_TASK_ID
-                // Otherwise update it
-                // call finish in any case
                 if (mTaskId == DEFAULT_TASK_ID) {
                     // insert new task
                     mDb.taskDao().insertTask(task);
