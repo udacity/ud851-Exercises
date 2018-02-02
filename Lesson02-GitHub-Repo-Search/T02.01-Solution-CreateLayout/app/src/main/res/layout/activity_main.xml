@@ -18,7 +18,7 @@
 <!--COMPLETED (2) Make the orientation vertical-->
 <!--COMPLETED (3) Give left, right, and top padding of 16dp-->
 <!--COMPLETED (4) Remove the line that declares the id, we don't need it-->
-<!--COMPLETED (5) Remove the xmlns:app declaration, we don't need that anymore-->
+<!--COMPLETED (6) Remove the xmlns:app declaration, we don't need that anymore-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -29,7 +29,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.android.datafrominternet.MainActivity">
 
-    <!--COMPLETED (6) Delete this TextView-->
+    <!--COMPLETED (5) Delete this TextView-->
     <!--COMPLETED (7) Add an EditText-->
     <!--COMPLETED (8) Give the EditText an id of @+id/et_search_box-->
     <!--COMPLETED (9) Set the text size to 22sp-->

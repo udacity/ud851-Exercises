@@ -19,7 +19,8 @@
 <!--TODO (2) Make the orientation vertical-->
 <!--TODO (3) Give left, right, and top padding of 16dp-->
 <!--TODO (4) Remove the line that declares the id, we don't need it-->
-<!--TODO (5) Remove the xmlns:app declaration, we don't need that anymore-->
+
+<!--TODO (6) Remove the xmlns:app declaration, we don't need that anymore-->
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -27,7 +28,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!--TODO (6) Delete this TextView-->
+    <!--TODO (5) Delete this TextView-->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
