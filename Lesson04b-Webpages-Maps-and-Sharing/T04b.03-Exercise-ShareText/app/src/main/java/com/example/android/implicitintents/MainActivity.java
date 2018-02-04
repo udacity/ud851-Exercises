@@ -15,12 +15,14 @@
  */
 package com.example.android.implicitintents;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.ShareCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -66,10 +68,11 @@ public class MainActivity extends AppCompatActivity {
      * @param v Button that was clicked.
      */
     public void onClickShareTextButton(View v) {
-        // TODO (5) Specify a String you'd like to share
-
-        // TODO (6) Replace the Toast with shareText, passing in the String from step 5
-        Toast.makeText(this, "TODO: Share text when this is clicked", Toast.LENGTH_LONG).show();
+        // TODO (5) Specify a String you'd like to share done
+           String text_toShare = "hey amor here is some plain text for the app!";
+        // TODO (6) Replace the Toast with shareText, passing in the String from step 5 done
+        //Toast.makeText(this, "TODO: Share text when this is clicked", Toast.LENGTH_LONG).show();
+        shareText(text_toShare);
     }
 
     /**
@@ -81,11 +84,65 @@ public class MainActivity extends AppCompatActivity {
      *
      * @param v Button that was clicked.
      */
+    /**
+     * Fires an intent to spin up the "file chooser" UI and select an image.
+     */
+    public void performFileSearch() {
+
+        // ACTION_OPEN_DOCUMENT is the intent to choose a file via the system's file
+        // browser.
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+
+        // Filter to only show results that can be "opened", such as a
+        // file (as opposed to a list of contacts or timezones)
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+
+        // Filter to show only images, using the image MIME data type.
+        // If one wanted to search for ogg vorbis files, the type would be "audio/ogg".
+        // To search for all documents available via installed storage providers,
+        // it would be "*/*".
+        intent.setType("image/*");
+
+        startActivityForResult(intent, 42);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode,
+                                 Intent resultData) {
+
+        // The ACTION_OPEN_DOCUMENT intent was sent with the request code
+        // READ_REQUEST_CODE. If the request code seen here doesn't match, it's the
+        // response to some other intent, and the code below shouldn't run at all.
+
+        if (requestCode == 42 && resultCode == Activity.RESULT_OK) {
+            // The document selected by the user won't be returned in the intent.
+            // Instead, a URI to that document will be contained in the return intent
+            // provided to this method as a parameter.
+            // Pull that URI using resultData.getData().
+            Uri uri = null;
+            if (resultData != null) {
+                uri = resultData.getData();
+                Log.i("url", "Uri: " + uri.toString());
+                shareMyOwn(uri);
+            }
+        }
+    }
+
+    public void shareMyOwn(Uri uri)
+    {
+        String title = "Sharing an image From Hungry Worm game!";
+        String type = "image/png";
+
+
+        ShareCompat.IntentBuilder.from(this)
+                .setChooserTitle(title)
+                .setType(type)
+                .setStream(uri)
+                .setText("hey am sharing this image! udacity is cool lol")
+                .startChooser();
+    }
     public void createYourOwn(View v) {
-        Toast.makeText(this,
-                "TODO: Create Your Own Implicit Intent",
-                Toast.LENGTH_SHORT)
-                .show();
+        performFileSearch();
     }
 
     /**
@@ -143,12 +200,24 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    // TODO (1) Create a void method called shareText that accepts a String as a parameter
+    // TODO (1) Create a void method called shareText that accepts a String as a parameter Done
     // Do steps 2 - 4 within the shareText method
 
-        // TODO (2) Create a String variable called mimeType and set it to "text/plain"
+        // TODO (2) Create a String variable called mimeType and set it to "text/plain" Done
 
-        // TODO (3) Create a title for the chooser window that will pop up
+        // TODO (3) Create a title for the chooser window that will pop up Done
 
-        // TODO (4) Use ShareCompat.IntentBuilder to build the Intent and start the chooser
+        // TODO (4) Use ShareCompat.IntentBuilder to build the Intent and start the chooser Done
+    public void shareText(String text)
+    {
+        String mime_type = "text/plain";
+        String title = "learning to share!";
+        String msg = "hey Android Audacity is fun to learn!!";
+
+        ShareCompat.IntentBuilder.from(this)
+                .setChooserTitle(title)
+                .setType(mime_type)
+                .setText(msg)
+                .startChooser();
+    }
 }

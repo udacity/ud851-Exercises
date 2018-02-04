@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
     public void onClickOpenAddressButton(View v) {
         // TODO (5) Store an address in a String
          String address = "2955 Grand Concourse, Bronx, NY";
-        // TODO (6) Use Uri.Builder with the appropriate scheme and query to form the Uri for the address done 
+        // TODO (6) Use Uri.Builder with the appropriate scheme and query to form the Uri for the address done
         Uri.Builder builder = new Uri.Builder();
         builder.scheme("geo").path("0,0").query(address);
 
