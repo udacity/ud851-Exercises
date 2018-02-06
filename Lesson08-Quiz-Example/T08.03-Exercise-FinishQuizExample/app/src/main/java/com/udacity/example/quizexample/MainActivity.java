@@ -151,6 +151,7 @@ public class MainActivity extends AppCompatActivity {
             // Call the query method on the resolver with the correct Uri from the contract class
             Cursor cursor = resolver.query(DroidTermsExampleContract.CONTENT_URI,
                     null, null, null, null);
+
             return cursor;
         }
 
