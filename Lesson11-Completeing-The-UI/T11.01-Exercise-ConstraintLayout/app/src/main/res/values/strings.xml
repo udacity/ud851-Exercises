@@ -21,4 +21,11 @@
     <string name="seat">24A</string>
     <string name="countDownFormat" >%1$02d:%2$02d</string>
     <string name="timeFormat">hh:mm a</string>
+    <string name="airport_to_desc">Airport To</string>
+    <string name="airport_from_desc">Airport From</string>
+    <string name="divider_desc">Divider Line</string>
+    <string name="plane_desc">Plane</string>
+    <string name="flight_info_header_desc">Flight Info Header</string>
+    <string name="flight_info_desc">Flight Info</string>
+    <string name="barcode_desc">Barcode</string>
 </resources>

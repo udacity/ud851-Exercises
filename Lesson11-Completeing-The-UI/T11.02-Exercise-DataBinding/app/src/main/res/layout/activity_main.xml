@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    //TODO (2) Use <layout> as the root tag for activity_main to generate the ActivityMainBinding
+    //COMPLETED Use <layout> as the root tag for activity_main to generate the ActivityMainBinding
 -->
-<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/scroll"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
+<ScrollView>
 
     <android.support.constraint.ConstraintLayout
         android:orientation="vertical"
@@ -343,3 +344,4 @@
 
     </android.support.constraint.ConstraintLayout>
 </ScrollView>
+</layout>
