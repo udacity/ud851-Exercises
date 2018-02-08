@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
@@ -30,7 +31,7 @@
             android:onClick="incrementWater"
             android:padding="8dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/ic_local_drink_grey_120px" />
+            app:srcCompat="@drawable/ic_local_drink_grey_120px" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -71,7 +72,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/charging_plug_content_desc"
-            android:src="@drawable/ic_power_grey_80px" />
+            app:srcCompat="@drawable/ic_power_grey_80px" />
 
         <TextView
             android:id="@+id/tv_charging_reminder_count"
