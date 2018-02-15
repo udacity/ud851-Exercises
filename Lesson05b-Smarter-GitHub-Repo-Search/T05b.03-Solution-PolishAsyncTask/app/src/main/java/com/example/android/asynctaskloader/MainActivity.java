@@ -206,6 +206,7 @@ public class MainActivity extends AppCompatActivity implements
                     return null;
                 }
 
+
                 /* Parse the URL from the passed in String and perform the search */
                 try {
                     URL githubUrl = new URL(searchQueryUrlString);
