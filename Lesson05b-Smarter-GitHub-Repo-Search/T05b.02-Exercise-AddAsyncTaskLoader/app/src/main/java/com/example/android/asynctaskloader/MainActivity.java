@@ -15,12 +15,13 @@
  */
 package com.example.android.asynctaskloader;
 
-import android.app.LoaderManager;
-import android.content.AsyncTaskLoader;
-import android.content.Loader;
+
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
+import android.support.v4.app.LoaderManager;
+import android.support.v4.content.AsyncTaskLoader;
+import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.Menu;
@@ -84,6 +85,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         }
 
         // TODO (24) Initialize the loader with GITHUB_SEARCH_LOADER as the ID, null for the bundle, and this for the context
+        getSupportLoaderManager().initLoader(GITHUB_SEACH_LOADER,null, this);
     }
 
     /**
@@ -110,14 +112,14 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
              // TODO (21) Call getSupportLoaderManager and store it in a LoaderManager variable
 
-              android.support.v4.app.LoaderManager manager  =  getSupportLoaderManager();
-              android.support.v4.content.Loader<Object> githubLoader = manager.getLoader(GITHUB_SEACH_LOADER);
+              LoaderManager manager  =  getSupportLoaderManager();
+              Loader<Object> githubLoader = manager.getLoader(GITHUB_SEACH_LOADER);
               // TODO (22) Get our Loader by calling getLoader and passing the ID we specified CHECK
              if(githubLoader==null)
              {
-                 manager.initLoader(GITHUB_SEACH_LOADER,queryBundle, (android.support.v4.app.LoaderManager.LoaderCallbacks<Object>) this);
+                 manager.initLoader(GITHUB_SEACH_LOADER,queryBundle,  this);
              }else{
-                 manager.restartLoader(GITHUB_SEACH_LOADER,queryBundle, (android.support.v4.app.LoaderManager.LoaderCallbacks<Object>) this);
+                 manager.restartLoader(GITHUB_SEACH_LOADER,queryBundle,  this);
              }
              // TODO (23) If the Loader was null, initialize it. Else, restart it. CHECK
          }
