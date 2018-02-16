@@ -29,6 +29,7 @@ public final class ToyBox {
                 "Chemistry Set",
                 "Yo-Yo",
                 "Pop-Up Book",
+                "Hello World",
                 "Generic Uncopyrighted Mouse",
                 "Finger Paint",
                 "Sock Monkey",
