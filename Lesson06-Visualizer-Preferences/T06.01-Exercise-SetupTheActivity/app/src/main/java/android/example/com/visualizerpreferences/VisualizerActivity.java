@@ -153,7 +153,6 @@ public class VisualizerActivity extends AppCompatActivity {
 
                      SettingActivity.setClass(ourContext,childActivity);
                      startActivity(SettingActivity);
-
                 break;
         }
         return super.onOptionsItemSelected(item);
