@@ -51,8 +51,8 @@ public class VisualizerActivity extends AppCompatActivity {
     private void setupSharedPreferences() {
         // Get all of the values from shared preferences to set it up
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        // TODO (4) Use resources here instead of the hard coded string and boolean
-        mVisualizerView.setShowBass(sharedPreferences.getBoolean("show_bass", true));
+        // TODO (4) Use resources here instead of the hard coded string and boolean checked
+        mVisualizerView.setShowBass(sharedPreferences.getBoolean(getString(R.string.pref_showBass_key), getResources().getBoolean(R.bool.pref_default_value)));
         mVisualizerView.setShowMid(true);
         mVisualizerView.setShowTreble(true);
         mVisualizerView.setMinSizeScale(1);
