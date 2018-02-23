@@ -17,6 +17,24 @@
     <string name="pref_show_false">Hidden</string>
 
     <!-- TODO (2) Add all of the strings for the new checkboxes -->
+    <string name="pref_show_treble_label">Show Treble</string>
+    <!-- Key name for storing bass in SharedPreferences -->
+    <string name="pref_show_treble_key" translatable="false">show_treble</string>
+
+    <!-- Summary for Checkboxes -->
+    <string name="pref_show_treble_true">Shown</string>
+    <string name="pref_show_treble_false">Hidden</string>
+
+    <!-- TODO (2) Add all of the strings for the new checkboxes -->
+    <string name="pref_show_mid_rage_label">Show Mid Rage</string>
+    <!-- Key name for storing bass in SharedPreferences -->
+    <string name="pref_show_mid_rage_key" translatable="false">show_mid_rage</string>
+
+    <!-- Summary for Checkboxes -->
+    <string name="pref_show_mid_rage_true">Shown</string>
+    <string name="pref_show_mid_rage_false">Hidden</string>
+
+
 
     <!-- Value in SharedPreferences for red color option -->
     <string name="pref_color_red_value" translatable="false">red</string>
