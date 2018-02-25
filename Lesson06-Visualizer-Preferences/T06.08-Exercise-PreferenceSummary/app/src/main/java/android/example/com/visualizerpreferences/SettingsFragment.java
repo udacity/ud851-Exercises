@@ -17,18 +17,15 @@ package android.example.com.visualizerpreferences;
  */
 
 import android.content.SharedPreferences;
-import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
 import android.support.v7.preference.CheckBoxPreference;
-import android.support.v7.preference.EditTextPreference;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceFragmentCompat;
 import android.support.v7.preference.PreferenceScreen;
-import android.widget.Toast;
 
 // TODO (1) Implement OnSharedPreferenceChangeListener
-public class SettingsFragment extends PreferenceFragmentCompat {
+public class SettingsFragment extends PreferenceFragmentCompat implements SharedPreferences.OnSharedPreferenceChangeListener {
 
     @Override
     public void onCreatePreferences(Bundle bundle, String s) {
@@ -37,9 +34,69 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         addPreferencesFromResource(R.xml.pref_visualizer);
 
         // TODO (3) Get the preference screen, get the number of preferences and iterate through
+        SharedPreferences preferences = getPreferenceScreen().getSharedPreferences();
+        PreferenceScreen prefScreen = getPreferenceScreen();
+        int count = prefScreen.getPreferenceCount();
+        for(int i = 0 ; i<count; i++)
+        {
+            Preference p =prefScreen.getPreference(i);
+            if(!(p instanceof CheckBoxPreference))
+            {
+                String value =  preferences.getString(p.getKey(),"");
+                setPreferenceSummaryValue(p,value);
+            }
+        }
         // all of the preferences if it is not a checkbox preference, call the setSummary method
         // passing in a preference and the value of the preference
     }
+
+    //this method will update the summary value on the list component
+    public void setPreferenceSummaryValue(Preference p, String value)
+    {
+           if((p instanceof ListPreference))
+           {
+               ListPreference list = (ListPreference)p;
+               int index =  list.findIndexOfValue(value);
+               if(index>=0)
+               {
+                   list.setSummary(list.getEntries()[index]);
+               }
+           }
+    }
+
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
+        Preference p = findPreference(s);
+        if(null != p)
+        {
+            if(!(p instanceof  CheckBoxPreference))
+            {
+                String value = sharedPreferences.getString(p.getKey(),"");
+                setPreferenceSummaryValue(p,value);
+            }
+        }
+
+    }
+
+
+
+    //override on create to register our preferences
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getPreferenceScreen().getSharedPreferences()
+                .registerOnSharedPreferenceChangeListener(this);
+
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        getPreferenceScreen().getSharedPreferences()
+                .unregisterOnSharedPreferenceChangeListener(this);
+    }
+
 
     // TODO (4) Override onSharedPreferenceChanged and, if it is not a checkbox preference,
     // call setPreferenceSummary on the changed preference
