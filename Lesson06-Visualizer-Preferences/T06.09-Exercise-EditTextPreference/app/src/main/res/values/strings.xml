@@ -48,4 +48,11 @@
 
     <!-- Value in SharedPreferences for green color option -->
     <string name="pref_color_green_value" translatable="false">green</string>
+
+
+    <!-- lets add the data info for edittext option on our setting SharePreferenceOption -->
+    <string name="pref_edit_text_key" translatable="false">circle_radius</string>
+    <string name="pref_edit_text_default_value" translatable="false">1</string>
+    <string name="pref_edit_text_title" translatable="false">Change Size</string>
+
 </resources>
