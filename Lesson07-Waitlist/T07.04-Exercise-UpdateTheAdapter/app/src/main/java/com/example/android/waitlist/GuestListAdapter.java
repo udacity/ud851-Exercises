@@ -14,18 +14,18 @@ import com.example.android.waitlist.data.WaitlistContract;
 public class GuestListAdapter extends RecyclerView.Adapter<GuestListAdapter.GuestViewHolder> {
 
     private Context mContext;
-    // TODO (1) Replace the mCount with a Cursor field called mCursor
-    private int mCount;
+    // TODO (1) Replace the mCount with a Cursor field called mCursor CHECKED
+    private Cursor mDB_Cursor;
 
     /**
      * Constructor using the context and the db cursor
      * @param context the calling context/activity
      */
-    // TODO (2) Modify the constructor to accept a cursor rather than an integer
-    public GuestListAdapter(Context context, int count) {
+    // TODO (2) Modify the constructor to accept a cursor rather than an integer CHECKED
+    public GuestListAdapter(Context context, Cursor cursor) {
         this.mContext = context;
-        // TODO (3) Set the local mCursor to be equal to cursor
-        mCount = count;
+        // TODO (3) Set the local mCursor to be equal to cursor CHECKED
+        mDB_Cursor = cursor;
     }
 
     @Override
@@ -39,20 +39,26 @@ public class GuestListAdapter extends RecyclerView.Adapter<GuestListAdapter.Gues
     @Override
     public void onBindViewHolder(GuestViewHolder holder, int position) {
         // TODO (5) Move the cursor to the passed in position, return if moveToPosition returns false
+        if(!mDB_Cursor.moveToPosition(position))
+            return;
 
         // TODO (6) Call getString on the cursor to get the guest's name
+        String GuessName = mDB_Cursor.getString(mDB_Cursor.getColumnIndex(WaitlistContract.WaitlistEntry.COLUMN_GUEST_NAME));
+        int partySize = mDB_Cursor.getInt(mDB_Cursor.getColumnIndex(WaitlistContract.WaitlistEntry.COLUMN_PARTY_SIZE));
+
 
         // TODO (7) Call getInt on the cursor to get the party size
-
+         holder.nameTextView.setText(GuessName);
         // TODO (8) Set the holder's nameTextView text to the guest's name
 
         // TODO (9) Set the holder's partySizeTextView text to the party size
+        holder.partySizeTextView.setText(String.valueOf(partySize));
     }
 
     @Override
     public int getItemCount() {
         // TODO (4) Update the getItemCount to return the getCount of mCursor
-        return mCount;
+        return mDB_Cursor.getCount();
     }
 
 
