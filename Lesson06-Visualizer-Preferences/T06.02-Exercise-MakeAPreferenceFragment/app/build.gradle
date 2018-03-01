@@ -5,8 +5,8 @@ android {
     buildToolsVersion "26.0.2"
     defaultConfig {
         applicationId "android.example.com.visualizerpreferences"
-        minSdkVersion 10
-        targetSdkVersion 25
+        minSdkVersion 14
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
     }
@@ -19,6 +19,7 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:25.1.0'
+    compile 'com.android.support:appcompat-v7:26.1.0'
     // TODO (1) Add the gradle dependency for the support preference fragment
+    compile 'com.android.support:preference-v7:26.1.0'
 }

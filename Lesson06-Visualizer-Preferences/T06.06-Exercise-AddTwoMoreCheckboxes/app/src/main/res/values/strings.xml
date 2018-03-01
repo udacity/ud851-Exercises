@@ -17,6 +17,15 @@
     <string name="pref_show_false">Hidden</string>
 
     <!-- TODO (2) Add all of the strings for the new checkboxes -->
+    <!-- Label for the show treble checkbox preference -->
+    <string name="pref_show_treble_label">Show Treble</string>
+    <!-- Key name for storing treble in SharedPreferences -->
+    <string name="pref_show_treble_key" translatable="false">show_treble</string>
+
+    <!-- Label for the show mid-range checkbox preference -->
+    <string name="pref_show_midRange_label">Show Mid-Range</string>
+    <!-- Key name for storing mid-range in SharedPreferences -->
+    <string name="pref_show_midRange_key" translatable="false">show_mid-range</string>
 
     <!-- Value in SharedPreferences for red color option -->
     <string name="pref_color_red_value" translatable="false">red</string>
