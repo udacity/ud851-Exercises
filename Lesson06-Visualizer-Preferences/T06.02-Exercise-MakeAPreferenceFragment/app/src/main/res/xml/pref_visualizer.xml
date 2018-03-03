@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <CheckBoxPreference
+        android:defaultvalue="true"
+        android:key='show_base'
+        android:summeryOff='Hidden'
+        android:summeryOn='Shown'
+        android:title='Show Base'
+        />
+
+</PreferenceScreen>

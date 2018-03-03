@@ -27,6 +27,9 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.preference.CheckBoxPreference;
+import android.support.v7.preference.ListPreference;
+import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -67,12 +70,12 @@ public class VisualizerActivity extends AppCompatActivity implements SharedPrefe
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-        if (key.equals(getString(R.string.pref_show_bass_key))) {
-            mVisualizerView.setShowBass(sharedPreferences.getBoolean(key, getResources().getBoolean(R.bool.pref_show_bass_default)));
-        } else if (key.equals(getString(R.string.pref_show_mid_range_key))) {
-            mVisualizerView.setShowMid(sharedPreferences.getBoolean(key, getResources().getBoolean(R.bool.pref_show_mid_range_default)));
-        } else if (key.equals(getString(R.string.pref_show_treble_key))) {
-            mVisualizerView.setShowTreble(sharedPreferences.getBoolean(key, getResources().getBoolean(R.bool.pref_show_treble_default)));
+        Preference preference = findPreferenceKey(key);
+        if (null != preference){
+            if (!(preference instanceof CheckBoxPreference)){
+                String value = sharedPreferences.getString(preference.getKey(),"");
+                setPreferenceSummary(preference,value);
+            }
         }
     }
 
@@ -172,4 +175,27 @@ public class VisualizerActivity extends AppCompatActivity implements SharedPrefe
 
         }
     }
+    private void setPreferenceSummary(Preference preference, String value){
+        if (preference instanceof ListPreference){
+            ListPreference listPreference = (ListPreference) preference;
+            int prefIndex = listPreference.findIndexOfValue(value);
+            if(prefIndex >= 0){
+                listPreference.setSummary(listPreference.getEntries()[prefIndex]);
+
+            }
+        }
+    }
+    @Override
+    public void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+        getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
+    }
+    @Override
+    public void onDestry() {
+        super.onDestroy();
+        getPreferenceScreen().getSharedPreferences().unregisterOnSharedPreferenceChangeListener(this);
+    }
+
+
+
 }

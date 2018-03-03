@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">Visualize</string>
 
-    <!-- TODO (4) Add string for Settings -->
-    
+    <!--Completed: TODO (4) Add string for Settings -->
+    <!--Comment: String settings to reference Activity Settings. -->
+    <string name="action_settings">Settings</string>
+
     <!-- - - - - - - - - - - - - - - -
           - Used by Preferences  -
           - - - - - - - - - - - - - - - -->
@@ -15,4 +17,5 @@
 
     <!-- Value in SharedPreferences for green color option -->
     <string name="pref_color_green_value" translatable="false">green</string>
+    <string name="title_activity_settings">SettingsActivity</string>
 </resources>

@@ -34,7 +34,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 // TODO (1) Implement OnSharedPreferenceChangeListener
-public class VisualizerActivity extends AppCompatActivity {
+public class VisualizerActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener{
 
     private static final int MY_PERMISSION_RECORD_AUDIO_REQUEST_CODE = 88;
     private VisualizerView mVisualizerView;
@@ -59,6 +59,7 @@ public class VisualizerActivity extends AppCompatActivity {
         mVisualizerView.setMinSizeScale(1);
         mVisualizerView.setColor(getString(R.string.pref_color_red_value));
         // TODO (3) Register the listener
+        sharedPreferences.registerOnSharedPreferenceChangeListener(this);
     }
 
     // TODO (2) Override the onSharedPreferenceChanged method and update the show bass preference
@@ -87,6 +88,14 @@ public class VisualizerActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+    @Override
+    protected void onDestroy(){
+        //Unregister VizActivity as On preference Changed Listener to handle memory leaks.
+        super.onDestroy();
+        PreferenceManager.getDefaultSharedPreferences(this)
+                .unregisterOnSharedPreferenceChangeListener(this);
+    }
+
 
     /**
      * Below this point is code you do not need to modify; it deals with permissions
@@ -150,6 +159,15 @@ public class VisualizerActivity extends AppCompatActivity {
             }
             // Other permissions could go down here
 
+
+        }
+    }
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key){
+        if (key.equals(getString(R.string.pref_show_bass_key))){
+            //From Solution: mVisualizerView.setShowBass(sharedPreferences.getBoolean(key, getResources().getBoolean(R.bool.pref_show_bass_default)));
+            mVisualizerView.setShowBass(sharedPreferences.getBoolean(key, getResources().getBoolean((R.bool.pref_show_bass_default))));
+            //Original Attempt: mVisualizerView.setShowBass(sharedPreferences.getBoolean(key, getResources().getBoolean(key, getResources().getBoolean(R.bool.pref_show_bass_default))));
         }
     }
 }

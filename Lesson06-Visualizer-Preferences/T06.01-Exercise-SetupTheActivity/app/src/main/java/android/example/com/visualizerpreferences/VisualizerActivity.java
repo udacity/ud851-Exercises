@@ -17,6 +17,7 @@ package android.example.com.visualizerpreferences;
  */
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.example.com.visualizerpreferences.AudioVisuals.AudioInputReader;
 import android.example.com.visualizerpreferences.AudioVisuals.VisualizerView;
@@ -24,7 +25,12 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.NavUtils;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 public class VisualizerActivity extends AppCompatActivity {
@@ -32,15 +38,6 @@ public class VisualizerActivity extends AppCompatActivity {
     private static final int MY_PERMISSION_RECORD_AUDIO_REQUEST_CODE = 88;
     private VisualizerView mVisualizerView;
     private AudioInputReader mAudioInputReader;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_visualizer);
-        mVisualizerView = (VisualizerView) findViewById(R.id.activity_visualizer);
-        defaultSetup();
-        setupPermissions();
-    }
 
     private void defaultSetup() {
         mVisualizerView.setShowBass(true);
@@ -115,14 +112,47 @@ public class VisualizerActivity extends AppCompatActivity {
         }
     }
 
-    // TODO (1) Create a new Empty Activity named SettingsActivity; make sure to generate the
+    //Completed: TODO (1) Create a new Empty Activity named SettingsActivity; make sure to generate the
     // activity_settings.xml layout file as well and add the activity to the manifest
+    //My Comments: I have made my solution look the same as solution provided. This allows me to have a solution
+    //that is done like engineers that designed these applications.
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_settings);
+        ActionBar actionBar = this.getSupportActionBar();
 
-    // TODO (2) Add a new resource folder called menu and create visualizer_menu.xml
-    // TODO (3) In visualizer_menu.xml create a menu item with a single item. The id should be
+        //As per specs: Set the Action Bar back button to look like an up button.
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+    }
+
+    //Completed: TODO (2) I had to copy the directory from the solution. I could not create one, it said one already existed.
+    //Completed: TODO (2) Add a new resource folder called menu and create visualizer_menu.xml
+    //Completed: TODO (3) In visualizer_menu.xml create a menu item with a single item. The id should be
     // "action_settings", title should be saved in strings.xml, the item should never
     // be shown as an action, and orderInCategory should be 100
 
-    // TODO (5) Add the menu to the menu bar
-    // TODO (6) When the "Settings" menu item is pressed, open SettingsActivity
+    //Completed: TODO (5) Add the menu to the menu bar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        /* AppCompatActivity's class method getMenuFinlator to handle the menu inflation.*/
+        MenuInflater inflater = getMenuInflater();
+        /* Uses the inflater's inflate method to inflate our visualizer_menu layout to this menu */
+        inflater.inflate(R.menu.visualizer_menu, menu);
+        /* Return true so that the visualizer_menu is displayed in the Toolbar */
+        return true;
+    }
+    //Completed: TODO (6) When the "Settings" menu item is pressed, open SettingsActivity
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            Intent startSettingsActivity = new Intent(this, SettingsActivity.class);
+            startActivity(startSettingsActivity);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

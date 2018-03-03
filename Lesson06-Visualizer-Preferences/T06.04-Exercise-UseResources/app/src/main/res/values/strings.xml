@@ -6,7 +6,10 @@
     <!-- - - - - - - - - - - - - - - -
           - Used by Preferences  -
           - - - - - - - - - - - - - - - -->
-    <!-- TODO (1) Add Strings for checkbox preference -->
+    <!--Completed: TODO (1) Add Strings for checkbox preference -->
+    <!-- Label for the Show Base Check Box -->
+    <string name="pref_show_base_label">Show Base</string>
+    <string name="pref_show_base_key" translatable="false">show_base</string>
 
     <!-- Value in SharedPreferences for red color option -->
     <string name="pref_color_red_value" translatable="false">red</string>

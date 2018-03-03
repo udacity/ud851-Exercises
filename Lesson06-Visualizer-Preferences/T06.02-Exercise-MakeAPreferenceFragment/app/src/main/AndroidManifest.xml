@@ -22,7 +22,7 @@
         </activity>
 
         <activity
-            android:name=".SettingsActivity"
+            android:name=".VisualizerActivity$SettingsActivity"
             android:label="@string/action_settings"
             android:parentActivityName=".VisualizerActivity">
             <meta-data
