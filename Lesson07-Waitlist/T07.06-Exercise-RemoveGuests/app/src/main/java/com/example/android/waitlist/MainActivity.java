@@ -59,15 +59,37 @@ public class MainActivity extends AppCompatActivity {
 
         //TODO (3) Create a new ItemTouchHelper with a SimpleCallback that handles both LEFT and RIGHT swipe directions
 
-        // TODO (4) Override onMove and simply return false inside
+        ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT |ItemTouchHelper.RIGHT) {
+            // TODO (4) Override onMove and simply return false inside
 
-        // TODO (5) Override onSwiped
+            // TODO (5) Override onSwiped
 
-        // TODO (8) Inside, get the viewHolder's itemView's tag and store in a long variable id
-        // TODO (9) call removeGuest and pass through that id
-        // TODO (10) call swapCursor on mAdapter passing in getAllGuests() as the argument
+            // TODO (8) Inside, get the viewHolder's itemView's tag and store in a long variable id
+            // TODO (9) call removeGuest and pass through that id
+            // TODO (10) call swapCursor on mAdapter passing in getAllGuests() as the argument
 
+            @Override
+            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+                long id = (long) viewHolder.itemView.getTag();
+                deleteNewGuest(id);
+                mAdapter.swapCursor(getAllGuests());
+            }
+        };
+
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
         //TODO (11) attach the ItemTouchHelper to the waitlistRecyclerView
+        itemTouchHelper.attachToRecyclerView(waitlistRecyclerView);
+
+
+
+
+
+
 
     }
 
@@ -137,8 +159,23 @@ public class MainActivity extends AppCompatActivity {
 
 
     // TODO (1) Create a new function called removeGuest that takes long id as input and returns a boolean
+    private boolean deleteNewGuest(long id){
+        // TODO (2) Inside, call mDb.delete to pass in the TABLE_NAME and the condition that WaitlistEntry._ID equals id
 
-    // TODO (2) Inside, call mDb.delete to pass in the TABLE_NAME and the condition that WaitlistEntry._ID equals id
+            String selection = WaitlistContract.WaitlistEntry._ID + " = ?";
+            String[] selectionArgs = { String.valueOf(id)};
+
+            Boolean didDelete = mDb.delete(WaitlistContract.WaitlistEntry.TABLE_NAME,selection, selectionArgs ) > 0;
+
+        Log.d(LOG_TAG, "deleteNewGuest: ************" + didDelete );
+            return didDelete;
+
+
+
+
+
+    }
+
 
 
 }
