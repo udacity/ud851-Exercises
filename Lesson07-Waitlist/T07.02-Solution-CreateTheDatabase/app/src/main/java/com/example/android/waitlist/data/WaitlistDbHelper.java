@@ -35,7 +35,7 @@ public class WaitlistDbHelper extends SQLiteOpenHelper {
                 WaitlistEntry.COLUMN_GUEST_NAME + " TEXT NOT NULL, " +
                 WaitlistEntry.COLUMN_PARTY_SIZE + " INTEGER NOT NULL, " +
                 WaitlistEntry.COLUMN_TIMESTAMP + " TIMESTAMP DEFAULT CURRENT_TIMESTAMP" +
-                "); ";
+                ") ";
 
         // COMPLETED (7) Execute the query by calling execSQL on sqLiteDatabase and pass the string query SQL_CREATE_WAITLIST_TABLE
         sqLiteDatabase.execSQL(SQL_CREATE_WAITLIST_TABLE);

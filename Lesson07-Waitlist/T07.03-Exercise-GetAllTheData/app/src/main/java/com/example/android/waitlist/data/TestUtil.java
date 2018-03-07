@@ -9,7 +9,7 @@ import java.util.List;
 
 public class TestUtil {
 
-    public static void insertFakeData(SQLiteDatabase db){
+    public static void insertFakeData(SQLiteDatabase mDb){
         if(db == null){
             return;
         }
