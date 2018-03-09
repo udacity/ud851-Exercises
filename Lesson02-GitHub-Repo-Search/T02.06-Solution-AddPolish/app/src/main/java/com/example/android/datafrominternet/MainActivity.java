@@ -111,6 +111,9 @@ public class MainActivity extends AppCompatActivity {
         protected void onPreExecute() {
             super.onPreExecute();
             mLoadingIndicator.setVisibility(View.VISIBLE);
+            // COMPLETED (28) In the same onPreExecute, hide the search results to polish the look when user does multiple searches
+            mSearchResultsTextView.setVisibility(View.INVISIBLE);
+
         }
 
         @Override
