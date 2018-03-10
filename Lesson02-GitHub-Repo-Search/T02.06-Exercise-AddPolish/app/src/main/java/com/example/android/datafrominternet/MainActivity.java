@@ -75,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
     public class GithubQueryTask extends AsyncTask<URL, Void, String> {
 
         // TODO (26) Override onPreExecute to set the loading indicator to visible
-        // TODO (28) In the same onPreExecute, hide the search results to polish the look when user does multiple searches
 
 
         @Override
@@ -107,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    // TODO (28) Clear the Search Results Text View in onOptionsItemSelected before the GitHub query is called
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int itemThatWasClickedId = item.getItemId();

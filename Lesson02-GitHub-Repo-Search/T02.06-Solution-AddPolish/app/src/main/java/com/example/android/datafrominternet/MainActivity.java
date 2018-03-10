@@ -111,8 +111,6 @@ public class MainActivity extends AppCompatActivity {
         protected void onPreExecute() {
             super.onPreExecute();
             mLoadingIndicator.setVisibility(View.VISIBLE);
-            // COMPLETED (28) In the same onPreExecute, hide the search results to polish the look when user does multiple searches
-            mSearchResultsTextView.setVisibility(View.INVISIBLE);
 
         }
 
@@ -153,6 +151,8 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int itemThatWasClickedId = item.getItemId();
         if (itemThatWasClickedId == R.id.action_search) {
+            // COMPLETED (28) Clear the Search Results Text View in onOptionsItemSelected before the GitHub query is called
+            mSearchResultsTextView.setText("");
             makeGithubSearchQuery();
             return true;
         }
