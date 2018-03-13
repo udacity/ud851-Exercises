@@ -16,10 +16,17 @@
 
 package com.udacity.example.quizexample;
 
+import android.database.Cursor;
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+
+import com.udacity.example.droidtermsprovider.DroidTermsExampleContract;
 
 /**
  * Gets the data from the ContentProvider and shows a series of flash cards.
@@ -27,11 +34,15 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = MainActivity.class.getSimpleName() ;
     // The current state of the app
     private int mCurrentState;
 
     // TODO (3) Create an instance variable storing a Cursor called mData
     private Button mButton;
+    private Cursor mData;
+    private TextView mDefinition;
+    private TextView mWord;
 
     // This state is when the word definition is hidden and clicking the button will therefore
     // show the definition
@@ -49,8 +60,12 @@ public class MainActivity extends AppCompatActivity {
 
         // Get the views
         mButton = (Button) findViewById(R.id.button_next);
-
+        mDefinition = findViewById(R.id.text_view_definition);
+        mWord = findViewById(R.id.text_view_word);
         // TODO (5) Create and execute your AsyncTask here
+        Uri droidinfo = DroidTermsExampleContract.CONTENT_URI;
+        Log.d(TAG, "onCreate: +++++++++++++" + droidinfo.toString());
+       new GetDroidTerms().execute();
     }
 
     /**
@@ -86,11 +101,48 @@ public class MainActivity extends AppCompatActivity {
         // Change button text
         mButton.setText(getString(R.string.next_word));
 
+
+        if(mData.moveToNext() == true){
+            mWord.setText(mData.getString(DroidTermsExampleContract.COLUMN_INDEX_WORD));
+            mDefinition.setText(mData.getString(DroidTermsExampleContract.COLUMN_INDEX_DEFINITION));
+        }else{
+            mData.moveToFirst();
+        }
+
         mCurrentState = STATE_SHOWN;
 
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mData.close();
+    }
+
     // TODO (1) Create AsyncTask with the following generic types <Void, Void, Cursor>
+
+    private class GetDroidTerms extends AsyncTask<Void, Void, Cursor>{
+
+        @Override
+        protected Cursor doInBackground(Void... voids) {
+            Cursor cursor = getContentResolver()
+                    .query(DroidTermsExampleContract.CONTENT_URI,
+                            null,
+                            null,
+                            null,
+                            null);
+            return cursor;
+        }
+
+        @Override
+        protected void onPostExecute(Cursor cursor) {
+            super.onPostExecute(cursor);
+            mData = cursor;
+
+
+
+        }
+    }
     // TODO (2) In the doInBackground method, write the code to access the DroidTermsExample
     // provider and return the Cursor object
     // TODO (4) In the onPostExecute method, store the Cursor object in mData
