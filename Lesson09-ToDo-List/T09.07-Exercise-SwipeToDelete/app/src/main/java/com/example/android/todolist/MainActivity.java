@@ -18,6 +18,7 @@ package com.example.android.todolist;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.LoaderManager;
@@ -31,6 +32,8 @@ import android.util.Log;
 import android.view.View;
 
 import com.example.android.todolist.data.TaskContract;
+
+import java.util.Objects;
 
 
 public class MainActivity extends AppCompatActivity implements
@@ -80,11 +83,19 @@ public class MainActivity extends AppCompatActivity implements
 
                 // TODO (1) Construct the URI for the item to delete
                 //[Hint] Use getTag (from the adapter code) to get the id of the swiped item
+                int itemID = (int) viewHolder.itemView.getTag();
+                String itemIDString = Integer.toString(itemID);
+                Uri DELETE_URI = TaskContract.TaskEntry.CONTENT_URI.buildUpon().appendPath(itemIDString).build();
+
+
 
                 // TODO (2) Delete a single row of data using a ContentResolver
-
+                //selection(where) and selectionArgs() are null because the selection
+                // args are implemented via the ContentProvider
+                getContentResolver().delete(DELETE_URI,null,null);
                 // TODO (3) Restart the loader to re-query for all tasks after a deletion
-                
+                getSupportLoaderManager().restartLoader(TASK_LOADER_ID,null,MainActivity.this);
+
             }
         }).attachToRecyclerView(mRecyclerView);
 

@@ -41,9 +41,10 @@ public class TaskContentProvider extends ContentProvider {
     private static final UriMatcher sUriMatcher = buildUriMatcher();
 
     // Define a static buildUriMatcher method that associates URI's with their int match
+
     /**
-     Initialize a new matcher object without any matches,
-     then use .addURI(String authority, String path, int match) to add matches
+     * Initialize a new matcher object without any matches,
+     * then use .addURI(String authority, String path, int match) to add matches
      */
     public static UriMatcher buildUriMatcher() {
 
@@ -95,7 +96,7 @@ public class TaskContentProvider extends ContentProvider {
                 // Insert new values into the database
                 // Inserting values into tasks table
                 long id = db.insert(TABLE_NAME, null, values);
-                if ( id > 0 ) {
+                if (id > 0) {
                     returnUri = ContentUris.withAppendedId(TaskContract.TaskEntry.CONTENT_URI, id);
                 } else {
                     throw new android.database.SQLException("Failed to insert row into " + uri);
@@ -131,7 +132,7 @@ public class TaskContentProvider extends ContentProvider {
         switch (match) {
             // Query for the tasks directory
             case TASKS:
-                retCursor =  db.query(TABLE_NAME,
+                retCursor = db.query(TABLE_NAME,
                         projection,
                         selection,
                         selectionArgs,
@@ -191,15 +192,50 @@ public class TaskContentProvider extends ContentProvider {
     @Override
     public int update(@NonNull Uri uri, ContentValues values, String selection,
                       String[] selectionArgs) {
+        SQLiteDatabase db = mTaskDbHelper.getWritableDatabase();
+        int match = sUriMatcher.match(uri);
+        int updatedRows = 0;
 
-        throw new UnsupportedOperationException("Not yet implemented");
+        switch (match) {
+            case TASK_WITH_ID:
+                String id = uri.getPathSegments().get(1);
+                updatedRows = db.update(TABLE_NAME, values, "id=?", new String[]{id});
+                break;
+            default:
+                throw new UnsupportedOperationException("Unknown uri: " + uri);
+        }
+
+        if (updatedRows != 0) {
+            getContext().getContentResolver().notifyChange(uri, null);
+        }
+
+        return updatedRows;
+
+
     }
 
-
+    /* getType() handles requests for the MIME type of data
+    We are working with two types of data:
+    1) a directory and 2) a single row of data.
+    This method will not be used in our app, but gives a way to standardize the data formats
+    that your provider accesses, and this can be useful for data organization.
+    For now, this method will not be used but will be provided for completeness.
+     */
     @Override
     public String getType(@NonNull Uri uri) {
 
-        throw new UnsupportedOperationException("Not yet implemented");
+        int match = sUriMatcher.match(uri);
+
+        switch (match) {
+            case TASKS:
+                // directory
+                return "vnd.android.cursor.dir" + "/" + TaskContract.AUTHORITY + "/" + TaskContract.PATH_TASKS;
+            case TASK_WITH_ID:
+                // single item type
+                return "vnd.android.cursor.item" + "/" + TaskContract.AUTHORITY + "/" + TaskContract.PATH_TASKS;
+            default:
+                throw new UnsupportedOperationException("Unknown uri: " + uri);
+        }
     }
 
 }
