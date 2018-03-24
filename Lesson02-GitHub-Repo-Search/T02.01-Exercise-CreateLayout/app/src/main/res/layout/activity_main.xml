@@ -40,7 +40,7 @@
     <!--TODO (7) Add an EditText-->
     <!--TODO (8) Give the EditText an id of @+id/et_search_box-->
     <!--TODO (9) Set the text size to 22sp-->
-    <!--TODO (10) Set the width to match_parent and the height to wrap_content-->
+    <!--TODO (10) Set the width to wrap_content and the height to wrap_content-->
     <!--TODO (11) Provide a hint telling the user to enter a query and then click search-->
 
     <!--TODO (12) Add a TextView-->
