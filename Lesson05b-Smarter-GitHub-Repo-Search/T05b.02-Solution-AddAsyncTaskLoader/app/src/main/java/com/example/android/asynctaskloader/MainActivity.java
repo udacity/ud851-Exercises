@@ -212,7 +212,7 @@ public class MainActivity extends AppCompatActivity implements
 
                 // COMPLETED (11) If the URL is null or empty, return null
                 /* If the user didn't enter anything, there's nothing to search for */
-                if (searchQueryUrlString == null || TextUtils.isEmpty(searchQueryUrlString)) {
+                if (TextUtils.isEmpty(searchQueryUrlString)) {
                     return null;
                 }
 
