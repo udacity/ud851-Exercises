@@ -16,6 +16,11 @@
 package com.example.android.background.sync;
 
 
+import android.content.Context;
+import android.os.Bundle;
+
+import com.firebase.jobdispatcher.*;
+
 public class ReminderUtilities {
     // TODO (15) Create three constants and one variable:
     //  - REMINDER_INTERVAL_SECONDS should be an integer constant storing the number of seconds in 15 minutes
@@ -23,6 +28,13 @@ public class ReminderUtilities {
     //  - REMINDER_JOB_TAG should be a String constant, storing something like "hydration_reminder_tag"
     //  - sInitialized should be a private static boolean variable which will store whether the job
     //    has been activated or not
+
+    public static final int REMINDER_INTERVAL_SECONDS = 900;
+    public static final int SYNC_FLEXTIME_SECONDS = 900;
+    public static final String REMINDER_JOB_TAG = "hydration_reminder_tag";
+
+    private static boolean sInitialized;
+
 
     // TODO (16) Create a synchronized, public static method called scheduleChargingReminder that takes
     // in a context. This method will use FirebaseJobDispatcher to schedule a job that repeats roughly
@@ -41,6 +53,45 @@ public class ReminderUtilities {
             //   setTrigger, passing in a Trigger.executionWindow
             // - replaces the current job if it's already running
         // Finally, you should build the job.
+
+    synchronized public static void scheduleChargingReminder(Context context){
+
+        if(sInitialized){
+            return;
+        }
+
+
+        Driver driver = new GooglePlayDriver(context);
+        FirebaseJobDispatcher dispatcher = new FirebaseJobDispatcher(driver);
+        Job myJob = dispatcher.newJobBuilder()
+                // the JobService that will be called
+                .setService(WaterReminderFirebaseJobService.class)
+                // uniquely identifies the job
+                .setTag(REMINDER_JOB_TAG)
+                // one-off job
+                .setRecurring(true)
+                // don't persist past a device reboot
+                .setLifetime(Lifetime.FOREVER)
+                // start between 0 and 15 minutes (900 seconds)
+                .setTrigger(Trigger.executionWindow(REMINDER_INTERVAL_SECONDS, REMINDER_INTERVAL_SECONDS + SYNC_FLEXTIME_SECONDS))
+                // overwrite an existing job with the same tag
+                .setReplaceCurrent(true)
+                // retry with exponential backoff --- didn't need it
+//                .setRetryStrategy(RetryStrategy.DEFAULT_EXPONENTIAL)
+                // constraints that need to be satisfied for the job to run
+                .setConstraints(
+                        // only run on an unmetered network
+                        Constraint.ON_UNMETERED_NETWORK,
+                        // only run when the device is charging
+                        Constraint.DEVICE_CHARGING
+                )
+                .build();
+
+        dispatcher.schedule(myJob);
+        sInitialized = true;
+
+    }
         // TODO (21) Use dispatcher's schedule method to schedule the job
         // TODO (22) Set sInitialized to true to mark that we're done setting up the job
+
 }
