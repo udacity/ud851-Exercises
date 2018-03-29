@@ -6,10 +6,11 @@ android {
 
     defaultConfig {
         applicationId "com.example.android.boardingpass"
-        minSdkVersion 10
+        minSdkVersion 14
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
+        android.defaultConfig.vectorDrawables.useSupportLibrary = true;
     }
 
     buildTypes {
@@ -23,6 +24,6 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:25.1.0'
+    compile 'com.android.support:appcompat-v7:26.1.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
 }
