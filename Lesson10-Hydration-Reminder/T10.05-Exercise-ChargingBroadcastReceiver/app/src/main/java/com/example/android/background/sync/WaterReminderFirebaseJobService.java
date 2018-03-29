@@ -15,6 +15,7 @@
  */
 package com.example.android.background.sync;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.AsyncTask;
 
@@ -25,7 +26,7 @@ import com.firebase.jobdispatcher.RetryStrategy;
 
 public class WaterReminderFirebaseJobService extends JobService {
 
-    private AsyncTask mBackgroundTask;
+    private static AsyncTask mBackgroundTask;
 
     /**
      * The entry point to your Job. Implementations should offload work to another thread of
@@ -37,6 +38,7 @@ public class WaterReminderFirebaseJobService extends JobService {
      *
      * @return whether there is more work remaining.
      */
+    @SuppressLint("StaticFieldLeak")
     @Override
     public boolean onStartJob(final JobParameters jobParameters) {
 

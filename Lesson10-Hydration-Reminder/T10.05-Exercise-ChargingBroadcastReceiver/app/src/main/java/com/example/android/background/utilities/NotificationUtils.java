@@ -30,7 +30,7 @@ import android.support.v4.app.NotificationCompat.Action;
 import android.support.v4.content.ContextCompat;
 
 import com.example.android.background.MainActivity;
-import com.example.android.background.R;
+
 import com.example.android.background.sync.ReminderTasks;
 import com.example.android.background.sync.WaterReminderIntentService;
 
