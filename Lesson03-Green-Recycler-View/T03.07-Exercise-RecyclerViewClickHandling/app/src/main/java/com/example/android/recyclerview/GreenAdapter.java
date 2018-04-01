@@ -81,7 +81,7 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHo
      *        |         ViewHolder index: 11|
      *        *-----------------------------*
      *
-     *    Total number of ViewHolders = 11
+     *    Total number of ViewHolders = 12
      */
     private static int viewHolderCount;
 
