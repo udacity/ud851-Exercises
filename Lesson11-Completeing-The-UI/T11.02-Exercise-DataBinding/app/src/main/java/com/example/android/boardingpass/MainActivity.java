@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
     //Completed: TODO (3) Create a data binding instance called mBinding of type ActivityMainBinding
     //ActivityMainBinding mBinding;// = new ActivityMainBinding;
+
     ActivityMainBinding mBinding;
     mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
