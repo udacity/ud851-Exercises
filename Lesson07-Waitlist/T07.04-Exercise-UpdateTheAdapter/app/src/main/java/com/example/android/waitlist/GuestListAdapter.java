@@ -42,22 +42,22 @@ public class GuestListAdapter extends RecyclerView.Adapter<GuestListAdapter.Gues
         if(!mDB_Cursor.moveToPosition(position))
             return;
 
-        // TODO (6) Call getString on the cursor to get the guest's name
+        // TODO (6) Call getString on the cursor to get the guest's name CHECKED
         String GuessName = mDB_Cursor.getString(mDB_Cursor.getColumnIndex(WaitlistContract.WaitlistEntry.COLUMN_GUEST_NAME));
+        // TODO (7) Call getInt on the cursor to get the party size CHECKED
         int partySize = mDB_Cursor.getInt(mDB_Cursor.getColumnIndex(WaitlistContract.WaitlistEntry.COLUMN_PARTY_SIZE));
 
 
-        // TODO (7) Call getInt on the cursor to get the party size
          holder.nameTextView.setText(GuessName);
-        // TODO (8) Set the holder's nameTextView text to the guest's name
+        // TODO (8) Set the holder's nameTextView text to the guest's name checked
 
-        // TODO (9) Set the holder's partySizeTextView text to the party size
+        // TODO (9) Set the holder's partySizeTextView text to the party size checked
         holder.partySizeTextView.setText(String.valueOf(partySize));
     }
 
     @Override
     public int getItemCount() {
-        // TODO (4) Update the getItemCount to return the getCount of mCursor
+        // TODO (4) Update the getItemCount to return the getCount of mCursor CHECKED
         return mDB_Cursor.getCount();
     }
 
