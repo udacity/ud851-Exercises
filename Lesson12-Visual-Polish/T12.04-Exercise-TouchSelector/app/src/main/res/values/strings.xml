@@ -31,7 +31,7 @@
 
     <!-- Strings used in the touch selectors activity -->
     <string name="person_icon">Icon of a person.</string>
-    <string name="first">First_name</string>
-    <string name="last">Last_name</string>
+    <string name="first">Steven</string>
+    <string name="last">Ackerman</string>
 
 </resources>
