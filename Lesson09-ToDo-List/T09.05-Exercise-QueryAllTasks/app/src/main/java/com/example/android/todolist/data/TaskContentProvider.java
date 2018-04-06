@@ -25,6 +25,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.widget.Toast;
 
 import static com.example.android.todolist.data.TaskContract.TaskEntry.TABLE_NAME;
 
@@ -120,22 +121,84 @@ public class TaskContentProvider extends ContentProvider {
     public Cursor query(@NonNull Uri uri, String[] projection, String selection,
                         String[] selectionArgs, String sortOrder) {
 
-        // TODO (1) Get access to underlying database (read-only for query)
+        // TODO (1) Get access to underlying database (read-only for query) CHECKED
+        final SQLiteDatabase db = mTaskDbHelper.getReadableDatabase();
 
-        // TODO (2) Write URI match code and set a variable to return a Cursor
+        // TODO (2) Write URI match code and set a variable to return a Cursor CHECKED
+          int match =  sUriMatcher.match(uri);
 
         // TODO (3) Query for the tasks directory and write a default case
+        Cursor retCursor =null;
+        switch (match)
+        {
+            case TASKS:
+                retCursor =  db.query(TaskContract.TaskEntry.TABLE_NAME, projection,
+                        selection,
+                        selectionArgs,
+                        null,
+                        null,
+                        sortOrder);
 
-        // TODO (4) Set a notification URI on the Cursor and return that Cursor
+                break;
+            case TASK_WITH_ID:
+                String id = uri.getPathSegments().get(1);
 
-        throw new UnsupportedOperationException("Not yet implemented");
+                String mSelection = "_id=?";
+                String [] mselectionArgs =new String[]{id};
+
+                retCursor =  db.query(TaskContract.TaskEntry.TABLE_NAME,
+                        projection,
+                        mSelection,
+                        mselectionArgs,
+                        null,
+                        null,
+                        sortOrder);
+                break;
+
+            default:
+                throw new UnsupportedOperationException("Unknown uri "+uri);
+        }
+
+        // TODO (4) Set a notification URI on the Cursor and return that Cursor CHECKED
+         retCursor.setNotificationUri(getContext().getContentResolver(),uri);
+
+        return retCursor;
     }
 
 
     @Override
     public int delete(@NonNull Uri uri, String selection, String[] selectionArgs) {
 
-        throw new UnsupportedOperationException("Not yet implemented");
+        // TODO (1) Get access to underlying database (read-only for query) CHECKED
+        final SQLiteDatabase db = mTaskDbHelper.getReadableDatabase();
+
+        // TODO (2) Write URI match code and set a variable to return a Cursor CHECKED
+        int match =  sUriMatcher.match(uri);
+        int notice = 0;
+        // TODO (3) Query for the tasks directory and write a default case
+        Cursor retCursor =null;
+        switch (match)
+        {
+            case TASK_WITH_ID:
+                String id = uri.getPathSegments().get(1);
+
+                String mSelection = "_id=?";
+                String [] mselectionArgs =new String[]{id};
+
+                notice =  db.delete(TaskContract.TaskEntry.TABLE_NAME,mSelection,mselectionArgs);
+                if(notice > 0 )
+                {
+                    Toast.makeText(getContext(),"Hey Host just deleted Task  = "+uri.toString(),Toast.LENGTH_LONG).show();
+                }
+                break;
+
+            default:
+                throw new UnsupportedOperationException("Unknown uri "+uri);
+        }
+
+        // TODO (4) Set a notification URI on the Cursor and return that Cursor CHECKED
+        retCursor.setNotificationUri(getContext().getContentResolver(),uri);
+       return notice;
     }
 
 
