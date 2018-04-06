@@ -215,7 +215,7 @@ public class TaskContentProvider extends ContentProvider {
 
         // return number of tasks updated
         return tasksUpdated;
-    
+
     }
 
 
