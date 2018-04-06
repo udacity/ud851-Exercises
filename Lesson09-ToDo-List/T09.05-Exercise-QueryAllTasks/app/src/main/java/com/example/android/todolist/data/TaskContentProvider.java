@@ -176,7 +176,6 @@ public class TaskContentProvider extends ContentProvider {
         int match =  sUriMatcher.match(uri);
         int notice = 0;
         // TODO (3) Query for the tasks directory and write a default case
-        Cursor retCursor =null;
         switch (match)
         {
             case TASK_WITH_ID:
@@ -196,8 +195,7 @@ public class TaskContentProvider extends ContentProvider {
                 throw new UnsupportedOperationException("Unknown uri "+uri);
         }
 
-        // TODO (4) Set a notification URI on the Cursor and return that Cursor CHECKED
-        retCursor.setNotificationUri(getContext().getContentResolver(),uri);
+
        return notice;
     }
 
