@@ -17,6 +17,8 @@
     </plurals>
 
 
+    <string name="main_notification_channel_name">Drink Water</string>
+
     <!-- Strings for Notifications and Toasts -->
     <string name="water_chug_toast">GLUG GLUG GLUG</string>
 
