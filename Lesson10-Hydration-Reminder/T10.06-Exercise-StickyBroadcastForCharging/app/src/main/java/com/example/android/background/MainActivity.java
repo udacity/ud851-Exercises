@@ -20,6 +20,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.os.BatteryManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
@@ -87,8 +89,13 @@ public class MainActivity extends AppCompatActivity implements
             // TODO (2) Get a BatteryManager instance using getSystemService()
             // TODO (3) Call isCharging on the battery manager and pass the result on to your show
             // charging method
-
-        // TODO (4) If your user is not on M+, then...
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            BatteryManager batteryManager = (BatteryManager) getSystemService(BATTERY_SERVICE);
+            boolean isCharging = batteryManager.isCharging();
+            showCharging(isCharging);
+        }
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            // TODO (4) If your user is not on M+, then...
             // TODO (5) Create a new intent filter with the action ACTION_BATTERY_CHANGED. This is a
             // sticky broadcast that contains a lot of information about the battery state.
             // TODO (6) Set a new Intent object equal to what is returned by registerReceiver, passing in null
@@ -99,6 +106,14 @@ public class MainActivity extends AppCompatActivity implements
             // BatteryManager.BATTERY_STATUS_CHARGING or BatteryManager.BATTERY_STATUS_FULL. This means
             // the battery is currently charging.
             // TODO (8) Update the UI using your showCharging method
+            IntentFilter ifilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
+            Intent batteryStatus = this.registerReceiver(null, ifilter);
+            int Status = batteryStatus.getIntExtra(BatteryManager.EXTRA_STATUS, -1);
+            boolean isCharging = Status == BatteryManager.BATTERY_STATUS_CHARGING ||
+                    Status == BatteryManager.BATTERY_STATUS_FULL;
+            // COMPLETED (8) Update the UI using your showCharging method
+            showCharging(isCharging);
+        }
 
         registerReceiver(mChargingReceiver, mChargingIntentFilter);
     }
