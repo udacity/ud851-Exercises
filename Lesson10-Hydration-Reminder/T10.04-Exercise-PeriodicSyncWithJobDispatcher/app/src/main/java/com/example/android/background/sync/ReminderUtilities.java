@@ -43,7 +43,7 @@ public class ReminderUtilities {
 
     private static final String REMINDER_JOB_TAG = "hydration_reminder_tag";
 
-    private static boolean sInitialized;
+    private static boolean sInitialized=false;
 
     synchronized  public static void scheduleCharginReminder(@NonNull final Context context)
     {
