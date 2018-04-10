@@ -24,6 +24,13 @@
         <service
             android:name=".sync.WaterReminderIntentService"
             android:exported="false"/>
+        <service
+            android:name=".sync.WaterReminderFirebaseJobService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE"/>
+            </intent-filter>
+        </service>
         <!-- TODO (14) Add the WaterReminderFirebaseJobService here. It should not be exported and it
         should have an intent filter for the action com.firebase.jobdispatcher.ACTION_EXECUTE -->
     </application>

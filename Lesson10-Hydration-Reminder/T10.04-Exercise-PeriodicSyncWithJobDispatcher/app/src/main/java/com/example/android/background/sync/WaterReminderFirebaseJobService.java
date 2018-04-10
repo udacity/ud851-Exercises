@@ -15,8 +15,39 @@
  */
 package com.example.android.background.sync;
 
-public class WaterReminderFirebaseJobService {
+import android.app.job.JobParameters;
+import android.app.job.JobService;
+import android.content.Context;
+import android.os.AsyncTask;
+
+public class WaterReminderFirebaseJobService extends JobService {
     // TODO (3) WaterReminderFirebaseJobService should extend from JobService
+    private AsyncTask backgroundTask;
+    @Override
+    public boolean onStartJob(final JobParameters jobParameters) {
+        backgroundTask = new AsyncTask() {
+            @Override
+            protected Object doInBackground(Object[] objects) {
+                Context context = WaterReminderFirebaseJobService.this;
+                ReminderTasks.executeTask(context,ReminderTasks.ACTION_CHARGIN_REMINDER);
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Object o) {
+               jobFinished(jobParameters, false);
+            }
+        };
+
+        backgroundTask.execute();
+        return true;
+    }
+
+    @Override
+    public boolean onStopJob(JobParameters jobParameters) {
+        if(backgroundTask!=null)backgroundTask.cancel(true);
+        return true;
+    }
 
     // TODO (4) Override onStartJob
         // TODO (5) By default, jobs are executed on the main thread, so make an anonymous class extending
