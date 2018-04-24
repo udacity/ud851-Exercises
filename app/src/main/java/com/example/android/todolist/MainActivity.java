@@ -78,6 +78,12 @@ public class MainActivity extends AppCompatActivity implements TaskAdapter.ItemC
             @Override
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int swipeDir) {
                 // Here is where you'll implement swipe to delete
+                // TODO (1) Get the diskIO Executor from the instance of AppExecutors and
+                // call the diskIO execute method with a new Runnable and implement its run method
+
+                // TODO (3) get the position from the viewHolder parameter
+                // TODO (4) Call deleteTask in the taskDao with the task at that position
+                // TODO (6) Call retrieveTasks method to refresh the UI
             }
         }).attachToRecyclerView(mRecyclerView);
 
@@ -108,15 +114,11 @@ public class MainActivity extends AppCompatActivity implements TaskAdapter.ItemC
     @Override
     protected void onResume() {
         super.onResume();
-        // COMPLETED (5) Get the diskIO Executor from the instance of AppExecutors and
-        // call the diskIO execute method with a new Runnable and implement its run method
+        // TODO (5) Extract the logic to a retrieveTasks method so it can be reused
         AppExecutors.getInstance().diskIO().execute(new Runnable() {
             @Override
             public void run() {
-                // COMPLETED (6) Move the logic into the run method and
-                // Extract the list of tasks to a final variable
                 final List<TaskEntry> tasks = mDb.taskDao().loadAllTasks();
-                // COMPLETED (7) Wrap the setTask call in a call to runOnUiThread
                 // We will be able to simplify this once we learn more
                 // about Android Architecture Components
                 runOnUiThread(new Runnable() {
