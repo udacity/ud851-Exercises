@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginEnd="5dp"
+    android:layout_marginStart="5dp"
+
+    android:elevation="@dimen/fab_margin">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_weight="0.06"
+            android:layout_height="0dp"
+            android:src="@drawable/lake"
+            android:scaleType="fitXY"
+            android:id="@+id/cover"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:layout_weight="0.05">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:layout_marginBottom="@dimen/fab_margin"
+                android:textStyle="bold"
+                android:id="@+id/title"
+                android:text="The story about Kotlin or there and Black again"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="#403f3f"
+                android:id="@+id/subTitle"
+                android:text="The story about Kotlin or there and Black again"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textColor="#a7a4a4"
+                android:id="@+id/firstLine"
+                android:text="The story about Kotlin or there and Black again"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+</android.support.v7.widget.CardView>

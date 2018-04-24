@@ -5,6 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,8 +41,8 @@ public class MainActivity extends AppCompatActivity {
      * "Reset Log"
      */
     private TextView mLifecycleDisplay;
+   private static ArrayList<String> mLifecycleCallbacks = new ArrayList<>();
 
-    // TODO (1) Declare and instantiate a static ArrayList of Strings called mLifecycleCallbacks
 
     /**
      * Called when the activity is first created. This is where you should do all of your normal
@@ -72,10 +75,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // TODO (4) Iterate backwards through mLifecycleCallbacks, appending each String and a newline to mLifecycleDisplay
-
+        for(int i = mLifecycleCallbacks.size()-1; i >= 0; i--) {
+            mLifecycleDisplay.setText(mLifecycleCallbacks.get(i)+"\n");
+        }
         // TODO (5) Clear mLifecycleCallbacks after iterating through it
-
-        logAndAppend(ON_CREATE);
+        mLifecycleCallbacks.clear();
     }
 
     /**
@@ -134,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
         super.onStop();
 
         // TODO (2) Add the ON_STOP String to the front of mLifecycleCallbacks
-
+        mLifecycleCallbacks.add(0,ON_STOP);
         logAndAppend(ON_STOP);
     }
 
@@ -161,8 +165,8 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
 
         // TODO (3) Add the ON_DESTROY String to the front of mLifecycleCallbacks
-
-        logAndAppend(ON_DESTROY);
+        mLifecycleCallbacks.add(0,ON_DESTROY);
+        Toast.makeText(this,"destroyed",Toast.LENGTH_SHORT).show();
     }
 
     @Override

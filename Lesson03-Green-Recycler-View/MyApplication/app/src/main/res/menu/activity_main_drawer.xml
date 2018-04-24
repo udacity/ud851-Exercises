@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:showIn="navigation_view">
+
+    <group android:id="@+id/nav_top"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_home"
+            android:title="Home" />
+        <item
+            android:id="@+id/nav_audio"
+            android:title="Audio" />
+        <item
+            android:id="@+id/nav_bookmarks"
+            android:title="Bookmarks" />
+        <item
+            android:id="@+id/nav_interests"
+            android:title="Interests" />
+    </group>
+
+    <group android:id="@+id/nav_middle">
+        <item
+            android:id="@+id/nav_become_a_member"
+            android:title="Become a member"/>
+    </group>
+
+    <group android:id="@+id/nav_bottom"
+        android:checkableBehavior="none">
+        <item
+            android:id="@+id/nav_new_story"
+            android:title="New story" />
+        <item
+            android:id="@+id/nav_stats"
+            android:title="Stats" />
+        <item
+            android:id="@+id/nav_drafts"
+            android:title="Drafts" />
+
+    </group>
+
+    <group
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/logo"
+            android:icon="@drawable/logo"
+            android:title="Medium"/>
+        <item
+            android:id="@+id/settings"
+            android:title="Settings"/>
+        <item
+            android:id="@+id/help"
+            android:title="Help" />
+    </group>
+
+</menu>
