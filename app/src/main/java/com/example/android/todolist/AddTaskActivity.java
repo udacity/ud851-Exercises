@@ -77,8 +77,13 @@ public class AddTaskActivity extends AppCompatActivity {
                 // populate the UI
                 mTaskId = intent.getIntExtra(EXTRA_TASK_ID, DEFAULT_TASK_ID);
 
+                // TODO (9) Remove the logging and the call to loadTaskById, this is done in the ViewModel now
                 Log.d(TAG, "Actively retrieving a specific task from the DataBase");
                 final LiveData<TaskEntry> task = mDb.taskDao().loadTaskById(mTaskId);
+                // TODO (10) Declare a AddTaskViewModelFactory using mDb and mTaskId
+                // TODO (11) Declare a AddTaskViewModel variable and initialize it by calling ViewModelProviders.of
+                // for that use the factory created above AddTaskViewModel
+                // TODO (12) Observe the LiveData object in the ViewModel. Use it also when removing the observer
                 task.observe(this, new Observer<TaskEntry>() {
                     @Override
                     public void onChanged(@Nullable TaskEntry taskEntry) {
