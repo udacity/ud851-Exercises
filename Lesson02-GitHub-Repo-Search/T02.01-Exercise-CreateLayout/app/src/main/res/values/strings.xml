@@ -15,4 +15,7 @@
   -->
 <resources>
     <string name="app_name">Github Query</string>
+    <string name="et_hint_search">Enter query and click search!</string>
+    <string name="tv_prompt">make a search!</string>
+    <string name="default_query_prompt">query URL appears here</string>
 </resources>
