@@ -20,23 +20,44 @@
 <!--TODO (3) Give left, right, and top padding of 16dp-->
 <!--TODO (4) Remove the line that declares the id, we don't need it-->
 <!--TODO (5) Remove the xmlns:app declaration, we don't need that anymore-->
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/activity_main"
+<LinearLayout
+              xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+     android:paddingLeft="16dp"
+         android:paddingRight="16dp"
+              android:paddingTop="16dp"
+ 
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!--TODO (6) Delete this TextView-->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="@+id/activity_main"
-        app:layout_constraintLeft_toLeftOf="@+id/activity_main"
-        app:layout_constraintRight_toRightOf="@+id/activity_main"
-        app:layout_constraintTop_toTopOf="@+id/activity_main" />
-
+   <EditText
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:id="et_search_box"
+             android:hint="Type a Query for Github!"
+             
+             />
+  <TextView
+  android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="tv_url_display"
+            android:textSize="22sp"
+            android:marginTop="8dp"
+            android:hint="Enter a Search Query and your url will show here"
+            
+            />
+             
+<ScrollView
+            android:layout_width="match_parent"
+android:layout_height="wrap_content"
+            >
+  <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/tv_github_search_results_json"
+    android:textSize="18sp"
+    android:text="Make a text here"/>
+  </ScrollView>
     <!--TODO (7) Add an EditText-->
     <!--TODO (8) Give the EditText an id of @+id/et_search_box-->
     <!--TODO (9) Set the text size to 22sp-->
@@ -60,4 +81,4 @@
         <!--TODO (24) Set the height and width to wrap_content-->
         <!--TODO (25) Set the text to something that tells the user to make a search-->
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>
