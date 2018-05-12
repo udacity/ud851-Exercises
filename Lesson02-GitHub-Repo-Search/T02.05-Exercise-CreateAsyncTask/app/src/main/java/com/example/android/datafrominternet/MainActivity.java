@@ -44,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
 
         mUrlDisplayTextView = (TextView) findViewById(R.id.tv_url_display);
         mSearchResultsTextView = (TextView) findViewById(R.id.tv_github_search_results_json);
+                new GithubQueryTask().execute(githubSearchUrl);
+
     }
 
     /**
@@ -65,7 +67,29 @@ public class MainActivity extends AppCompatActivity {
         }
         // TODO (4) Create a new GithubQueryTask and call its execute method, passing in the url to query
     }
+ public class GithubQueryTask extends AsyncTask<URL, Void, String> {
 
+        // COMPLETED (2) Override the doInBackground method to perform the query. Return the results. (Hint: You've already written the code to perform the query)
+        @Override
+        protected String doInBackground(URL... params) {
+            URL searchUrl = params[0];
+            String githubSearchResults = null;
+            try {
+                githubSearchResults = NetworkUtils.getResponseFromHttpUrl(searchUrl);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return githubSearchResults;
+        }
+
+        // COMPLETED (3) Override onPostExecute to display the results in the TextView
+        @Override
+        protected void onPostExecute(String githubSearchResults) {
+            if (githubSearchResults != null && !githubSearchResults.equals("")) {
+                mSearchResultsTextView.setText(githubSearchResults);
+            }
+        }
+    }
     // TODO (1) Create a class called GithubQueryTask that extends AsyncTask<URL, Void, String>
     // TODO (2) Override the doInBackground method to perform the query. Return the results. (Hint: You've already written the code to perform the query)
     // TODO (3) Override onPostExecute to display the results in the TextView
