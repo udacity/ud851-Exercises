@@ -53,7 +53,7 @@ public class NetworkUtils {
 			.appendQueryParameter(PARAM_SORT, sortBy)
 			.build();
 		
-		return new URL(uri.getEncodedPath());
+		return new URL(uri.toString());
     }
 
     /**

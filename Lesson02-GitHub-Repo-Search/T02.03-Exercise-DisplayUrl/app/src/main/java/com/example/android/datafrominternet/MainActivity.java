@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
 		String query = mSearchBoxEditText.getText().toString();
 		try
 		{
-			String url = new NetworkUtils().buildUrl(query).getPath();
+			String url = new NetworkUtils().buildUrl(query).toString();
 			mUrlDisplayTextView.setText(url);
 		}
 		catch (MalformedURLException e)
