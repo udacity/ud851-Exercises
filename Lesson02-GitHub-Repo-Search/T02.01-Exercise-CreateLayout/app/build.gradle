@@ -23,5 +23,4 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.1.0'
 
     // TODO (32) Remove the ConstraintLayout dependency as we aren't using it for these simple projects
-    compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
 }
