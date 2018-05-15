@@ -23,6 +23,8 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.example.android.datafrominternet.utilities.*;
+import java.net.*;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -45,7 +47,19 @@ public class MainActivity extends AppCompatActivity {
 
     // TODO (2) Create a method called makeGithubSearchQuery
     // TODO (3) Within this method, build the URL with the text from the EditText and set the built URL to the TextView
-
+	private void makeGithubSearchQuery(){
+		String query = mSearchBoxEditText.getText().toString();
+		try
+		{
+			String url = new NetworkUtils().buildUrl(query).getPath();
+			mUrlDisplayTextView.setText(url);
+		}
+		catch (MalformedURLException e)
+		{
+			System.out.println(e.getMessage());
+		}
+	}
+	
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
@@ -59,8 +73,9 @@ public class MainActivity extends AppCompatActivity {
             // TODO (4) Remove the Toast message when the search menu item is clicked
             Context context = MainActivity.this;
             String textToShow = "Search clicked";
-            Toast.makeText(context, textToShow, Toast.LENGTH_SHORT).show();
+    
             // TODO (5) Call makeGithubSearchQuery when the search menu item is clicked
+			makeGithubSearchQuery();
             return true;
         }
         return super.onOptionsItemSelected(item);
