@@ -15,16 +15,14 @@
  */
 package com.example.android.datafrominternet;
 
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.EditText;
-import android.widget.TextView;
-
-import com.example.android.datafrominternet.utilities.NetworkUtils;
-
-import java.net.URL;
+import android.os.*;
+import android.support.v7.app.*;
+import android.util.*;
+import android.view.*;
+import android.widget.*;
+import com.example.android.datafrominternet.utilities.*;
+import java.io.*;
+import java.net.*;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -57,6 +55,15 @@ public class MainActivity extends AppCompatActivity {
         mUrlDisplayTextView.setText(githubSearchUrl.toString());
         // TODO (2) Call getResponseFromHttpUrl and display the results in mSearchResultsTextView
         // TODO (3) Surround the call to getResponseFromHttpUrl with a try / catch block to catch an IOException
+		try
+		{
+			String result = NetworkUtils.getResponseFromHttpUrl(githubSearchUrl);
+			mSearchResultsTextView.setText(result);
+		}
+		catch (IOException e)
+		{
+			Log.e("",e.getMessage());
+		}
     }
 
     @Override
