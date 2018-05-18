@@ -47,7 +47,7 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHo
     // TODO (6) Create and return a new NumberViewHolder within this method
     @Override
     public NumberViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View rootView = parent.getRootView();
+        View rootView = LayoutInflater.from(parent.getContext()).inflate(R.layout.number_list_item,parent,false);
         return new NumberViewHolder(rootView);
     }
 
