@@ -40,7 +40,7 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHo
     private  int mNumberItems;
     // TODO (2) Create a constructor for GreenAdapter that accepts an int as a parameter for numberOfItems
     // TODO (3) Store the numberOfItems parameter in mNumberItems
-    private GreenAdapter(int numberOfItems){
+    public GreenAdapter(int numberOfItems){
         this.mNumberItems = numberOfItems;
     }
     // TODO (5) Override the onCreateViewHolder method
