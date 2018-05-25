@@ -24,9 +24,11 @@ import android.example.com.visualizerpreferences.AudioVisuals.AudioInputReader;
 import android.example.com.visualizerpreferences.AudioVisuals.VisualizerView;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceFragment;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -65,6 +67,16 @@ public class VisualizerActivity extends AppCompatActivity implements SharedPrefe
         sharedPreferences.registerOnSharedPreferenceChangeListener(this);
     }
 
+    public void loadShapColor( SharedPreferences sharedPreferences){
+
+        mVisualizerView.setColor(
+                sharedPreferences.getString(
+                        getString(R.string.pref_color_list_key),
+                        getString(R.string.pref_color_red_value)
+                        )
+                );
+    }
+
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         if (key.equals(getString(R.string.pref_show_bass_key))) {
@@ -73,6 +85,9 @@ public class VisualizerActivity extends AppCompatActivity implements SharedPrefe
             mVisualizerView.setShowMid(sharedPreferences.getBoolean(key, getResources().getBoolean(R.bool.pref_show_mid_range_default)));
         } else if (key.equals(getString(R.string.pref_show_treble_key))) {
             mVisualizerView.setShowTreble(sharedPreferences.getBoolean(key, getResources().getBoolean(R.bool.pref_show_treble_default)));
+        } else if (key.equals(getString(R.string.pref_color_list_key))){
+
+            loadShapColor(sharedPreferences);
         }
     }
 
