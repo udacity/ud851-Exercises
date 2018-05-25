@@ -29,6 +29,6 @@
         android:entries="@array/color_labels"
         android:entryValues="@array/color_values"
         android:summary="@string/pref_color_list_summary"
-        android:title="@string/pref_color_list_label" />
+        android:title="@string/pref_shape_color_list_label" />
 
 </PreferenceScreen>
