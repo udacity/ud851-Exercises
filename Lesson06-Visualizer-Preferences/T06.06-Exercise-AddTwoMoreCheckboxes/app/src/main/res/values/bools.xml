@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <bool name="pref_show_bass_default">true</bool>
-    <!-- TODO (3) Add any extra booleans for the new checkboxes -->
+    <!-- COMPLETED (3) Add any extra booleans for the new checkboxes -->
+    <bool name="pref_show_treble_default">true</bool>
+    <bool name="pref_show_mid_default">true</bool>
 </resources>
