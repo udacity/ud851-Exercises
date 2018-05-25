@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pref_show_bass_key">show_bass</string>
+    <string name="pref_show_bass_hidden">Hidden</string>
+    <string name="pref_show_bass_shown">Shown</string>
+    <string name="pref_show_bass_title">Show Bass</string>
+</resources>
