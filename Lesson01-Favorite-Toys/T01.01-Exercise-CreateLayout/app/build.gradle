@@ -5,7 +5,7 @@ android {
     buildToolsVersion '25.0.2'
 
     defaultConfig {
-        applicationId "com.android.example.favoritetoys"
+        applicationId "com.example.android.favoritetoys"
         minSdkVersion 10
         targetSdkVersion 25
         versionCode 1
@@ -14,7 +14,12 @@ android {
     buildTypes {
         release {
             minifyEnabled false
+			proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+		debug {
+			minifyEnabled true
+			proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+		}
     }
 }
 
@@ -23,5 +28,4 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.1.0'
 
     // TODO (7) Remove the ConstraintLayout dependency as we aren't using it for these simple projects
-    compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
 }

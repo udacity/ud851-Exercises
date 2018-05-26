@@ -20,6 +20,8 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Scanner;
+import android.net.*;
+import java.net.*;
 
 /**
  * These utilities will be used to communicate with the network.
@@ -44,9 +46,14 @@ public class NetworkUtils {
      * @param githubSearchQuery The keyword that will be queried for.
      * @return The URL to use to query the weather server.
      */
-    public static URL buildUrl(String githubSearchQuery) {
+    public static URL buildUrl(String githubSearchQuery) throws MalformedURLException {
         // TODO (1) Fill in this method to build the proper Github query URL
-        return null;
+        Uri uri = Uri.parse(GITHUB_BASE_URL).buildUpon()
+			.appendQueryParameter(PARAM_QUERY, githubSearchQuery)
+			.appendQueryParameter(PARAM_SORT, sortBy)
+			.build();
+		
+		return new URL(uri.toString());
     }
 
     /**
