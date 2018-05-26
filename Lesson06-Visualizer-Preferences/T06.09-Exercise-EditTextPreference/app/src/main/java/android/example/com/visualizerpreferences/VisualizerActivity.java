@@ -54,8 +54,9 @@ public class VisualizerActivity extends AppCompatActivity implements SharedPrefe
         // Get all of the values from shared preferences to set it up
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         float size = Float.parseFloat(
-          sharedPreferences.getString(getString(R.string.pref_size_multipler_key),
-                  "")
+          sharedPreferences.getString(
+                  getString(R.string.pref_size_multipler_key),
+                  ""+getResources().getInteger(R.integer.pref_size_multipler_default))
         );
         mVisualizerView.setShowBass(sharedPreferences.getBoolean(getString(R.string.pref_show_bass_key),
                 getResources().getBoolean(R.bool.pref_show_bass_default)));
@@ -88,8 +89,9 @@ public class VisualizerActivity extends AppCompatActivity implements SharedPrefe
             loadColorFromPreferences(sharedPreferences);
         } else if (key.equals(getString(R.string.pref_size_multipler_key))){
             float size = Float.parseFloat(
-                    sharedPreferences.getString(getString(R.string.pref_size_multipler_key),
-                            "")
+                    sharedPreferences.getString(
+                            getString(R.string.pref_size_multipler_key),
+                            ""+getResources().getInteger(R.integer.pref_size_multipler_default))
             );
             mVisualizerView.setMinSizeScale(size);
         }
