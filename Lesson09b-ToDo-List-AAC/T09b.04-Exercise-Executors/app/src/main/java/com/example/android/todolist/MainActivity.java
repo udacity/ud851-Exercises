@@ -125,14 +125,12 @@ public class MainActivity extends AppCompatActivity implements TaskAdapter.ItemC
         // COMPLETED (6) Move the logic into the run method and
         // extract the list of tasks to a final variable
         // COMPLETED (7) Wrap the setTask call in a call to runOnUiThread
-        executors.mainThread().execute(new Runnable() {
+        runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 mAdapter.setTasks(taskEntryList);
             }
         });
-        mDb.close();
-
     }
 
     @Override
