@@ -3,6 +3,7 @@
     package="com.udacity.example.quizexample">
 
     <!-- TODO (1) Add the correct permission to access the DroidTermsExample content provider -->
+    <uses-permission android:name="com.udacity.example.droidtermsexample.TERMS_READ"/>
     
     <application
         android:allowBackup="true"
