@@ -27,6 +27,10 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.View;
 
 import com.example.android.todolist.database.AppDatabase;
+import com.example.android.todolist.database.TaskEntry;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static android.support.v7.widget.DividerItemDecoration.VERTICAL;
 
@@ -105,13 +109,30 @@ public class MainActivity extends AppCompatActivity implements TaskAdapter.ItemC
     @Override
     protected void onResume() {
         super.onResume();
-        // TODO (5) Get the diskIO Executor from the instance of AppExecutors and
+        // COMPLETED (5) Get the diskIO Executor from the instance of AppExecutors and
         // call the diskIO execute method with a new Runnable and implement its run method
+        final List<TaskEntry> taskEntryList = new ArrayList<>();
+        AppExecutors executors = AppExecutors.getInstance();
+        executors.diskIO().execute(new Runnable() {
+            @Override
+            public void run() {
+                for (TaskEntry entry: mDb.taskDao().loadAllTasks()){
+                    taskEntryList.add(entry);
+                }
 
-        // TODO (6) Move the logic into the run method and
+            }
+        });
+        // COMPLETED (6) Move the logic into the run method and
         // extract the list of tasks to a final variable
-        // TODO (7) Wrap the setTask call in a call to runOnUiThread
-        mAdapter.setTasks(mDb.taskDao().loadAllTasks());
+        // COMPLETED (7) Wrap the setTask call in a call to runOnUiThread
+        executors.mainThread().execute(new Runnable() {
+            @Override
+            public void run() {
+                mAdapter.setTasks(taskEntryList);
+            }
+        });
+        mDb.close();
+
     }
 
     @Override
