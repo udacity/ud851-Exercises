@@ -16,13 +16,13 @@
 
 package com.example.android.todolist;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.RadioButton;
 
 
-public class AddTaskActivity extends AppCompatActivity {
+public class AddTaskActivity extends Activity {
 
     // Declare a member variable to keep track of a task's selected mPriority
     private int mPriority;

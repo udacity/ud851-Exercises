@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.android.todolist">
-
     <application
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
@@ -25,9 +24,20 @@
             android:name="com.example.android.todolist.AddTaskActivity"
             android:label="@string/add_task_activity_name" />
 
-        <!-- TODO (3) Register the TaskContentProvider -->
-        <!-- TODO (4) Set name, authorities, and exported attributes -->
+        <!-- COMPLETED (3) Register the TaskContentProvider -->
+        <!-- COMPLETED (4) Set name, authorities, and exported attributes -->
         <!-- exported = false limits access to this ContentProvider to only this app -->
+        <provider
+            android:authorities="com.example.android.todolist.data.TaskContentProvider"
+            android:name=".data.TaskContentProvider"
+            android:exported="true">
+
+        </provider>
+
+        <meta-data
+            tools:replace="android:value">
+
+       </meta-data>
 
     </application>
 

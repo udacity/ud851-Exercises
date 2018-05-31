@@ -19,24 +19,29 @@ package com.example.android.todolist.data;
 import android.content.ContentProvider;
 import android.content.ContentValues;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 
-// TODO (1) Verify that TaskContentProvider extends from ContentProvider and implements required methods
+// COMPLETED (1) Verify that TaskContentProvider extends from ContentProvider and implements required methods
 public class TaskContentProvider extends ContentProvider {
+
+    private TaskDbHelper mDbHelper;
+
 
 
     /* onCreate() is where you should initialize anything you’ll need to setup
-    your underlying data source.
-    In this case, you’re working with a SQLite database, so you’ll need to
-    initialize a DbHelper to gain access to it.
-     */
+        your underlying data source.
+        In this case, you’re working with a SQLite database, so you’ll need to
+        initialize a DbHelper to gain access to it.
+         */
     @Override
     public boolean onCreate() {
-        // TODO (2) Complete onCreate() and initialize a TaskDbhelper on startup
+        // COMPLETED (2) Complete onCreate() and initialize a TaskDbhelper on startup
         // [Hint] Declare the DbHelper as a global variable
-
-        return false;
+        this.mDbHelper = new TaskDbHelper(this.getContext());
+        SQLiteDatabase db = this.mDbHelper.getWritableDatabase();
+        return db.isOpen();
     }
 
 
@@ -69,11 +74,16 @@ public class TaskContentProvider extends ContentProvider {
         throw new UnsupportedOperationException("Not yet implemented");
     }
 
+    @Override
+    public int bulkInsert(@NonNull Uri uri, @NonNull ContentValues[] values) {
+        return super.bulkInsert(uri, values);
+    }
 
     @Override
     public String getType(@NonNull Uri uri) {
 
         throw new UnsupportedOperationException("Not yet implemented");
     }
+
 
 }
