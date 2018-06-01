@@ -111,26 +111,24 @@ public class MainActivity extends AppCompatActivity implements TaskAdapter.ItemC
         super.onResume();
         // COMPLETED (5) Get the diskIO Executor from the instance of AppExecutors and
         // call the diskIO execute method with a new Runnable and implement its run method
-        final List<TaskEntry> taskEntryList = new ArrayList<>();
         AppExecutors executors = AppExecutors.getInstance();
         executors.diskIO().execute(new Runnable() {
             @Override
             public void run() {
-                for (TaskEntry entry: mDb.taskDao().loadAllTasks()){
-                    taskEntryList.add(entry);
-                }
+                // COMPLETED (6) Move the logic into the run method and
+                // extract the list of tasks to a final variable
+                // COMPLETED (7) Wrap the setTask call in a call to runOnUiThread
+                final List<TaskEntry> taskEntryList = mDb.taskDao().loadAllTasks();
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        mAdapter.setTasks(taskEntryList);
+                    }
+                });
+            }
+        });
 
-            }
-        });
-        // COMPLETED (6) Move the logic into the run method and
-        // extract the list of tasks to a final variable
-        // COMPLETED (7) Wrap the setTask call in a call to runOnUiThread
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                mAdapter.setTasks(taskEntryList);
-            }
-        });
+
     }
 
     @Override

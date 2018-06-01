@@ -76,14 +76,25 @@ public class MainActivity extends AppCompatActivity implements TaskAdapter.ItemC
 
             // Called when a user swipes left or right on a ViewHolder
             @Override
-            public void onSwiped(RecyclerView.ViewHolder viewHolder, int swipeDir) {
+            public void onSwiped(final RecyclerView.ViewHolder viewHolder, int swipeDir) {
                 // Here is where you'll implement swipe to delete
-                // TODO (1) Get the diskIO Executor from the instance of AppExecutors and
+                // COMPLETED (1) Get the diskIO Executor from the instance of AppExecutors and
                 // call the diskIO execute method with a new Runnable and implement its run method
+                AppExecutors.getInstance().diskIO().execute(
+                        // COMPLETED (3) get the position from the viewHolder parameter
+                        // COMPLETED (4) Call deleteTask in the taskDao with the task at that position
+                        // COMPLETED (6) Call retrieveTasks method to refresh the UI
+                        new Runnable() {
+                            @Override
+                            public void run() {
+                                int position = viewHolder.getAdapterPosition();
+                                TaskEntry entry = mAdapter.getmTaskEntries().get(position);
+                                mDb.taskDao().deleteTask(entry);
+                                retrieveTasks(mDb.taskDao().loadAllTasks());
 
-                // TODO (3) get the position from the viewHolder parameter
-                // TODO (4) Call deleteTask in the taskDao with the task at that position
-                // TODO (6) Call retrieveTasks method to refresh the UI
+                            }
+                        }
+                );
             }
         }).attachToRecyclerView(mRecyclerView);
 
@@ -114,19 +125,23 @@ public class MainActivity extends AppCompatActivity implements TaskAdapter.ItemC
     @Override
     protected void onResume() {
         super.onResume();
-        // TODO (5) Extract the logic to a retrieveTasks method so it can be reused
+        // COMPLETED (5) Extract the logic to a retrieveTasks method so it can be reused
         AppExecutors.getInstance().diskIO().execute(new Runnable() {
             @Override
             public void run() {
-                final List<TaskEntry> tasks = mDb.taskDao().loadAllTasks();
+                //final List<TaskEntry> tasks = mDb.taskDao().loadAllTasks();
                 // We will be able to simplify this once we learn more
                 // about Android Architecture Components
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        mAdapter.setTasks(tasks);
-                    }
-                });
+                retrieveTasks(mDb.taskDao().loadAllTasks());
+
+            }
+        });
+    }
+    public void retrieveTasks(final List<TaskEntry> listEntry){
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                mAdapter.setTasks(listEntry);
             }
         });
     }
