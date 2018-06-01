@@ -130,8 +130,9 @@ public class AddTaskActivity extends AppCompatActivity {
         if (task == null){
             return;
         }
-        // TODO (8) use the variable task to populate the UI
-        mDb.taskDao().updateTask(task);
+        // COMPLETED (8) use the variable task to populate the UI
+        mEditText.setText(task.getDescription());
+        setPriorityInViews(task.getPriority());
     }
 
     /**
