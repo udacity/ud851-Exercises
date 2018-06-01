@@ -131,12 +131,13 @@ public class MainActivity extends AppCompatActivity implements TaskAdapter.ItemC
         // COMPLETED (5) Observe tasks and move the logic from runOnUiThread to onChanged
         // We will be able to simplify this once we learn more
         // about Android Architecture Components
-        Observer<List<TaskEntry>> observer = new Observer<List<TaskEntry>>() {
+        tasks.observe(this, new Observer<List<TaskEntry>>() {
             @Override
             public void onChanged(@Nullable List<TaskEntry> list) {
                 mAdapter.setTasks(list);
             }
-        };
+        });
+
     }
 
     @Override
