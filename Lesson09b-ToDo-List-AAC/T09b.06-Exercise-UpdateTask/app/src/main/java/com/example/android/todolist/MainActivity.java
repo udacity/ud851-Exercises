@@ -24,6 +24,7 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.util.Log;
 import android.view.View;
 
 import com.example.android.todolist.database.AppDatabase;
@@ -141,6 +142,11 @@ public class MainActivity extends AppCompatActivity implements TaskAdapter.ItemC
     @Override
     public void onItemClickListener(int itemId) {
         // Launch AddTaskActivity adding the itemId as an extra in the intent
-        // TODO (2) Launch AddTaskActivity with itemId as extra for the key AddTaskActivity.EXTRA_TASK_ID
+        // COMPLETED (2) Launch AddTaskActivity with itemId as extra for the key AddTaskActivity.EXTRA_TASK_ID
+        Class addTaskActivity = AddTaskActivity.class;
+        Intent launchAddTaskActivity = new Intent(this, addTaskActivity);
+        launchAddTaskActivity.putExtra("itemId",AddTaskActivity.EXTRA_TASK_ID);
+        startActivity(launchAddTaskActivity);
+        Log.v("TODO (2)", "Done");
     }
 }

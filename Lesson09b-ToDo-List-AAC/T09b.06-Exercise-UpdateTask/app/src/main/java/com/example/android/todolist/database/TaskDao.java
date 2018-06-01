@@ -24,8 +24,8 @@ public interface TaskDao {
     @Delete
     void deleteTask(TaskEntry taskEntry);
 
-    // TODO (1) Create a Query method named loadTaskById that receives an int id and returns a TaskEntry Object
+    // COMPLETED (1) Create a Query method named loadTaskById that receives an int id and returns a TaskEntry Object
     // The query for this method should get all the data for that id in the task table
-    @Query("SELECT * FROM task WHERE ID = id")
+    @Query("SELECT * FROM task WHERE id = :id LIMIT 1")
     public TaskEntry loadTaskById(int id);
 }
