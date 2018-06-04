@@ -15,10 +15,15 @@
  */
 package com.example.android.implicitintents;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
+
+import static android.view.Gravity.CENTER;
+import static android.view.Gravity.TOP;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,9 +41,12 @@ public class MainActivity extends AppCompatActivity {
      */
     public void onClickOpenWebpageButton(View v) {
         // TODO (5) Create a String that contains a URL ( make sure it starts with http:// or https:// )
-
+        String myGithub = "https://github.com/arrmixer";
         // TODO (6) Replace the Toast with a call to openWebPage, passing in the URL String from the previous step
-        Toast.makeText(this, "TODO: Open a web page when this button is clicked", Toast.LENGTH_SHORT).show();
+        Toast t = Toast.makeText(this, "Call to open Webpage: " + myGithub, Toast.LENGTH_SHORT);
+       t.setGravity(CENTER, 0, 0);
+       t.show();
+        openWebPage(myGithub);
     }
 
     /**
@@ -79,10 +87,19 @@ public class MainActivity extends AppCompatActivity {
 
     // TODO (1) Create a method called openWebPage that accepts a String as a parameter
     // Do steps 2 - 4 within openWebPage
-
+    public void openWebPage(String url){
         // TODO (2) Use Uri.parse to parse the String into a Uri
-
+        Uri stringUrl = Uri.parse(url);
         // TODO (3) Create an Intent with Intent.ACTION_VIEW and the webpage Uri as parameters
-
+//        Intent webImplicitIntent = new Intent(Intent.ACTION_VIEW, stringUrl);
+        Intent webImplicitIntent = new Intent();
+        webImplicitIntent.setAction(Intent.ACTION_VIEW);
+        webImplicitIntent.setData(stringUrl);
         // TODO (4) Verify that this Intent can be launched and then call startActivity
+        if(webImplicitIntent.resolveActivity(getPackageManager()) != null){
+            startActivity(webImplicitIntent);
+        }
+    }
+
+
 }

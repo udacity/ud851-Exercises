@@ -1,5 +1,6 @@
 package com.example.android.waitlist;
 
+import android.app.DownloadManager;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -22,8 +23,11 @@ public class MainActivity extends AppCompatActivity {
     private SQLiteDatabase mDb;
 
     // TODO (1) Create local EditText members for mNewGuestNameEditText and mNewPartySizeEditText
+    EditText mNewGuestNameEditText;
+    EditText mNewPartySizeEditText;
 
     // TODO (13) Create a constant string LOG_TAG that is equal to the class.getSimpleName()
+    private String LOG_TAG = MainActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
         waitlistRecyclerView = (RecyclerView) this.findViewById(R.id.all_guests_list_view);
 
         // TODO (2) Set the Edit texts to the corresponding views using findViewById
+        mNewGuestNameEditText = findViewById(R.id.person_name_edit_text);
+        mNewPartySizeEditText = findViewById(R.id.party_count_edit_text);
 
         // Set layout for the RecyclerView, because it's a list we are using the linear layout
         waitlistRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -49,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         mDb = dbHelper.getWritableDatabase();
 
         // TODO (3) Remove this fake data call since we will be inserting our own data now
-        TestUtil.insertFakeData(mDb);
+
 
         // Get all guest info from the database and save in a cursor
         Cursor cursor = getAllGuests();
@@ -70,18 +76,32 @@ public class MainActivity extends AppCompatActivity {
     public void addToWaitlist(View view) {
 
         // TODO (9) First thing, check if any of the EditTexts are empty, return if so
+        if(mNewPartySizeEditText.getText().toString().equals("") || mNewGuestNameEditText.getText().toString().equals("")){
+            return;
+        }
 
         // TODO (10) Create an integer to store the party size and initialize to 1
+        Integer partySize = 1;
 
         // TODO (11) Use Integer.parseInt to parse mNewPartySizeEditText.getText to an integer
-
         // TODO (12) Make sure you surround the Integer.parseInt with a try catch and log any exception
 
+        try{
+           partySize = Integer.parseInt(mNewPartySizeEditText.getText().toString());
+        }catch(Exception e){
+            Log.d(LOG_TAG, "addToWaitlist: couldn't parse PartySize from Edit text *************");
+            e.getStackTrace();
+        }
+
         // TODO (14) call addNewGuest with the guest name and party size
+        addGuest(mNewGuestNameEditText.getText().toString(),partySize);
 
         // TODO (19) call mAdapter.swapCursor to update the cursor by passing in getAllGuests()
-
+        mAdapter.swapCursor(getAllGuests());
         // TODO (20) To make the UI look nice, call .getText().clear() on both EditTexts, also call clearFocus() on mNewPartySizeEditText
+        mNewGuestNameEditText.getText().clear();
+        mNewPartySizeEditText.getText().clear();
+        mNewPartySizeEditText.clearFocus();
 
     }
 
@@ -105,6 +125,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // TODO (4) Create a new addGuest method
+    private long addGuest(String name,int partySize){
+
+
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(WaitlistContract.WaitlistEntry.COLUMN_GUEST_NAME,name);
+        contentValues.put(WaitlistContract.WaitlistEntry.COLUMN_PARTY_SIZE, partySize);
+        Log.d(LOG_TAG, "addGuest: " + contentValues.getAsString(WaitlistContract.WaitlistEntry.COLUMN_GUEST_NAME));
+        Log.d(LOG_TAG, "addGuest: " + contentValues.getAsString(WaitlistContract.WaitlistEntry.COLUMN_PARTY_SIZE));
+        long newRowId = mDb.insert(WaitlistContract.WaitlistEntry.TABLE_NAME,null, contentValues);
+        return newRowId;
+
+    }
 
     // TODO (5) Inside, create a ContentValues instance to pass the values onto the insert query
 

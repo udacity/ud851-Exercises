@@ -41,6 +41,9 @@ public class TaskContract {
     // This is the path for the "tasks" directory
     public static final String PATH_TASKS = "tasks";
 
+    //This is the path for the rows of tasks within the "tasks" directory
+    public static final String PATH_TASKS_IDS = "/#";
+
     /* TaskEntry is an inner class that defines the contents of the task table */
     public static final class TaskEntry implements BaseColumns {
 
@@ -48,6 +51,9 @@ public class TaskContract {
         public static final Uri CONTENT_URI =
                 BASE_CONTENT_URI.buildUpon().appendPath(PATH_TASKS).build();
 
+        // TaskEntry for accessing rows
+        public static final Uri TASKS_ID_URI =
+                CONTENT_URI.buildUpon().appendPath(PATH_TASKS_IDS).build();
 
         // Task table and column names
         public static final String TABLE_NAME = "tasks";

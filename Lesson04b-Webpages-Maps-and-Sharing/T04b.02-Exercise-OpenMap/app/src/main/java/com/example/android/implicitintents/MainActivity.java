@@ -19,10 +19,13 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String TAG = "DEBUGING-------";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,11 +52,19 @@ public class MainActivity extends AppCompatActivity {
      */
     public void onClickOpenAddressButton(View v) {
         // TODO (5) Store an address in a String
-
+        String address = "13298 SW 112TH Terr, Miami, FL";
+        String address2 = "1600 Amphitheatre Parkway, CA";
+        String address3 = "3601 SW 147TH AVE, Miami, FL";
         // TODO (6) Use Uri.Builder with the appropriate scheme and query to form the Uri for the address
+        Uri.Builder builder = new Uri.Builder();
+        builder.scheme("geo");
+        builder.path("0,0");
+        builder.appendQueryParameter("q",address3);
+        Log.d(TAG, "onClickOpenAddressButton: " + builder.build().toString());
 
         // TODO (7) Replace the Toast with a call to showMap, passing in the Uri from the previous step
-        Toast.makeText(this, "TODO: Open a map when this button is clicked", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "showing: " + address3, Toast.LENGTH_SHORT).show();
+        showMap(builder.build());
     }
 
     /**
@@ -114,11 +125,19 @@ public class MainActivity extends AppCompatActivity {
 
     // TODO (1) Create a method called showMap with a Uri as the single parameter
     // Do steps 2 - 4 within the showMap method
+
+    public void showMap(Uri map){
         // TODO (2) Create an Intent with action type, Intent.ACTION_VIEW
-
+        Intent mapIntent = new Intent(Intent.ACTION_VIEW);
         // TODO (3) Set the data of the Intent to the Uri passed into this method
-
+        mapIntent.setData(map);
         // TODO (4) Verify that this Intent can be launched and then call startActivity
+        Log.d(TAG, "showMap: " + map.toString());
+        if(mapIntent.resolveActivity(getPackageManager()) != null){
+            startActivity(mapIntent);
+        }
+    }
+
 
 
 }

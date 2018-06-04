@@ -44,6 +44,7 @@ public class AddTaskActivity extends AppCompatActivity {
      */
     public void onClickAddTask(View view) {
         // Not yet implemented
+
     }
 
 

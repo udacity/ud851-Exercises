@@ -21,9 +21,10 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 // TODO (8) Implement GreenAdapter.ListItemClickListener from the MainActivity
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements GreenAdapter.ListItemClickListener{
 
     private static final int NUM_LIST_ITEMS = 100;
 
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView mNumbersList;
 
     // TODO (9) Create a Toast variable called mToast to store the current Toast
+    private Toast mToast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         /*
          * The GreenAdapter is responsible for displaying each item in the list.
          */
-        mAdapter = new GreenAdapter(NUM_LIST_ITEMS);
+        mAdapter = new GreenAdapter(NUM_LIST_ITEMS, this);
         mNumbersList.setAdapter(mAdapter);
     }
 
@@ -95,12 +97,23 @@ public class MainActivity extends AppCompatActivity {
              */
             case R.id.action_refresh:
                 // TODO (14) Pass in this as the ListItemClickListener to the GreenAdapter constructor
-                mAdapter = new GreenAdapter(NUM_LIST_ITEMS);
+                mAdapter = new GreenAdapter(NUM_LIST_ITEMS, this);
                 mNumbersList.setAdapter(mAdapter);
                 return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onListItemClick(int event) {
+    if (mToast != null){
+        mToast.cancel();
+    }
+    String toastMessage = "Item #" + event + " clicked";
+    int duration = Toast.LENGTH_SHORT;
+        mToast.makeText(this, toastMessage, duration).show();
+
     }
 
     // TODO (10) Override ListItemClickListener's onListItemClick method

@@ -17,19 +17,27 @@
 package com.example.android.todolist.data;
 
 import android.content.ContentProvider;
+import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.UriMatcher;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.util.AndroidException;
+import android.util.Log;
 
+import static android.content.ContentValues.TAG;
 import static com.example.android.todolist.data.TaskContract.TaskEntry.TABLE_NAME;
 
 // Verify that TaskContentProvider extends from ContentProvider and implements required methods
 public class TaskContentProvider extends ContentProvider {
+
+    //for exception purposes
+    public static final String TAG = TaskContentProvider.class.getSimpleName();
 
     // Define final integer constants for the directory of tasks and a single item.
     // It's convention to use 100, 200, 300, etc for directories,
@@ -122,13 +130,52 @@ public class TaskContentProvider extends ContentProvider {
 
         // TODO (1) Get access to underlying database (read-only for query)
 
+        final SQLiteDatabase db = mTaskDbHelper.getReadableDatabase();
         // TODO (2) Write URI match code and set a variable to return a Cursor
+        int match = sUriMatcher.match(uri);
+        Cursor cursor; // cursor to be returned
 
         // TODO (3) Query for the tasks directory and write a default case
+        switch (match){
+            case TASKS:
 
+                    cursor = db.query(TABLE_NAME, projection ,selection, selectionArgs, null, null, sortOrder);
+                    Log.d(TAG, "query: count " + cursor.getCount());
+//                Log.d(TAG, "query: column ID " + cursor.getString(cursor.getColumnIndex(TaskContract.TaskEntry._ID)));
+//                Log.d(TAG, "query: column Priority " + cursor.getString(cursor.getColumnIndex(TaskContract.TaskEntry.COLUMN_PRIORITY)));
+//                Log.d(TAG, "query: column Description " + cursor.getString(cursor.getColumnIndex(TaskContract.TaskEntry.COLUMN_DESCRIPTION)));
+//                while(cursor.moveToNext()){
+//
+//                    Log.d(TAG, "loadInBackground: " + cursor.getString(cursor.getColumnIndex(TaskContract.TaskEntry._ID))
+//                            + " Descprition " + cursor.getString(cursor.getColumnIndex(TaskContract.TaskEntry.COLUMN_DESCRIPTION)) + " Priority "
+//                            + cursor.getString(cursor.getColumnIndex(TaskContract.TaskEntry.COLUMN_PRIORITY)));
+//                }
+                break;
+            case TASK_WITH_ID:
+                // using selection and selectionArgs
+                // URI: content://<authority>/task/#
+                //get the id from the URI
+                //index 0 is the tasks directory
+                String id = uri.getPathSegments().get(1);
+
+                // Selection is the _ID column = ?, and the Selection args = the row ID from the URI
+                String mSelection = TaskContract.TaskEntry._ID +  " = ?";
+                String[] mSelectionArgs = new String[]{id};
+
+                // Construct a query as you would normally, passing in the selection/arg
+
+                cursor = db.query(TABLE_NAME, projection, mSelection, mSelectionArgs, null, null, sortOrder);
+                    break;
+
+                default:
+                    throw new UnsupportedOperationException("Unknown uri: " + uri);
+        }
         // TODO (4) Set a notification URI on the Cursor and return that Cursor
 
-        throw new UnsupportedOperationException("Not yet implemented");
+        cursor.setNotificationUri(getContext().getContentResolver(), uri);
+
+        return cursor;
+
     }
 
 
