@@ -19,6 +19,9 @@ import android.content.Context;
 
 import com.example.android.background.utilities.NotificationUtils;
 import com.example.android.background.utilities.PreferenceUtilities;
+import com.firebase.jobdispatcher.FirebaseJobDispatcher;
+import com.firebase.jobdispatcher.GooglePlayDriver;
+import com.firebase.jobdispatcher.Job;
 
 public class ReminderTasks {
 
@@ -38,10 +41,22 @@ public class ReminderTasks {
         NotificationUtils.clearAllNotifications(context);
     }
 
-    // TODO (2) Create an additional task for issuing a charging reminder notification.
+    // COMPLETED (2) Create an additional task for issuing a charging reminder notification.
     // This should be done in a similar way to how you have an action for incrementingWaterCount
     // and dismissing notifications. This task should both create a notification AND
     // increment the charging reminder count (hint: there is a method for this in PreferenceUtilities)
     // When finished, you should be able to call executeTask with the correct parameters to execute
     // this task. Don't forget to add the code to executeTask which actually calls your new task!
+    public  static void additionalTask(Context context){
+
+
+        NotificationUtils.remindUserBecauseCharging(context);
+        PreferenceUtilities.incrementChargingReminderCount(context);
+        /*FirebaseJobDispatcher jobDispatcher = new FirebaseJobDispatcher( new GooglePlayDriver(context));
+        Job job = jobDispatcher.newJobBuilder()
+                .setService(WaterReminderFirebaseJobService.class)
+                .setTag("my-unique-tag")
+                .build();
+        jobDispatcher.mustSchedule(job);*/
+    }
 }
