@@ -3,4 +3,13 @@
          (such as screen margins) for screens with more than 820dp of available width. This
          would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively). -->
     <dimen name="activity_horizontal_margin">64dp</dimen>
+    <dimen name="passenger_label_txtsize">16sp</dimen>
+    <dimen name="passenger_name_txtsize">24sp</dimen>
+    <dimen name="fligth_origin_txt_sise">32sp</dimen>
+    <dimen name="fligth_destination_txt_sise">32sp</dimen>
+    <dimen name="fligth_code_txt_size">24sp</dimen>
+    <dimen name="tv_boarding_time_label_txt_size">18sp</dimen>
+    <dimen name="tv_boarding_time_txt_size">36sp</dimen>
+    <dimen name="tv_boarding_in_label_txt_size">16sp</dimen>
+    <dimen name="tv_boarding_in_txt_size">18sp</dimen>
 </resources>

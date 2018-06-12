@@ -2,4 +2,13 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="passenger_label_txtsize">16sp</dimen>
+    <dimen name="passenger_name_txtsize">24sp</dimen>
+    <dimen name="fligth_origin_txt_sise">32sp</dimen>
+    <dimen name="fligth_destination_txt_sise">32sp</dimen>
+    <dimen name="fligth_code_txt_size">24sp</dimen>
+    <dimen name="tv_boarding_time_label_txt_size">18sp</dimen>
+    <dimen name="tv_boarding_time_txt_size">20sp</dimen>
+    <dimen name="tv_boarding_in_label_txt_size">16sp</dimen>
+    <dimen name="tv_boarding_in_txt_size">18sp</dimen>
 </resources>
