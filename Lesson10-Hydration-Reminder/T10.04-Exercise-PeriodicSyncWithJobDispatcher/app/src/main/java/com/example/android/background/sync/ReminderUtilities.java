@@ -26,6 +26,9 @@ import com.firebase.jobdispatcher.Lifetime;
 import com.firebase.jobdispatcher.RetryStrategy;
 import com.firebase.jobdispatcher.Trigger;
 
+import java.sql.Time;
+import java.util.concurrent.TimeUnit;
+
 public final class ReminderUtilities {
     // COMPLETED (15) Create three constants and one variable:
     //  - REMINDER_INTERVAL_SECONDS should be an integer constant storing the number of seconds in 15 minutes
@@ -33,8 +36,9 @@ public final class ReminderUtilities {
     //  - REMINDER_JOB_TAG should be a String constant, storing something like "hydration_reminder_tag"
     //  - sInitialized should be a private static boolean variable which will store whether the job
     //    has been activated or not
-    private  static final Integer REMINDER_INTERVAL_SECONDS = 15;
-    private  static final Integer SYNC_FLEXTIME_SECONDS = 15;
+    private  static final long REMINDER_INTERVAL_MINUTES = 5;
+    private  static final int REMINDER_INTERVAL_SECONDS = (int) TimeUnit.MINUTES.toSeconds(REMINDER_INTERVAL_MINUTES);
+    private  static final int SYNC_FLEXTIME_SECONDS = REMINDER_INTERVAL_SECONDS/5;
     private  static String REMINDER_JOB_TAG = "hydration_reminder_tag";
     private  static boolean sInitialized = false;
 
@@ -63,7 +67,7 @@ public final class ReminderUtilities {
                 .setService(WaterReminderFirebaseJobService.class)
                 .setTag(REMINDER_JOB_TAG)
                 .setTrigger( Trigger.NOW)
-                .setTrigger(Trigger.executionWindow(SYNC_FLEXTIME_SECONDS, SYNC_FLEXTIME_SECONDS))
+                .setTrigger(Trigger.executionWindow(REMINDER_INTERVAL_SECONDS, SYNC_FLEXTIME_SECONDS))
                 .setLifetime(Lifetime.FOREVER)
                 .setRecurring(true)
                 .setReplaceCurrent(true)
