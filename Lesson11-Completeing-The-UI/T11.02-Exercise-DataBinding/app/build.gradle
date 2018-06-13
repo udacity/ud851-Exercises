@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
 
     defaultConfig {
         applicationId "com.example.android.boardingpass"
-        minSdkVersion 10
+        minSdkVersion 21
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -17,12 +17,15 @@ android {
             minifyEnabled false
         }
     }
+    dataBinding {
+        enabled = true
+    }
 
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:25.1.0'
-    compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
-    // TODO (1) Enable Data Binding in your application
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    // COMPLETED (1) Enable Data Binding in your application
 }
