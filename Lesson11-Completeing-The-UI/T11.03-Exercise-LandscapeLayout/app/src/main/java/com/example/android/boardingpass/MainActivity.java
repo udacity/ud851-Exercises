@@ -19,6 +19,7 @@ package com.example.android.boardingpass;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.TextView;
 
 import com.example.android.boardingpass.databinding.ActivityMainBinding;
 import com.example.android.boardingpass.utilities.FakeDataUtils;
@@ -50,19 +51,20 @@ public class MainActivity extends AppCompatActivity {
     private void displayBoardingPassInfo(BoardingPassInfo info) {
 
         mBinding.textViewPassengerName.setText(info.passengerName);
-        // TODO (7) Use the flightInfor attribute in mBinding below to get the appropiate text Views
-        mBinding.textViewOriginAirport.setText(info.originCode);
-        mBinding.textViewFlightCode.setText(info.flightCode);
-        mBinding.textViewDestinationAirport.setText(info.destCode);
+        // COMPLETED (7) Use the flightInfo attribute in mBinding below to get the appropiate text Views
+
+        ((TextView)mBinding.flightInfo.findViewById(R.id.textViewOriginAirport)).setText(info.originCode);
+        ((TextView)mBinding.flightInfo.findViewById(R.id.textViewFlightCode)).setText(info.flightCode);
+       ((TextView)mBinding.flightInfo.findViewById(R.id.textViewDestinationAirport)).setText(info.destCode);
 
         SimpleDateFormat formatter = new SimpleDateFormat(getString(R.string.timeFormat), Locale.getDefault());
         String boardingTime = formatter.format(info.boardingTime);
         String departureTime = formatter.format(info.departureTime);
         String arrivalTime = formatter.format(info.arrivalTime);
 
-        mBinding.textViewBoardingTime.setText(boardingTime);
-        mBinding.textViewDepartureTime.setText(departureTime);
-        mBinding.textViewArrivalTime.setText(arrivalTime);
+       ((TextView)mBinding.flightInfo.findViewById(R.id.textViewBoardingTime)).setText(boardingTime);
+        ((TextView)mBinding.flightInfo.findViewById(R.id.textViewDepartureTime)).setText(departureTime);
+        ((TextView)mBinding.flightInfo.findViewById(R.id.textViewArrivalTime)).setText(arrivalTime);
 
         long totalMinutesUntilBoarding = info.getMinutesUntilBoarding();
         long hoursUntilBoarding = TimeUnit.MINUTES.toHours(totalMinutesUntilBoarding);
@@ -73,11 +75,11 @@ public class MainActivity extends AppCompatActivity {
                 hoursUntilBoarding,
                 minutesLessHoursUntilBoarding);
 
-        mBinding.textViewBoardingInCountdown.setText(hoursAndMinutesUntilBoarding);
-        // TODO (8) Use the boardingInfo attribute in mBinding below to get the appropiate text Views
-        mBinding.textViewTerminal.setText(info.departureTerminal);
-        mBinding.textViewGate.setText(info.departureGate);
-        mBinding.textViewSeat.setText(info.seatNumber);
+        ((TextView)mBinding.flightInfo.findViewById(R.id.textViewBoardingInCountdown)).setText(hoursAndMinutesUntilBoarding);
+        // COMPLETED (8) Use the boardingInfo attribute in mBinding below to get the appropiate text Views
+        ((TextView)mBinding.boardingInfo.findViewById(R.id.textViewTerminal)).setText(info.departureTerminal);
+        ((TextView)mBinding.boardingInfo.findViewById(R.id.textViewGate)).setText(info.departureGate);
+        ((TextView)mBinding.boardingInfo.findViewById(R.id.textViewSeat)).setText(info.seatNumber);
     }
 }
 

@@ -13,7 +13,7 @@
     <ScrollView
         android:id="@+id/scroll"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -57,15 +57,13 @@
                 layout="@layout/flight_info"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
                 android:layout_marginTop="8dp"
                 app:layout_constraintBottom_creator="1"
                 app:layout_constraintLeft_creator="1"
-                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textViewPassengerName"
                 app:layout_constraintTop_creator="1"
-                app:layout_constraintTop_toBottomOf="@id/textViewPassengerName" />
-
-
-
+                app:layout_constraintTop_toTopOf="parent" />
 
 
             <!--
@@ -75,23 +73,26 @@
             <include
                 android:id="@+id/boarding_info"
                 layout="@layout/boarding_info"
-                android:layout_width="0dp"
+                android:layout_width="368dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintLeft_creator="1"
-                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/flight_info"
                 app:layout_constraintTop_creator="1"
-                app:layout_constraintTop_toBottomOf="@id/flight_info" />
+                app:layout_constraintTop_toBottomOf="@+id/flight_info" />
 
             <ImageView
                 android:id="@+id/barcode"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginBottom="32dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="32dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/flight_info"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/boarding_info"
+                app:layout_constraintTop_toBottomOf="@+id/textViewPassengerName"
                 app:srcCompat="@mipmap/barcode" />
 
         </android.support.constraint.ConstraintLayout>
