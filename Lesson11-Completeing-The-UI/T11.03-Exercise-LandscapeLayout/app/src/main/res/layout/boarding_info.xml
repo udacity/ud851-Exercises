@@ -4,30 +4,26 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
     <ImageView
         android:id="@+id/tableHeaderImage"
-        android:background="@color/colorPrimaryLight"
-        android:layout_height="24dp"
         android:layout_width="0dp"
+        android:layout_height="24dp"
+        android:background="@color/colorPrimaryLight"
+        app:layout_constraintHorizontal_bias="0.33"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="32dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
 
-        app:layout_constraintHorizontal_bias="0.33" /><!--app:layout_constraintTop_toBottomOf="@+id/textViewDepartureTime"-->
+        app:layout_constraintRight_toRightOf="parent" /><!--app:layout_constraintTop_toBottomOf="@+id/textViewDepartureTime"-->
 
     <ImageView
         android:id="@+id/tableImage"
-        android:background="@color/colorPrimary"
-        android:layout_height="0dp"
         android:layout_width="0dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_height="0dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewTerminal"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableHeaderImage"
-        app:layout_constraintBottom_toBottomOf="@+id/textViewTerminal"/>
+        app:layout_constraintTop_toBottomOf="@+id/tableHeaderImage" />
 
 
 
