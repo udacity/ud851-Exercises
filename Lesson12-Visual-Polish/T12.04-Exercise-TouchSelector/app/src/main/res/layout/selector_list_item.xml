@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!-- TODO (4) Set the touch selector as the background property for the list item layout -->
+<!-- COMPLETED (4) Set the touch selector as the background property for the list item layout -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@drawable/list_item_selector">
 
     <!-- Horizontal linear layout to create a contacts list item -->
     <LinearLayout android:orientation="horizontal"
