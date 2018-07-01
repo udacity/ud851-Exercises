@@ -54,14 +54,7 @@ public class NetworkUtils {
                 .appendQueryParameter(PARAM_SORT, sortBy)
                 .build();
 
-        URL url = null;
-        try {
-            url = new URL(builtUri.toString());
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-
-        return url;
+     return null;
     }
 
     /**
