@@ -2,13 +2,14 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "com.example.android.background"
-        minSdkVersion 14
+        minSdkVersion 21
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
+        vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
         release {
@@ -20,5 +21,7 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:26.0.1'
-    // TODO (1) Add gradle dependency for Firebase Job Dispatcher
+    // COMPLETED Add gradle dependency for Firebase Job Dispatcher
+    //compile 'com.firebase:firebase-jobdispatcher:0.5.0'
+    compile 'com.firebase:firebase-jobdispatcher:0.8.5'
 }
