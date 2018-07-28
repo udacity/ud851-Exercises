@@ -161,13 +161,14 @@ public class MainActivity extends AppCompatActivity implements
         mErrorMessageDisplay.setVisibility(View.VISIBLE);
     }
 
+    // COMPLETED (1) Create a String member variable called mGithubJson that will store the raw JSON
+    /* This String will contain the raw JSON from the results of our Github search */
+    private String mGithubJson;
+        
     @Override
     public Loader<String> onCreateLoader(int id, final Bundle args) {
         return new AsyncTaskLoader<String>(this) {
 
-            // COMPLETED (1) Create a String member variable called mGithubJson that will store the raw JSON
-            /* This String will contain the raw JSON from the results of our Github search */
-            String mGithubJson;
 
             @Override
             protected void onStartLoading() {
