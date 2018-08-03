@@ -2,4 +2,9 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="margin_16dp">16dp</dimen>
+    <dimen name="search_box_text_size">22sp</dimen>
+    <dimen name="top_margin">8dp</dimen>
+    <dimen name="scroll_view_margin">16dp</dimen>
+    <dimen name="textview_margin">18sp</dimen>
 </resources>
