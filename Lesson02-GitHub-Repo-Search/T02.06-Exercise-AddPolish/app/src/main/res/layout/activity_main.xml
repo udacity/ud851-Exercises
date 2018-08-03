@@ -25,7 +25,7 @@
         android:id="@+id/et_search_box"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter a query, then click Search"
+        android:hint="@string/enter_query"
         android:textSize="22sp" />
 
     <TextView
@@ -33,11 +33,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Click search and your URL will show up here!"
+        android:text="@string/click_to_search"
         android:textSize="22sp" />
 
-    <!--TODO (2) Wrap the ScrollView in a FrameLayout-->
-    <!--TODO (3) Make the width and height of the FrameLayout match_parent-->
+    <!--completed (2) Wrap the ScrollView in a FrameLayout-->
+    <!--completed (3) Make the width and height of the FrameLayout match_parent-->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -48,10 +51,10 @@
             android:id="@+id/tv_github_search_results_json"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Make a search!"
+            android:text="@string/search"
             android:textSize="18sp" />
     </ScrollView>
-
+    </FrameLayout>
     <!--TODO (4) Add a TextView to display an error message-->
     <!--TODO (5) Set the text size to 22sp-->
     <!--TODO (6) Give the TextView an id of @+id/tv_error_message_display-->
