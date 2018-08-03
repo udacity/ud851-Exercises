@@ -15,5 +15,7 @@
   -->
 <resources>
     <string name="app_name">Github Query</string>
-    <!--TODO (1) Add a string resource called search with the title "Search"-->
+    <!--completed (1) Add a string resource called search with the title "Search"-->
+    <string name="search">Search</string>
+    <string name="onclick">You have clicked the menu item</string>
 </resources>

@@ -29,17 +29,17 @@ import java.util.Scanner;
  */
 public class NetworkUtils {
 
-    final static String GITHUB_BASE_URL =
+    private final static String GITHUB_BASE_URL =
             "https://api.github.com/search/repositories";
 
-    final static String PARAM_QUERY = "q";
+    private final static String PARAM_QUERY = "q";
 
     /*
      * The sort field. One of stars, forks, or updated.
      * Default: results are sorted by best match if no field is specified.
      */
-    final static String PARAM_SORT = "sort";
-    final static String sortBy = "stars";
+    private final static String PARAM_SORT = "sort";
+    private final static String sortBy = "stars";
 
     /**
      * Builds the URL used to query GitHub.

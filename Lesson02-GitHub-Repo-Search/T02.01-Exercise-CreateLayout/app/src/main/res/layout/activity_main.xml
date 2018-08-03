@@ -15,49 +15,68 @@
   limitations under the License.
 -->
 
-<!--TODO (1) Change the ConstraintLayout to a LinearLayout-->
-<!--TODO (2) Make the orientation vertical-->
-<!--TODO (3) Give left, right, and top padding of 16dp-->
-<!--TODO (4) Remove the line that declares the id, we don't need it-->
-<!--TODO (5) Remove the xmlns:app declaration, we don't need that anymore-->
-<android.support.constraint.ConstraintLayout
+<!--completed (1) Change the ConstraintLayout to a LinearLayout-->
+<!--completed (2) Make the orientation vertical-->
+<!--completed (3) Give left, right, and top padding of 16dp-->
+<!--completed (4) Remove the line that declares the id, we don't need it-->
+<!--completed (5) Remove the xmlns:app declaration, we don't need that anymore-->
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/activity_main"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/margin_16dp"
+    android:paddingRight="@dimen/margin_16dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!--TODO (6) Delete this TextView-->
+    <!--completed (6) Delete this TextView-->
+
+
+    <EditText
+        android:id="@+id/et_search_box"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_query"
+        android:inputType="text"
+        android:textSize="@dimen/search_box_text_size" />
+
+    <!--completed (7) Add an EditText-->
+    <!--completed (8) Give the EditText an id of @+id/et_search_box-->
+    <!--completed (9) Set the text size to 22sp-->
+    <!--completed (10) Set the width to match_parent and the height to wrap_content-->
+    <!--completed (11) Provide a hint telling the user to enter a query and then click search-->
+
     <TextView
+        android:id="@+id/tv_url_display"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="@+id/activity_main"
-        app:layout_constraintLeft_toLeftOf="@+id/activity_main"
-        app:layout_constraintRight_toRightOf="@+id/activity_main"
-        app:layout_constraintTop_toTopOf="@+id/activity_main" />
+        android:textSize="@dimen/search_box_text_size"
+        android:layout_marginTop="@dimen/top_margin"
+        android:text="@string/search"/>
+    <!--completed (12) Add a TextView-->
+    <!--completed (13) Give the TextView an id of @+id/tv_url_display-->
+    <!--completed (14) Set the text size to 22sp-->
+    <!--completed (15) Set the width to wrap_content and the height to wrap_content-->
+    <!--completed (16) Give the TextView a top margin of 8dp-->
+    <!--completed (17) Set the text to tell the user their search URL will show up here when they click search-->
 
-    <!--TODO (7) Add an EditText-->
-    <!--TODO (8) Give the EditText an id of @+id/et_search_box-->
-    <!--TODO (9) Set the text size to 22sp-->
-    <!--TODO (10) Set the width to match_parent and the height to wrap_content-->
-    <!--TODO (11) Provide a hint telling the user to enter a query and then click search-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/scroll_view_margin">
+    <!--completed (18) Add a ScrollView-->
+    <!--completed (19) Set the width to match_parent and the height to wrap_content-->
+    <!-- completed (20) Set the top margin to 16dp-->
 
-    <!--TODO (12) Add a TextView-->
-    <!--TODO (13) Give the TextView an id of @+id/tv_url_display-->
-    <!--TODO (14) Set the text size to 22sp-->
-    <!--TODO (15) Set the width to wrap_content and the height to wrap_content-->
-    <!--TODO (16) Give the TextView a top margin of 8dp-->
-    <!--TODO (17) Set the text to tell the user their search URL will show up here when they click search-->
-
-    <!--TODO (18) Add a ScrollView-->
-    <!--TODO (19) Set the width to match_parent and the height to wrap_content-->
-    <!--TODO (20) Set the top margin to 16dp-->
-
-        <!--TODO (21) Within the ScrollView, add a TextView-->
-        <!--TODO (22) Give the TextView an id of @+id/tv_github_search_results_json-->
-        <!--TODO (23) Set the text size to 18sp-->
-        <!--TODO (24) Set the height and width to wrap_content-->
-        <!--TODO (25) Set the text to something that tells the user to make a search-->
-
-</android.support.constraint.ConstraintLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_github_search_results_json"
+            android:textSize="@dimen/textview_margin"
+            android:text="@string/start_search"/>
+        <!--completed (21) Within the ScrollView, add a TextView-->
+        <!--completed (22) Give the TextView an id of @+id/tv_github_search_results_json-->
+        <!--completed (23) Set the text size to 18sp-->
+        <!--completed (24) Set the height and width to wrap_content-->
+        <!--completed (25) Set the text to something that tells the user to make a search-->
+    </ScrollView>
+</LinearLayout>

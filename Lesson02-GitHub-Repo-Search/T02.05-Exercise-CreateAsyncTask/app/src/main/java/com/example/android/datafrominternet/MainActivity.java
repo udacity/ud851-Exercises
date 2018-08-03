@@ -15,6 +15,8 @@
  */
 package com.example.android.datafrominternet;
 
+import android.annotation.SuppressLint;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -33,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView mUrlDisplayTextView;
 
-    private TextView mSearchResultsTextView;
+    private static TextView mSearchResultsTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,25 +52,47 @@ public class MainActivity extends AppCompatActivity {
      * This method retrieves the search text from the EditText, constructs the URL
      * (using {@link NetworkUtils}) for the github repository you'd like to find, displays
      * that URL in a TextView, and finally fires off an AsyncTask to perform the GET request using
-     * our (not yet created) {@link GithubQueryTask}
+     *
      */
     private void makeGithubSearchQuery() {
         String githubQuery = mSearchBoxEditText.getText().toString();
         URL githubSearchUrl = NetworkUtils.buildUrl(githubQuery);
         mUrlDisplayTextView.setText(githubSearchUrl.toString());
-        String githubSearchResults = null;
-        try {
-            githubSearchResults = NetworkUtils.getResponseFromHttpUrl(githubSearchUrl);
-            mSearchResultsTextView.setText(githubSearchResults);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        // TODO (4) Create a new GithubQueryTask and call its execute method, passing in the url to query
+        // completed (4) Create a new GithubQueryTask and call its execute method, passing in the url to query
+        new GithubQueryTask().execute();
     }
 
-    // TODO (1) Create a class called GithubQueryTask that extends AsyncTask<URL, Void, String>
-    // TODO (2) Override the doInBackground method to perform the query. Return the results. (Hint: You've already written the code to perform the query)
-    // TODO (3) Override onPostExecute to display the results in the TextView
+    // completed (1) Create a class called GithubQueryTask that extends AsyncTask<URL, Void, String>
+
+     class GithubQueryTask extends AsyncTask<URL,Void,String>{
+
+
+        @Override
+        protected String doInBackground(URL... urls) {
+
+            URL search = urls[0];
+            String displayURL = null;
+            try {
+                displayURL = NetworkUtils.getResponseFromHttpUrl(search);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            return displayURL;
+
+        }
+
+        @Override
+        protected void onPostExecute(String displayURL) {
+            super.onPostExecute(displayURL);
+
+            if(displayURL != null && !displayURL.equals("")){
+                mSearchResultsTextView.setText(displayURL);
+            }
+        }
+    }
+    // completed (2) Override the doInBackground method to perform the query. Return the results. (Hint: You've already written the code to perform the query)
+    // completed (3) Override onPostExecute to display the results in the TextView
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -79,10 +103,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int itemThatWasClickedId = item.getItemId();
-        if (itemThatWasClickedId == R.id.action_search) {
+        if (itemThatWasClickedId == R.id.action_search ) {
             makeGithubSearchQuery();
             return true;
         }
+
         return super.onOptionsItemSelected(item);
     }
 }
