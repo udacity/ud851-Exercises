@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        // completed (3) Surround the call to getResponseFromHttpUrl with a try / catch block to catch an IOException
+        // completed (3) Surround the call to getResponseFromHttpUrl with a try / catch block to catch an IOException done
     }
 
     @Override
