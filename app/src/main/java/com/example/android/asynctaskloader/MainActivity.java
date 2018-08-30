@@ -202,7 +202,7 @@ public class MainActivity extends AppCompatActivity implements
                 String searchQueryUrlString = args.getString(SEARCH_QUERY_URL_EXTRA);
 
                 /* If the user didn't enter anything, there's nothing to search for */
-                if (searchQueryUrlString == null || TextUtils.isEmpty(searchQueryUrlString)) {
+                if (TextUtils.isEmpty(searchQueryUrlString)) {
                     return null;
                 }
 
