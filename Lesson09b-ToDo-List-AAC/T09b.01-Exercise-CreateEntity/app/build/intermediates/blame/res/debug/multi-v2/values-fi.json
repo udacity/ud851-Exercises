@@ -1,0 +1,36 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/george.ampartzidis/Android Projects/ud851-Exercises/Lesson09b-ToDo-List-AAC/T09b.01-Exercise-CreateEntity/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-fi/values-fi.xml",
+            "map": [
+                {
+                    "source": "/Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/5709b964a1a62bf3939e078d21eaf816/res/values-fi/values-fi.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,213,313,414,500,605,723,810,892,972,1079,1182,1279,1385,1484,1588,1751,1850",
+                        "endColumns": "107,99,100,85,104,117,86,81,79,106,102,96,105,98,103,162,98,79",
+                        "endOffsets": "208,308,409,495,600,718,805,887,967,1074,1177,1274,1380,1479,1583,1746,1845,1925"
+                    }
+                },
+                {
+                    "source": "/Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/6836b5a323848bdb50d15ed2cf1a0848/res/values-fi/values-fi.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "20",
+                        "startColumns": "4",
+                        "startOffsets": "1930",
+                        "endColumns": "100",
+                        "endOffsets": "2026"
+                    }
+                }
+            ]
+        }
+    ]
+}
