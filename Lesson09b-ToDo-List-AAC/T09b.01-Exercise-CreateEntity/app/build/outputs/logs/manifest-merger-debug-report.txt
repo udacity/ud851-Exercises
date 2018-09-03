@@ -1,0 +1,130 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/george.ampartzidis/Android Projects/ud851-Exercises/Lesson09b-ToDo-List-AAC/T09b.01-Exercise-CreateEntity/app/src/main/AndroidManifest.xml:2:1-30:12
+INJECTED from /Users/george.ampartzidis/Android Projects/ud851-Exercises/Lesson09b-ToDo-List-AAC/T09b.01-Exercise-CreateEntity/app/src/main/AndroidManifest.xml:2:1-30:12
+INJECTED from /Users/george.ampartzidis/Android Projects/ud851-Exercises/Lesson09b-ToDo-List-AAC/T09b.01-Exercise-CreateEntity/app/src/main/AndroidManifest.xml:2:1-30:12
+INJECTED from /Users/george.ampartzidis/Android Projects/ud851-Exercises/Lesson09b-ToDo-List-AAC/T09b.01-Exercise-CreateEntity/app/src/main/AndroidManifest.xml:2:1-30:12
+MERGED from [com.android.support:design:27.1.1] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/270cd8d2a7a50ab47001f8d85ebd7e50/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:appcompat-v7:27.1.1] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/5709b964a1a62bf3939e078d21eaf816/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:recyclerview-v7:27.1.1] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.1.1.aar/dea0cba3bd0cf2312c6bc066e3ed4c5e/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.persistence.room:runtime:1.1.1] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/9a8c88e36ed3c211f07497da139f9142/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-v4:27.1.1] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.1.aar/fe640e97fd94a8f59706515967833f9b/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:27.1.1] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/16371c08b719121d472ba95111af7b25/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.1.aar/4584e9c845b138ed555800d970dfdeef/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.1.1] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.1.aar/c78073bed7b248b05788f38e3b5aa855/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.1.1] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.1.aar/29dfe93face61dd92c68de80c762b378/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:27.1.1] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/transition-27.1.1.aar/b1c4639bddc0b5996d457c415df15fa4/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:27.1.1] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.1.aar/a9e951ffbb7c7a80589fad19a17d873f/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.1.1] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.1.aar/b1df3f936b7427979b8469eb0add6f65/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.1.1] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/6836b5a323848bdb50d15ed2cf1a0848/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.persistence:db-framework:1.1.1] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/db-framework-1.1.1.aar/fff4aac00658c64461620189d9d0bda8/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.persistence:db:1.1.1] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/db-1.1.1.aar/d478f277e66470ab35ed080d7283f3e8/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/f70902e7c98e96d931e4aa9fe262bc6b/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.1] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/651c5183275a2a9c090f1f1114fcee6a/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/67b74d31f2409bd6442951946a64f2c5/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/7bb7c6e324f8073e9841293689456776/AndroidManifest.xml:17:1-22:12
+INJECTED from /Users/george.ampartzidis/Android Projects/ud851-Exercises/Lesson09b-ToDo-List-AAC/T09b.01-Exercise-CreateEntity/app/src/main/AndroidManifest.xml:2:1-30:12
+INJECTED from /Users/george.ampartzidis/Android Projects/ud851-Exercises/Lesson09b-ToDo-List-AAC/T09b.01-Exercise-CreateEntity/app/src/main/AndroidManifest.xml:2:1-30:12
+INJECTED from /Users/george.ampartzidis/Android Projects/ud851-Exercises/Lesson09b-ToDo-List-AAC/T09b.01-Exercise-CreateEntity/app/src/main/AndroidManifest.xml:2:1-30:12
+	package
+		ADDED from /Users/george.ampartzidis/Android Projects/ud851-Exercises/Lesson09b-ToDo-List-AAC/T09b.01-Exercise-CreateEntity/app/src/main/AndroidManifest.xml:4:5-43
+		INJECTED from /Users/george.ampartzidis/Android Projects/ud851-Exercises/Lesson09b-ToDo-List-AAC/T09b.01-Exercise-CreateEntity/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/george.ampartzidis/Android Projects/ud851-Exercises/Lesson09b-ToDo-List-AAC/T09b.01-Exercise-CreateEntity/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/george.ampartzidis/Android Projects/ud851-Exercises/Lesson09b-ToDo-List-AAC/T09b.01-Exercise-CreateEntity/app/src/main/AndroidManifest.xml
+		ADDED from /Users/george.ampartzidis/Android Projects/ud851-Exercises/Lesson09b-ToDo-List-AAC/T09b.01-Exercise-CreateEntity/app/src/main/AndroidManifest.xml:2:1-30:12
+		INJECTED from /Users/george.ampartzidis/Android Projects/ud851-Exercises/Lesson09b-ToDo-List-AAC/T09b.01-Exercise-CreateEntity/app/src/main/AndroidManifest.xml
+	xmlns:tools
+		ADDED from /Users/george.ampartzidis/Android Projects/ud851-Exercises/Lesson09b-ToDo-List-AAC/T09b.01-Exercise-CreateEntity/app/src/main/AndroidManifest.xml:3:5-51
+	android:versionCode
+		INJECTED from /Users/george.ampartzidis/Android Projects/ud851-Exercises/Lesson09b-ToDo-List-AAC/T09b.01-Exercise-CreateEntity/app/src/main/AndroidManifest.xml
+		ADDED from /Users/george.ampartzidis/Android Projects/ud851-Exercises/Lesson09b-ToDo-List-AAC/T09b.01-Exercise-CreateEntity/app/src/main/AndroidManifest.xml:2:1-30:12
+		INJECTED from /Users/george.ampartzidis/Android Projects/ud851-Exercises/Lesson09b-ToDo-List-AAC/T09b.01-Exercise-CreateEntity/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/george.ampartzidis/Android Projects/ud851-Exercises/Lesson09b-ToDo-List-AAC/T09b.01-Exercise-CreateEntity/app/src/main/AndroidManifest.xml:2:11-69
+application
+ADDED from /Users/george.ampartzidis/Android Projects/ud851-Exercises/Lesson09b-ToDo-List-AAC/T09b.01-Exercise-CreateEntity/app/src/main/AndroidManifest.xml:6:5-28:19
+	android:supportsRtl
+		ADDED from /Users/george.ampartzidis/Android Projects/ud851-Exercises/Lesson09b-ToDo-List-AAC/T09b.01-Exercise-CreateEntity/app/src/main/AndroidManifest.xml:10:9-35
+	android:label
+		ADDED from /Users/george.ampartzidis/Android Projects/ud851-Exercises/Lesson09b-ToDo-List-AAC/T09b.01-Exercise-CreateEntity/app/src/main/AndroidManifest.xml:9:9-41
+	tools:ignore
+		ADDED from /Users/george.ampartzidis/Android Projects/ud851-Exercises/Lesson09b-ToDo-List-AAC/T09b.01-Exercise-CreateEntity/app/src/main/AndroidManifest.xml:12:9-48
+	android:icon
+		ADDED from /Users/george.ampartzidis/Android Projects/ud851-Exercises/Lesson09b-ToDo-List-AAC/T09b.01-Exercise-CreateEntity/app/src/main/AndroidManifest.xml:8:9-43
+	android:allowBackup
+		ADDED from /Users/george.ampartzidis/Android Projects/ud851-Exercises/Lesson09b-ToDo-List-AAC/T09b.01-Exercise-CreateEntity/app/src/main/AndroidManifest.xml:7:9-36
+	android:theme
+		ADDED from /Users/george.ampartzidis/Android Projects/ud851-Exercises/Lesson09b-ToDo-List-AAC/T09b.01-Exercise-CreateEntity/app/src/main/AndroidManifest.xml:11:9-40
+activity#com.example.android.todolist.MainActivity
+ADDED from /Users/george.ampartzidis/Android Projects/ud851-Exercises/Lesson09b-ToDo-List-AAC/T09b.01-Exercise-CreateEntity/app/src/main/AndroidManifest.xml:15:9-21:20
+	android:name
+		ADDED from /Users/george.ampartzidis/Android Projects/ud851-Exercises/Lesson09b-ToDo-List-AAC/T09b.01-Exercise-CreateEntity/app/src/main/AndroidManifest.xml:15:19-75
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/george.ampartzidis/Android Projects/ud851-Exercises/Lesson09b-ToDo-List-AAC/T09b.01-Exercise-CreateEntity/app/src/main/AndroidManifest.xml:16:13-20:29
+action#android.intent.action.MAIN
+ADDED from /Users/george.ampartzidis/Android Projects/ud851-Exercises/Lesson09b-ToDo-List-AAC/T09b.01-Exercise-CreateEntity/app/src/main/AndroidManifest.xml:17:17-69
+	android:name
+		ADDED from /Users/george.ampartzidis/Android Projects/ud851-Exercises/Lesson09b-ToDo-List-AAC/T09b.01-Exercise-CreateEntity/app/src/main/AndroidManifest.xml:17:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/george.ampartzidis/Android Projects/ud851-Exercises/Lesson09b-ToDo-List-AAC/T09b.01-Exercise-CreateEntity/app/src/main/AndroidManifest.xml:19:17-77
+	android:name
+		ADDED from /Users/george.ampartzidis/Android Projects/ud851-Exercises/Lesson09b-ToDo-List-AAC/T09b.01-Exercise-CreateEntity/app/src/main/AndroidManifest.xml:19:27-74
+activity#com.example.android.todolist.AddTaskActivity
+ADDED from /Users/george.ampartzidis/Android Projects/ud851-Exercises/Lesson09b-ToDo-List-AAC/T09b.01-Exercise-CreateEntity/app/src/main/AndroidManifest.xml:24:9-26:62
+	android:label
+		ADDED from /Users/george.ampartzidis/Android Projects/ud851-Exercises/Lesson09b-ToDo-List-AAC/T09b.01-Exercise-CreateEntity/app/src/main/AndroidManifest.xml:26:13-59
+	android:name
+		ADDED from /Users/george.ampartzidis/Android Projects/ud851-Exercises/Lesson09b-ToDo-List-AAC/T09b.01-Exercise-CreateEntity/app/src/main/AndroidManifest.xml:25:13-72
+uses-sdk
+INJECTED from /Users/george.ampartzidis/Android Projects/ud851-Exercises/Lesson09b-ToDo-List-AAC/T09b.01-Exercise-CreateEntity/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/george.ampartzidis/Android Projects/ud851-Exercises/Lesson09b-ToDo-List-AAC/T09b.01-Exercise-CreateEntity/app/src/main/AndroidManifest.xml
+INJECTED from /Users/george.ampartzidis/Android Projects/ud851-Exercises/Lesson09b-ToDo-List-AAC/T09b.01-Exercise-CreateEntity/app/src/main/AndroidManifest.xml
+MERGED from [com.android.support:design:27.1.1] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/270cd8d2a7a50ab47001f8d85ebd7e50/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:27.1.1] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/270cd8d2a7a50ab47001f8d85ebd7e50/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.1] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/5709b964a1a62bf3939e078d21eaf816/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.1] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/5709b964a1a62bf3939e078d21eaf816/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.1.1] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.1.1.aar/dea0cba3bd0cf2312c6bc066e3ed4c5e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.1.1] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.1.1.aar/dea0cba3bd0cf2312c6bc066e3ed4c5e/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence.room:runtime:1.1.1] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/9a8c88e36ed3c211f07497da139f9142/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence.room:runtime:1.1.1] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/9a8c88e36ed3c211f07497da139f9142/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.1.1] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.1.aar/fe640e97fd94a8f59706515967833f9b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.1.1] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.1.aar/fe640e97fd94a8f59706515967833f9b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/16371c08b719121d472ba95111af7b25/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/16371c08b719121d472ba95111af7b25/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.1.aar/4584e9c845b138ed555800d970dfdeef/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.1.aar/4584e9c845b138ed555800d970dfdeef/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.1.aar/c78073bed7b248b05788f38e3b5aa855/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.1.aar/c78073bed7b248b05788f38e3b5aa855/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.1.aar/29dfe93face61dd92c68de80c762b378/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.1.aar/29dfe93face61dd92c68de80c762b378/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.1.1] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/transition-27.1.1.aar/b1c4639bddc0b5996d457c415df15fa4/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.1.1] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/transition-27.1.1.aar/b1c4639bddc0b5996d457c415df15fa4/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.1] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.1.aar/a9e951ffbb7c7a80589fad19a17d873f/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.1] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.1.aar/a9e951ffbb7c7a80589fad19a17d873f/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.1.aar/b1df3f936b7427979b8469eb0add6f65/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.1.aar/b1df3f936b7427979b8469eb0add6f65/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/6836b5a323848bdb50d15ed2cf1a0848/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/6836b5a323848bdb50d15ed2cf1a0848/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence:db-framework:1.1.1] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/db-framework-1.1.1.aar/fff4aac00658c64461620189d9d0bda8/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence:db-framework:1.1.1] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/db-framework-1.1.1.aar/fff4aac00658c64461620189d9d0bda8/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence:db:1.1.1] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/db-1.1.1.aar/d478f277e66470ab35ed080d7283f3e8/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence:db:1.1.1] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/db-1.1.1.aar/d478f277e66470ab35ed080d7283f3e8/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/f70902e7c98e96d931e4aa9fe262bc6b/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/f70902e7c98e96d931e4aa9fe262bc6b/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/651c5183275a2a9c090f1f1114fcee6a/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/651c5183275a2a9c090f1f1114fcee6a/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/67b74d31f2409bd6442951946a64f2c5/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/67b74d31f2409bd6442951946a64f2c5/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/7bb7c6e324f8073e9841293689456776/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/7bb7c6e324f8073e9841293689456776/AndroidManifest.xml:20:5-44
+INJECTED from /Users/george.ampartzidis/Android Projects/ud851-Exercises/Lesson09b-ToDo-List-AAC/T09b.01-Exercise-CreateEntity/app/src/main/AndroidManifest.xml
+INJECTED from /Users/george.ampartzidis/Android Projects/ud851-Exercises/Lesson09b-ToDo-List-AAC/T09b.01-Exercise-CreateEntity/app/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/george.ampartzidis/Android Projects/ud851-Exercises/Lesson09b-ToDo-List-AAC/T09b.01-Exercise-CreateEntity/app/src/main/AndroidManifest.xml
+		ADDED from /Users/george.ampartzidis/Android Projects/ud851-Exercises/Lesson09b-ToDo-List-AAC/T09b.01-Exercise-CreateEntity/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/george.ampartzidis/Android Projects/ud851-Exercises/Lesson09b-ToDo-List-AAC/T09b.01-Exercise-CreateEntity/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/george.ampartzidis/Android Projects/ud851-Exercises/Lesson09b-ToDo-List-AAC/T09b.01-Exercise-CreateEntity/app/src/main/AndroidManifest.xml
+		ADDED from /Users/george.ampartzidis/Android Projects/ud851-Exercises/Lesson09b-ToDo-List-AAC/T09b.01-Exercise-CreateEntity/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/george.ampartzidis/Android Projects/ud851-Exercises/Lesson09b-ToDo-List-AAC/T09b.01-Exercise-CreateEntity/app/src/main/AndroidManifest.xml

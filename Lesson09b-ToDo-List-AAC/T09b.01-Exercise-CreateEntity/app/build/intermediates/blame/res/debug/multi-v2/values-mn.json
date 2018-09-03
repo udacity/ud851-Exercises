@@ -1,0 +1,36 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/george.ampartzidis/Android Projects/ud851-Exercises/Lesson09b-ToDo-List-AAC/T09b.01-Exercise-CreateEntity/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-mn/values-mn.xml",
+            "map": [
+                {
+                    "source": "/Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/5709b964a1a62bf3939e078d21eaf816/res/values-mn/values-mn.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,218,318,431,518,624,736,818,900,982,1091,1195,1292,1400,1501,1604,1763,1860",
+                        "endColumns": "112,99,112,86,105,111,81,81,81,108,103,96,107,100,102,158,96,80",
+                        "endOffsets": "213,313,426,513,619,731,813,895,977,1086,1190,1287,1395,1496,1599,1758,1855,1936"
+                    }
+                },
+                {
+                    "source": "/Users/george.ampartzidis/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/6836b5a323848bdb50d15ed2cf1a0848/res/values-mn/values-mn.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "20",
+                        "startColumns": "4",
+                        "startOffsets": "1941",
+                        "endColumns": "100",
+                        "endOffsets": "2037"
+                    }
+                }
+            ]
+        }
+    ]
+}

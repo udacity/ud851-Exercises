@@ -8,6 +8,8 @@ import android.content.Context;
 import android.util.Log;
 
 @Database(entities = {TaskEntry.class}, version = 1, exportSchema = false)
+/* The TypeConverters annotation "informs" Room that it should use this class to use
+ * its converters for the data types that need to be converted before saved */
 @TypeConverters(DateConverter.class)
 public abstract class AppDatabase extends RoomDatabase {
 
@@ -22,7 +24,9 @@ public abstract class AppDatabase extends RoomDatabase {
                 Log.d(LOG_TAG, "Creating new database instance");
                 sInstance = Room.databaseBuilder(context.getApplicationContext(),
                         AppDatabase.class, AppDatabase.DATABASE_NAME)
-                        // TODO (2) call allowMainThreadQueries before building the instance
+                        // completed (2) call allowMainThreadQueries before building the instance
+                        // This is only allowed TEMPORARILY to check that the DB is working
+                        .allowMainThreadQueries()
                         .build();
             }
         }
