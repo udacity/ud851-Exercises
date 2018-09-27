@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // TODO (3) Use findViewById to get a reference to the TextView from the layout
+        mToysListTextView = (TextView) findViewById(R.id.toy_textview);
 
         // TODO (4) Use the static ToyBox.getToyNames method and store the names in a String array
 
