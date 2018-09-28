@@ -15,11 +15,14 @@
  */
 package com.example.android.datafrominternet;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -46,9 +49,22 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    // TODO (11) Override onOptionsItemSelected
-    // TODO (12) Within onOptionsItemSelected, get the ID of the item that was selected
-    // TODO (13) If the item's ID is R.id.action_search, show a Toast and return true to tell Android that you've handled this menu click
-    // TODO (14) Don't forgot to call .show() on your Toast
-    // TODO (15) If you do NOT handle the menu click, return super.onOptionsItemSelected to let Android handle the menu click
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int itemSelected = item.getItemId();
+
+        switch (itemSelected) {
+            case R.id.action_search:
+                Context context = MainActivity.this;
+                String messageToShow = "Search Tapped";
+
+                // 1. The activity to show toast
+                // 2. what message to show on this toast
+                // 3. how long do we show this toast for
+                Toast.makeText(context, messageToShow, Toast.LENGTH_LONG).show();
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 }
