@@ -23,6 +23,12 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingTop="16dp">
+    <EditText
+        android:id="@+id/et_search_box"
+        android:hint="Enter a query and then tap on search"
+        android:textSize="22sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
     <TextView
         android:id="@+id/tv_url_display"
         android:text="Search URL will show up here when you tap search"
@@ -31,18 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp" />
 
-    <!--TODO (7) Add an EditText-->
-    <!--TODO (8) Give the EditText an id of @+id/et_search_box-->
-    <!--TODO (9) Set the text size to 22sp-->
-    <!--TODO (10) Set the width to match_parent and the height to wrap_content-->
-    <!--TODO (11) Provide a hint telling the user to enter a query and then click search-->
 
-    <!--TODO (12) Add a TextView-->
-    <!--TODO (13) Give the TextView an id of @+id/tv_url_display-->
-    <!--TODO (14) Set the text size to 22sp-->
-    <!--TODO (15) Set the width to wrap_content and the height to wrap_content-->
-    <!--TODO (16) Give the TextView a top margin of 8dp-->
-    <!--TODO (17) Set the text to tell the user their search URL will show up here when they click search-->
 
     <!--TODO (18) Add a ScrollView-->
     <!--TODO (19) Set the width to match_parent and the height to wrap_content-->
