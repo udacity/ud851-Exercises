@@ -38,15 +38,15 @@
         android:layout_marginTop="8dp" />
 
 
-
-    <!--TODO (18) Add a ScrollView-->
-    <!--TODO (19) Set the width to match_parent and the height to wrap_content-->
-    <!--TODO (20) Set the top margin to 16dp-->
-
         <!--TODO (21) Within the ScrollView, add a TextView-->
         <!--TODO (22) Give the TextView an id of @+id/tv_github_search_results_json-->
         <!--TODO (23) Set the text size to 18sp-->
         <!--TODO (24) Set the height and width to wrap_content-->
         <!--TODO (25) Set the text to something that tells the user to make a search-->
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp" >
+    </ScrollView>
 </LinearLayout>
