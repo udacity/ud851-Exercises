@@ -18,7 +18,7 @@
     Note that you don't need to use the fully qualified name for FrameLayout. Replace
     "android.support.constraint.ConstraintLayout" with "FrameLayout"-->
 <!--TODO (6) Remove the line that declares the id, we don't need it-->
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
@@ -32,9 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="@+id/activity_main"
-        app:layout_constraintLeft_toLeftOf="@+id/activity_main"
-        app:layout_constraintRight_toRightOf="@+id/activity_main"
-        app:layout_constraintTop_toTopOf="@+id/activity_main" />
+        android:padding="16dp"
+        android:textSize="20sp"/>
 
-</android.support.constraint.ConstraintLayout>
+</FrameLayout>
