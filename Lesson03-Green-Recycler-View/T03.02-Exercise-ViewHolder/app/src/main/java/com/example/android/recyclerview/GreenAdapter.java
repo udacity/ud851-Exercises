@@ -37,20 +37,6 @@ import android.widget.TextView;
  */
 public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHolder> {
 
-    // TODO (1) Create a layout resource in res/layout/ called number_list_item.xml
-
-    // Do steps 2 - 11 within number_list_item.xml
-    // TODO (2) Make the root layout a FrameLayout
-    // TODO (3) Make the width match_parent and the height wrap_content
-    // TODO (4) Set the padding to 16dp
-    // TODO (5) Add a TextView as the only child of the FrameLayout
-    // TODO (6) Give the TextView an ID "@+id/tv_item_number"
-    // TODO (7) Set the height and width to wrap_content
-    // TODO (8) Align the TextView to the start of the parent
-    // TODO (9) Center the TextView vertically in the layout
-    // TODO (10) Set the font family to monospace
-    // TODO (11) Set the text size to 42sp
-
     private static final String TAG = GreenAdapter.class.getSimpleName();
 
     private int mNumberItems;
