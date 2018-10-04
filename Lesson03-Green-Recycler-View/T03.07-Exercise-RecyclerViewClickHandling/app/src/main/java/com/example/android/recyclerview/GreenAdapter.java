@@ -198,6 +198,9 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHo
             listItemNumberView.setText(String.valueOf(listIndex));
         }
 
-        // TODO (6) Override onClick, passing the clicked item's position (getAdapterPosition()) to mOnClickListener via its onListItemClick method
+        @Override
+        public void onClick(View view) {
+            mOnClickListener.onListItemClick(getAdapterPosition());
+        }
     }
 }
