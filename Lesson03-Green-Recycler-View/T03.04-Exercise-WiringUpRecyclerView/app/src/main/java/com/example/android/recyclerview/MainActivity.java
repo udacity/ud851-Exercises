@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         mNumberList.setLayoutManager(layoutManager);
         mNumberList.setHasFixedSize(true);
 
-        // TODO (9) Set the GreenAdapter you created on mNumbersList
+        mAdapter = new GreenAdapter(NUM_LIST_ITEMS);
+        mNumberList.setAdapter(mAdapter);
     }
 }
