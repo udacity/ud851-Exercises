@@ -58,7 +58,10 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHo
         holder.bind(position);
     }
 
-    // TODO (9) Override getItemCount and return the number of items to display
+    @Override
+    public int getItemCount() {
+        return mNumberItems;
+    }
 
     /**
      * Cache of the children views for a list item.
