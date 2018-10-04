@@ -32,8 +32,7 @@ import android.widget.TextView;
  * If you don't like our puns, we named this Adapter GreenAdapter because its
  * contents are green.
  */
-// TODO (4) From GreenAdapter, extend RecyclerView.Adapter<NumberViewHolder>
-public class GreenAdapter {
+public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHolder> {
 
     private int mNumberItems;
 
