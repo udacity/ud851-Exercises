@@ -17,6 +17,10 @@ package com.example.android.recyclerview;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,12 +35,8 @@ public class MainActivity extends AppCompatActivity {
 
         mNumberList = (RecyclerView) findViewById(R.id.rv_numbers);
         LinearLayoutManager layoutManager = new LinearLayoutManager(MainActivity.this);
-
-        // TODO (6) Use setLayoutManager on mNumbersList with the LinearLayoutManager we created above
-
-        // TODO (7) Use setHasFixedSize(true) to designate that the contents of the RecyclerView won't change an item's size
-
-        // TODO (8) Store a new GreenAdapter in mAdapter and pass it NUM_LIST_ITEMS
+        mNumberList.setLayoutManager(layoutManager);
+        mNumberList.setHasFixedSize(true);
 
         // TODO (9) Set the GreenAdapter you created on mNumbersList
     }
