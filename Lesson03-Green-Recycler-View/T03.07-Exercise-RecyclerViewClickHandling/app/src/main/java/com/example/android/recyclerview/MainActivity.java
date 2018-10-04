@@ -21,6 +21,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements GreenAdapter.ListItemClickListener {
 
@@ -102,11 +103,12 @@ public class MainActivity extends AppCompatActivity implements GreenAdapter.List
         return super.onOptionsItemSelected(item);
     }
 
-    // TODO (12) Show a Toast when an item is clicked, displaying that item number that was clicked
     @Override
     public void onListItemClick(int position) {
         if(mToast != null) {
             mToast.cancel();
         }
+        String toastMessage = "item #: " + position + " was clicked.";
+        mToast = Toast.makeText(this, toastMessage, Toast.LENGTH_LONG);
     }
 }
