@@ -67,11 +67,10 @@ public class MainActivity extends AppCompatActivity implements GreenAdapter.List
          */
         mNumbersList.setHasFixedSize(true);
 
-        // TODO (13) Pass in this as the ListItemClickListener to the GreenAdapter constructor
         /*
          * The GreenAdapter is responsible for displaying each item in the list.
          */
-        mAdapter = new GreenAdapter(NUM_LIST_ITEMS);
+        mAdapter = new GreenAdapter(NUM_LIST_ITEMS, this);
         mNumbersList.setAdapter(mAdapter);
     }
 
@@ -94,8 +93,7 @@ public class MainActivity extends AppCompatActivity implements GreenAdapter.List
              * ways. (in our humble opinion)
              */
             case R.id.action_refresh:
-                // TODO (14) Pass in this as the ListItemClickListener to the GreenAdapter constructor
-                mAdapter = new GreenAdapter(NUM_LIST_ITEMS);
+                mAdapter = new GreenAdapter(NUM_LIST_ITEMS, this);
                 mNumbersList.setAdapter(mAdapter);
                 return true;
         }
