@@ -35,7 +35,7 @@ import android.widget.TextView;
 // TODO (4) From GreenAdapter, extend RecyclerView.Adapter<NumberViewHolder>
 public class GreenAdapter {
 
-    // TODO (1) Add a private int variable called mNumberItems
+    private int mNumberItems;
 
     // TODO (2) Create a constructor for GreenAdapter that accepts an int as a parameter for numberOfItems
     // TODO (3) Store the numberOfItems parameter in mNumberItems
