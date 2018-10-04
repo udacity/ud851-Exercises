@@ -20,10 +20,9 @@ import android.support.v7.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    // TODO (1) Create a private static final int called NUM_LIST_ITEMS and set it equal to 100
-
-    // TODO (2) Create a GreenAdapter variable called mAdapter
-    // TODO (3) Create a RecyclerView variable called mNumbersList
+    private static final int NUM_LIST_ITEMS = 100;
+    GreenAdapter mAdapter;
+    RecyclerView mNumberList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
