@@ -1,13 +1,11 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
-
+    compileSdkVersion 28
     defaultConfig {
         applicationId "com.example.android.datafrominternet"
-        minSdkVersion 10
-        targetSdkVersion 25
+        minSdkVersion 15
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
     }
@@ -19,9 +17,9 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:25.1.0'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:28.0.0'
 
     // TODO (32) Remove the ConstraintLayout dependency as we aren't using it for these simple projects
-    compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
 }
