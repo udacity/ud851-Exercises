@@ -74,9 +74,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements
     }
 
     // COMPLETED (2) Create a setPreferenceSummary which takes a Preference and String value as parameters.
-    // This method should check if the preference is a ListPreference and, if so, find the label
-    // associated with the value. You can do this by using the findIndexOfValue and getEntries methods
-    // of Preference.
+    // This method should check if the preference is a ListPreference and, if so, use the lable for summary.
     /**
      * Updates the summary for the preference
      *
@@ -85,13 +83,8 @@ public class SettingsFragment extends PreferenceFragmentCompat implements
      */
     private void setPreferenceSummary(Preference preference, String value) {
         if (preference instanceof ListPreference) {
-            // For list preferences, figure out the label of the selected value
             ListPreference listPreference = (ListPreference) preference;
-            int prefIndex = listPreference.findIndexOfValue(value);
-            if (prefIndex >= 0) {
-                // Set the summary to that label
-                listPreference.setSummary(listPreference.getEntries()[prefIndex]);
-            }
+            listPreference.setSummary(listPreference.getEntry());
         }
     }
 
