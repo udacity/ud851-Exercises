@@ -166,7 +166,7 @@ public class MainActivity extends AppCompatActivity implements
         return new AsyncTaskLoader<String>(this) {
 
             // COMPLETED (1) Create a String member variable called mGithubJson that will store the raw JSON
-            /* This String will contain the raw JSON from the results of our Github search */
+            /* This String will contain the raw JSON from the results of our GitHub search */
             String mGithubJson;
 
             @Override
@@ -177,12 +177,6 @@ public class MainActivity extends AppCompatActivity implements
                     return;
                 }
 
-                /*
-                 * When we initially begin loading in the background, we want to display the
-                 * loading indicator to the user
-                 */
-                mLoadingIndicator.setVisibility(View.VISIBLE);
-
                 // COMPLETED (2) If mGithubJson is not null, deliver that result. Otherwise, force a load
                 /*
                  * If we already have cached results, just deliver them now. If we don't have any
@@ -191,6 +185,12 @@ public class MainActivity extends AppCompatActivity implements
                 if (mGithubJson != null) {
                     deliverResult(mGithubJson);
                 } else {
+                    /*
+                     * When we initially begin loading in the background, we want to display the
+                     * loading indicator to the user
+                     */
+                    mLoadingIndicator.setVisibility(View.VISIBLE);
+
                     forceLoad();
                 }
             }
@@ -202,7 +202,7 @@ public class MainActivity extends AppCompatActivity implements
                 String searchQueryUrlString = args.getString(SEARCH_QUERY_URL_EXTRA);
 
                 /* If the user didn't enter anything, there's nothing to search for */
-                if (searchQueryUrlString == null || TextUtils.isEmpty(searchQueryUrlString)) {
+                if (TextUtils.isEmpty(searchQueryUrlString)) {
                     return null;
                 }
 

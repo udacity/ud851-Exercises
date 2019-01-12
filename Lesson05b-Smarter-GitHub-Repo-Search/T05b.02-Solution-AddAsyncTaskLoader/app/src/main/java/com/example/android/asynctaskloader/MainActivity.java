@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements
             // COMPLETED (25) Remove the code that displays the JSON
         }
 
-        // COMPLETED (24) Initialize the loader with GITHUB_SEARCH_LOADER as the ID, null for the bundle, and this for the context
+        // COMPLETED (24) Initialize the loader with GITHUB_SEARCH_LOADER as the ID, null for the bundle, and this for the callback
         /*
          * Initialize the loader
          */
@@ -212,7 +212,7 @@ public class MainActivity extends AppCompatActivity implements
 
                 // COMPLETED (11) If the URL is null or empty, return null
                 /* If the user didn't enter anything, there's nothing to search for */
-                if (searchQueryUrlString == null || TextUtils.isEmpty(searchQueryUrlString)) {
+                if (TextUtils.isEmpty(searchQueryUrlString)) {
                     return null;
                 }
 

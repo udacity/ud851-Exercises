@@ -30,7 +30,6 @@
             tools:layout_constraintTop_creator="1"
             tools:layout_constraintLeft_creator="1" />
 
-
         <TextView
             tools:text="@string/passenger_name"
             android:layout_width="wrap_content"

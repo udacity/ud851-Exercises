@@ -12,7 +12,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".ChildActivity">
 
-    <!--COMPLETED (3) Give your TextView an ID of tv_display-->
+    <!--COMPLETED (3) Add a TextView with an id value of @id/tv_display-->
     <!--COMPLETED (4) Set the text to something that indicates this is default text being displayed-->
     <!--COMPLETED (5) Make the text size a little larger-->
     <TextView

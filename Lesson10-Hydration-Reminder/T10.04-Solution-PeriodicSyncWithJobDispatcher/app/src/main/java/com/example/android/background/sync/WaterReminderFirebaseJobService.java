@@ -61,7 +61,7 @@ public class WaterReminderFirebaseJobService extends JobService {
 
             @Override
             protected void onPostExecute(Object o) {
-                // COMPLETED (8) Override onPostExecute and called jobFinished. Pass the job parameters
+                // COMPLETED (8) Override onPostExecute and call jobFinished. Pass the job parameters
                 // and false to jobFinished. This will inform the JobManager that your job is done
                 // and that you do not want to reschedule the job.
 

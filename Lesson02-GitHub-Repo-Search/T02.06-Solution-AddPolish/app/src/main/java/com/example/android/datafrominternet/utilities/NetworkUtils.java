@@ -45,7 +45,7 @@ public class NetworkUtils {
      * Builds the URL used to query GitHub.
      *
      * @param githubSearchQuery The keyword that will be queried for.
-     * @return The URL to use to query the GitHub.
+     * @return The URL to use to query the GitHub server.
      */
     public static URL buildUrl(String githubSearchQuery) {
         Uri builtUri = Uri.parse(GITHUB_BASE_URL).buildUpon()

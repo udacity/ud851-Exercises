@@ -25,7 +25,7 @@ public class WaterReminderFirebaseJobService {
                 // TODO (7) Use ReminderTasks to execute the new charging reminder task you made, use
                 // this service as the context (WaterReminderFirebaseJobService.this) and return null
                 // when finished.
-            // TODO (8) Override onPostExecute and called jobFinished. Pass the job parameters
+            // TODO (8) Override onPostExecute and call jobFinished. Pass the job parameters
             // and false to jobFinished. This will inform the JobManager that your job is done
             // and that you do not want to reschedule the job.
 

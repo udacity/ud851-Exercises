@@ -67,9 +67,9 @@ public class NotificationUtils {
                     NotificationManager.IMPORTANCE_HIGH);
             notificationManager.createNotificationChannel(mChannel);
             }
-        // COMPLETED (10) In the remindUser method use NotificationCompat.Builder to create a notification
+        // COMPLETED (10) In the remindUserBecauseCharging method use NotificationCompat.Builder to create a notification
         // that:
-        // - has a color of R.colorPrimary - use ContextCompat.getColor to get a compatible color
+        // - has a color of R.color.colorPrimary - use ContextCompat.getColor to get a compatible color
         // - has ic_drink_notification as the small icon
         // - uses icon returned by the largeIcon helper method as the large icon
         // - sets the title to the charging_reminder_notification_title String resource
@@ -90,7 +90,7 @@ public class NotificationUtils {
                 .setContentIntent(contentIntent(context))
                 .setAutoCancel(true);
 
-        // COMPLETED (11) If the build version is greater than JELLY_BEAN and lower than OREO,
+        // COMPLETED (11) If the build version is greater than or equal to JELLY_BEAN and less than OREO,
         // set the notification's priority to PRIORITY_HIGH.
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN
                 && Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {

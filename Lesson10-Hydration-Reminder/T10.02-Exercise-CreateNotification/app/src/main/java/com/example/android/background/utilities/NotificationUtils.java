@@ -11,9 +11,9 @@ public class NotificationUtils {
     // https://developer.android.com/training/notify-user/build-notification.html
         // TODO (8) Get the NotificationManager using context.getSystemService
         // TODO (9) Create a notification channel for Android O devices
-        // TODO (10) In the remindUser method use NotificationCompat.Builder to create a notification
+        // TODO (10) In the remindUserBecauseCharging method use NotificationCompat.Builder to create a notification
         // that:
-        // - has a color of R.colorPrimary - use ContextCompat.getColor to get a compatible color
+        // - has a color of R.color.colorPrimary - use ContextCompat.getColor to get a compatible color
         // - has ic_drink_notification as the small icon
         // - uses icon returned by the largeIcon helper method as the large icon
         // - sets the title to the charging_reminder_notification_title String resource
@@ -22,7 +22,7 @@ public class NotificationUtils {
         // - sets the notification defaults to vibrate
         // - uses the content intent returned by the contentIntent helper method for the contentIntent
         // - automatically cancels the notification when the notification is clicked
-        // TODO (11) If the build version is greater than JELLY_BEAN and lower than OREO,
+        // TODO (11) If the build version is greater than or equal to JELLY_BEAN and less than OREO,
         // set the notification's priority to PRIORITY_HIGH.
         // TODO (12) Trigger the notification by calling notify on the NotificationManager.
         // Pass in a unique ID of your choosing for the notification and notificationBuilder.build()

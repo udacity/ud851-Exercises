@@ -8,7 +8,7 @@
     android:layout_height="match_parent">
 
     <!-- TODO (3) Create a TextView for the Passenger label and name -->
-    <!-- TODO (4) Use tool:text to set the text value -->
+    <!-- TODO (4) Use tools:text to set the text value -->
 
     <!-- TODO (5) Create an ImageView for the left rectangle -->
     <!-- TODO (6) Set the background to the shape_rectangle_stroke drawable -->
