@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   Copyright (C) 2016 The Android Open Source Project
 
   Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,7 +14,7 @@
   limitations under the License.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.example.android.explicitintent">
+    package="com.example.android.explicitintent">
 
     <application
         android:allowBackup="true"
@@ -23,20 +22,26 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.android.explicitintent.MainActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <!--Android Studio will have created an Activity tag if you followed step 1 properly. Do-->
-        <!--steps 8 - 11 within that tag. Please see the solution code if you get stuck.-->
-        <!--TODO (8) Specify ChildActivity's parent using android:parentActivityName-->
-        <!--TODO (9) Create a meta-data tag for this Activity-->
-        <!--TODO (10) Specify the name of the meta-data as android.support.PARENT_ACTIVITY-->
-        <!--TODO (11) Specify the value of the meta data as .MainActivity-->
+        <!-- Android Studio will have created an Activity tag if you followed step 1 properly. Do -->
+        <!-- steps 8 - 11 within that tag. Please see the solution code if you get stuck. -->
+        <!-- TODO (8) Specify ChildActivity's parent using android:parentActivityName -->
+        <!-- TODO (9) Create a meta-data tag for this Activity -->
+        <!-- TODO (10) Specify the name of the meta-data as android.support.PARENT_ACTIVITY -->
+        <!-- TODO (11) Specify the value of the meta data as .MainActivity -->
+        <activity android:name=".ChildActivity"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
     </application>
 
 </manifest>
