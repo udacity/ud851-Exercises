@@ -2,7 +2,7 @@
     <string name="app_name">Visualize</string>
 
     <!-- TODO (4) Add string for Settings -->
-    
+    <string name="action_settings">Settings</string>
     <!-- - - - - - - - - - - - - - - -
           - Used by Preferences  -
           - - - - - - - - - - - - - - - -->
