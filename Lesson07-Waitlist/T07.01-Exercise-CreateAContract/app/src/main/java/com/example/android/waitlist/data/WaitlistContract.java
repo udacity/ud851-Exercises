@@ -13,5 +13,15 @@ public class WaitlistContract {
         // COLUMN_GUEST_NAME -> guestName
         // COLUMN_PARTY_SIZE -> partySize
         // COLUMN_TIMESTAMP -> timestamp
+    public class WaitlistEntry implements BaseColumns {
+
+        public static final String TABLE_NAME = "waitlist";
+        public static final String COLUMN_GUEST_NAME = "guestName";
+        public static final String COLUMN_PARTY_SIZE = "partySize";
+        public static final String COLUMN_TIMESTAMP = "timestamp";
+
+
+
+        }
 
 }
