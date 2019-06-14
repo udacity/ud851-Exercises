@@ -6,7 +6,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity 
+{
 
     /*
      * This tag will be used for logging. It is best practice to use the class's name using
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         mLifecycleDisplay = (TextView) findViewById(R.id.tv_lifecycle_events_display);
 
         // TODO (1) Use logAndAppend within onCreate
+        logAndAppend(ON_CREATE);
     }
 
     // TODO (2) Override onStart, call super.onStart, and call logAndAppend with ON_START
