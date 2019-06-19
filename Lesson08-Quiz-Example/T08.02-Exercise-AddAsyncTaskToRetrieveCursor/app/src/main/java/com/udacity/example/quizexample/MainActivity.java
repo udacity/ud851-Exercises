@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
         mButton = (Button) findViewById(R.id.button_next);
 
         // TODO (5) Create and execute your AsyncTask here
+        new WordFetchTask().execute();
     }
 
     /**

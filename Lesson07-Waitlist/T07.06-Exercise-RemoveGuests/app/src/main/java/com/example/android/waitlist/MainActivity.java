@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
                 removeGuest(id);
                 mAdapter.swapCursor(getAllGuests());
             }
-            
+
         }).attachToRecyclerView(waitlistRecyclerView);
         //TODO (3) Create a new ItemTouchHelper with a SimpleCallback that handles both LEFT and RIGHT swipe directions
 
