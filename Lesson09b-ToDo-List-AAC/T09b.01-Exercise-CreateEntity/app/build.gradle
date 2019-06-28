@@ -30,6 +30,8 @@ dependencies {
 
     // TODO (1) Add Room dependencies
 
+    implementation "androidx.room:room-runtime:2.1.0"
+    annotationProcessor "androidx.room:room-compiler:2.1.0"
     // Testing
     // Instrumentation dependencies use androidTestImplementation
     // (as opposed to testImplementation for local unit tests run in the JVM)
