@@ -16,8 +16,11 @@
 
 package com.example.android.todolist;
 
+import android.arch.lifecycle.LiveData;
+import android.arch.lifecycle.Observer;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -72,23 +75,16 @@ public class AddTaskActivity extends AppCompatActivity {
             if (mTaskId == DEFAULT_TASK_ID) {
                 // populate the UI
                 mTaskId = intent.getIntExtra(EXTRA_TASK_ID, DEFAULT_TASK_ID);
-
-                AppExecutors.getInstance().diskIO().execute(new Runnable() {
+                // TODO (3) Extract all this logic outside the Executor and remove the Executor
+                // TODO (2) Fix compile issue by wrapping the return type with LiveData
+                final LiveData<TaskEntry> task = mDb.taskDao().loadTaskById(mTaskId);
+                // TODO (4) Observe tasks and move the logic from runOnUiThread to onChanged
+                task.observe(this, new Observer<TaskEntry>() {
                     @Override
-                    public void run() {
-                        // TODO (3) Extract all this logic outside the Executor and remove the Executor
-                        // TODO (2) Fix compile issue by wrapping the return type with LiveData
-                        final TaskEntry task = mDb.taskDao().loadTaskById(mTaskId);
-                        // TODO (4) Observe tasks and move the logic from runOnUiThread to onChanged
-                        // We will be able to simplify this once we learn more
-                        // about Android Architecture Components
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                // TODO (5) Remove the observer as we do not need it any more
-                                populateUI(task);
-                            }
-                        });
+                    public void onChanged(@Nullable TaskEntry taskEntry) {
+                        // TODO (5) Remove the observer as we do not need it any more
+                        task.removeObserver(this);
+                        populateUI(taskEntry);
                     }
                 });
             }

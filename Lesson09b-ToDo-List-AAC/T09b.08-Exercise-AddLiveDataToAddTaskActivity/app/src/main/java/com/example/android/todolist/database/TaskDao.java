@@ -27,5 +27,5 @@ public interface TaskDao {
 
     // TODO (1) Wrap the return type with LiveData
     @Query("SELECT * FROM task WHERE id = :id")
-    TaskEntry loadTaskById(int id);
+    LiveData<TaskEntry> loadTaskById(int id);
 }
