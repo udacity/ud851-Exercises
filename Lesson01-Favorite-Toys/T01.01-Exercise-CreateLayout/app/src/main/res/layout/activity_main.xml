@@ -27,7 +27,7 @@
     <!--TODO (2) Remove all attributes with the word constraint in them-->
     <!--TODO (3) Remove the default text-->
     <!--TODO (4) Give the TextView 16dp of padding-->
-    <!--TODO (5) Set the text size to 20sp-->
+    <!--TODO (5) Set the text size to 20dp-->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
