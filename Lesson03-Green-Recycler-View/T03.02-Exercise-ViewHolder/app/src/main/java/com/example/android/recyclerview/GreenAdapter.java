@@ -39,6 +39,7 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHo
 
     // TODO (1) Create a layout resource in res/layout/ called number_list_item.xml
 
+
     // Do steps 2 - 11 within number_list_item.xml
     // TODO (2) Make the root layout a FrameLayout
     // TODO (3) Make the width match_parent and the height wrap_content
@@ -115,6 +116,16 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHo
     @Override
     public int getItemCount() {
         return mNumberItems;
+    }
+    class NumberViewHolder extends RecyclerView.ViewHolder{
+        TextView listItemNumberView;
+        public NumberViewHolder(View itemView){
+            super(itemView);
+            listItemNumberView=(TextView) itemView.findViewById(R.id.tv_item_number);
+        }
+        void bind(int listIndex){
+            listItemNumberView.setText(String.valueOf(listIndex));
+        }
     }
 
     // TODO (12) Create a class called NumberViewHolder that extends RecyclerView.ViewHolder
