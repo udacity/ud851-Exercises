@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="gradle-wrapper10">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Lesson05a-Android-Lifecycle/T05a.01-Solution-LogLifecycle/gradle/wrapper/gradle-wrapper.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
