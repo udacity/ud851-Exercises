@@ -2,7 +2,7 @@
     <string name="app_name">Visualize</string>
 
     <!-- TODO (4) Add string for Settings -->
-    
+
     <!-- - - - - - - - - - - - - - - -
           - Used by Preferences  -
           - - - - - - - - - - - - - - - -->
@@ -15,4 +15,36 @@
 
     <!-- Value in SharedPreferences for green color option -->
     <string name="pref_color_green_value" translatable="false">green</string>
+    <string name="pref_color_red_label">Red</string>
+    <string name="pref_color_green_label">Green</string>
+    <string name="pref_color_blue_label">Blue</string>
+
+    <string name="setting">Setting</string>
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="pref_base_key" translatable="false">show_bass</string>
+    <string name="pref_summary_off">Hidden</string>
+    <string name="pref_summary_on">Shown</string>
+    <string name="pref_show_base_label">Show Bass</string>
+    <string name="pref_mid_key" translatable="false">mid_key</string>
+    <string name="pref_mid_label">Show Mid</string>
+    <string name="pref_trebl_key" translatable="false">tribel_key</string>
+    <string name="pref_trebl_label">Show Treble</string>
+    <string name="pref_color_key" translatable="false">color</string>
+    <string name="pref_color_label">Color</string>
+    <string name="pref_shape_size_key">shape_size</string>
+    <string name="pref_shape_size_label">Shape Size</string>
+    <string name="pref_size_default">1</string>
 </resources>
