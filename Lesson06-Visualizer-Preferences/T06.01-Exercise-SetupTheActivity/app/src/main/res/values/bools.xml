@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <bool name="pref_base_default">true</bool>
+    <bool name="pref_treble_default">true</bool>
+    <bool name="pref_mid_default">true</bool>
+</resources>
