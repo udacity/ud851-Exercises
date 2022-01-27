@@ -57,6 +57,11 @@ public class MainActivity extends AppCompatActivity {
             String message = "Search clicked";
             Toast.makeText(context, message, Toast.LENGTH_LONG).show();
         }
+        if (menuItemThatWasSelected == R.id.item3) {
+            Context context = MainActivity.this;
+            String message = "Item 3 clicked";
+            Toast.makeText(context, message, Toast.LENGTH_LONG).show();
+        }
         return super.onOptionsItemSelected(item);
     }
 

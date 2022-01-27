@@ -6,4 +6,19 @@
         android:orderInCategory="1"
         app:showAsAction="ifRoom"
         android:id="@+id/action_search" />
+    <item
+        android:title="@string/item1"
+        android:orderInCategory="2"
+        app:showAsAction="ifRoom"
+        android:id="@+id/item1" />
+    <item
+        android:title="@string/item2"
+        android:orderInCategory="3"
+        app:showAsAction="ifRoom"
+        android:id="@+id/item2" />
+    <item
+        android:title="@string/item3"
+        android:orderInCategory="4"
+        app:showAsAction="ifRoom"
+        android:id="@+id/item3" />
 </menu>
