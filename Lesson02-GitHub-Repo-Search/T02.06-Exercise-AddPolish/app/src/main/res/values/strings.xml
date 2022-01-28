@@ -16,5 +16,5 @@
 <resources>
     <string name="app_name">Github Query</string>
     <string name="search">Search</string>
-    <!--TODO (1) Add a string stating that an error has occurred-->
+    <string name="error_message">Failed to get results, please try again.</string>
 </resources>

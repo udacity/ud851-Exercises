@@ -36,35 +36,34 @@
         android:text="Click search and your URL will show up here!"
         android:textSize="22sp" />
 
-    <!--TODO (2) Wrap the ScrollView in a FrameLayout-->
-    <!--TODO (3) Make the width and height of the FrameLayout match_parent-->
-
-    <ScrollView
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp">
-
+        android:layout_height="match_parent" >
         <TextView
-            android:id="@+id/tv_github_search_results_json"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Make a search!"
-            android:textSize="18sp" />
-    </ScrollView>
+            android:textSize="22sp"
+            android:id="@+id/tv_error_message_display"
+            android:padding="16dp"
+            android:text="@string/error_message"
+            android:visibility="invisible" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp">
 
-    <!--TODO (4) Add a TextView to display an error message-->
-    <!--TODO (5) Set the text size to 22sp-->
-    <!--TODO (6) Give the TextView an id of @+id/tv_error_message_display-->
-    <!--TODO (7) Set the layout_height and layout_width to wrap_content-->
-    <!--TODO (8) Add 16dp of padding to the error display -->
-    <!--TODO (9) Use your strings.xml error message to set the text for the error message-->
-    <!--TODO (10) Set the visibility of the view to invisible-->
-    <!--TODO (11) Make this TextView a child of the FrameLayout that you added above-->
-
-    <!--TODO (18) Add a ProgressBar to indicate loading to your users-->
-    <!--TODO (19) Give the ProgressBar an id of @+id/pb_loading_indicator-->
-    <!--TODO (20) Set the layout_height and layout_width to 42dp-->
-    <!--TODO (21) Set the layout_gravity to center-->
-    <!--TODO (22) Set the visibility of the ProgressBar to invisible-->
-    <!--TODO (23) Make this ProgressBar a child of the FrameLayout the you added above-->
+            <TextView
+                android:id="@+id/tv_github_search_results_json"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Make a search!"
+                android:textSize="18sp" />
+        </ScrollView>
+        <ProgressBar
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:id="@+id/pb_loading_indicator"
+            android:layout_gravity="center"
+            android:visibility="invisible" />
+    </FrameLayout>
 </LinearLayout>
