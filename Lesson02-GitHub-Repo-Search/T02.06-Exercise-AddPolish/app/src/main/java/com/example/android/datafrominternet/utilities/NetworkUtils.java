@@ -17,6 +17,8 @@ package com.example.android.datafrominternet.utilities;
 
 import android.net.Uri;
 
+import org.json.JSONObject;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -88,4 +90,6 @@ public class NetworkUtils {
             urlConnection.disconnect();
         }
     }
+    
 }
+

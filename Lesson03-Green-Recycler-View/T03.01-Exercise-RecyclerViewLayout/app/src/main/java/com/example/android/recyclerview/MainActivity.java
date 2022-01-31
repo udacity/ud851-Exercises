@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
      * References to RecyclerView and Adapter to reset the list to its
      * "pretty" state when the reset menu item is clicked.
      */
-    private GreenAdapter mAdapter;
+//    private GreenAdapter mAdapter;
     private RecyclerView mNumbersList;
 
     @Override
