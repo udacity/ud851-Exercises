@@ -26,7 +26,6 @@
             android:fontFamily="monospace"
             android:textSize="35sp"
             android:text="Robot"/>
-
     </LinearLayout>
 
 </FrameLayout>
