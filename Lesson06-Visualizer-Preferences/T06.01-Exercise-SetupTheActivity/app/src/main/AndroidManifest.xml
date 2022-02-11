@@ -13,17 +13,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".VisualizerActivity">
+        <activity android:name=".SettingsActivity"
+                  android:parentActivityName=".VisualizerActivity"></activity>
+        <activity android:name=".VisualizerActivity"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>
-
-    <!-- TODO (7) Modify here and inside of SettingsActivity so that VisualizerActivity is treated
-    as the parent of SettingsActivity and the up button is displayed :
-    https://developer.android.com/training/implementing-navigation/ancestral.html
-    Make sure to use the attribute android:launchMode singleTop-->
 
 </manifest>

@@ -1,0 +1,32 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+   <CheckBoxPreference
+       app:key="@string/pref_base_key"
+       android:title="@string/pref_show_base_label"
+       app:defaultValue="@bool/pref_base_default"
+       app:summaryOff="@string/pref_summary_off"
+       android:summaryOn="@string/pref_summary_on"/>
+   <CheckBoxPreference
+      app:key="@string/pref_mid_key"
+      android:title="@string/pref_mid_label"
+      app:defaultValue="@bool/pref_mid_default"
+      android:summaryOff="@string/pref_summary_off"
+      android:summaryOn="@string/pref_summary_on"/>
+   <CheckBoxPreference
+      app:key="@string/pref_trebl_key"
+      android:title="@string/pref_trebl_label"
+      app:defaultValue="@bool/pref_treble_default"
+      android:summaryOff="@string/pref_summary_off"
+      android:summaryOn="@string/pref_summary_on"/>
+   <ListPreference
+      app:key="@string/pref_color_key"
+      android:title="@string/pref_color_label"
+      android:defaultValue="@string/pref_color_red_value"
+      android:entries="@array/pref_color_label_entries"
+      android:entryValues="@array/pref_color_value_entries"/>
+   <EditTextPreference
+      app:key="@string/pref_shape_size_key"
+      android:title="@string/pref_shape_size_label"
+      app:defaultValue="@string/pref_size_default"/>
+</PreferenceScreen>
